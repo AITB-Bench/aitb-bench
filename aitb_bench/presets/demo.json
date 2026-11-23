@@ -1,0 +1,12 @@
+{
+ "name": "demo",
+ "title": "Demo · 三项全绿，零路径依赖",
+ "profile": "demo",
+ "notes": "给第一次装这台台子的人看的：不写死任何本机路径、不联网，三分钟看到一次绿。想看它变红，紧接着跑 aitb selftest。",
+ "checks": [
+  {"id": "demo.echo", "type": "cmd", "cmd": "python -c \"print('aitb demo ok')\"", "expect": "aitb demo ok"},
+  {"id": "demo.write", "type": "cmd",
+   "cmd": "python -c \"import pathlib;p=pathlib.Path('.aitb-demo');p.mkdir(exist_ok=True);(p/'ok.txt').write_text('ok')\""},
+  {"id": "demo.file-has-size", "type": "files", "paths": [{"path": ".aitb-demo/ok.txt", "min_size": 1}]}
+ ]
+}

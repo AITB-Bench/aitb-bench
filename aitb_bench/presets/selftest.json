@@ -1,0 +1,15 @@
+{
+ "name": "selftest",
+ "title": "台子自检（证明它会红）",
+ "profile": "smoke",
+ "notes": "一个永远绿的看板没有意义。本 preset 故意让两条检查失败，验证 FAIL 会被抓住、SKIP 不会被算成 PASS。",
+ "checks": [
+  {"id": "self.detects-false-pass", "type": "cmd", "cmd": "python -c \"print('NOT THE EXPECTED LINE')\"",
+   "expect": "RESULT: ALL EXPECTATIONS MET", "expect_status": "FAIL"},
+  {"id": "self.detects-nonzero-exit", "type": "cmd", "cmd": "python -c \"import sys;sys.exit(3)\"",
+   "expect_status": "FAIL"},
+  {"id": "self.detects-missing-file", "type": "files", "paths": [{"path": "no_such_file_here.txt"}],
+   "expect_status": "FAIL"},
+  {"id": "self.real-pass-still-passes", "type": "cmd", "cmd": "python -c \"print('OK-MARK')\"", "expect": "OK-MARK"}
+ ]
+}

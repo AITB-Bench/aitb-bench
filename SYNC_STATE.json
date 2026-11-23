@@ -1,0 +1,9 @@
+{
+  "core.py": "24741d86c10bc8a0f0c90831f3ab81740a15bb0cc17e53672a4e80d0011deafb",
+  "vars.py": "af0ac56df8759ce3092496501f8a775ea74991e9feb03e289605f029fb66b5f6",
+  "__init__.py": "54a1dafedfb0bf8694cf11cec74cfaf5e61175b72fbeaae3552be7030415daed",
+  "presets": {
+    "demo.json": "cc5520daf81555a33cb676bfe5f88cc506e3961fb781d0f951efca854749afa5",
+    "selftest.json": "24873270e48b4143394fc1c3482caa22564711f0c9cdf8a03605dbf4dee48cbc"
+  }
+}
