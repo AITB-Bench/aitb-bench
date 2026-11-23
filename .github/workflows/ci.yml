@@ -1,0 +1,55 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  bench:
+    name: ${{ matrix.os }} · py${{ matrix.py }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        py: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.py }}
+
+      - name: Install
+        run: python -m pip install -e .
+
+      - name: Demo must be green
+        run: aitb demo
+
+      - name: Selftest must be red (exit 1) — negative controls survive the same runner
+        shell: bash
+        run: |
+          set +e
+          aitb selftest
+          rc=$?
+          echo "selftest exit code: $rc"
+          test "$rc" -eq 1
+
+      - name: Presets are listed
+        run: aitb list
+
+      - name: Evidence pack is complete
+        shell: bash
+        run: |
+          run=$(ls -1dt runs/*/ | head -1)
+          echo "latest run: ${run%/}"
+          for f in run.json verdicts.json report.md snapshot.html manifest.json; do
+            test -f "${run%/}/$f" || { echo "missing $f"; exit 1; }
+          done
+
+      - name: Manifest hashes every artefact
+        shell: bash
+        run: |
+          run=$(ls -1dt runs/*/ | head -1)
+          python tools/verify_manifest.py "${run%/}"
