@@ -40,6 +40,25 @@ Every run lands in `runs/<timestamp>_<preset>/` containing:
 | `snapshot.html` | single-page view |
 | `manifest.json` | sha256 of the four above — so a run can be re-checked, not just believed |
 
+## Install
+
+Not on PyPI yet — install from the repository:
+
+```
+git clone https://github.com/AITB-Bench/aitb-bench
+cd aitb-bench
+pip install -e .
+aitb demo
+```
+
+Or without cloning:
+
+```
+pip install "git+https://github.com/AITB-Bench/aitb-bench.git"
+```
+
+Python 3.9+. No dependencies. `aitb demo` needs no network and no local paths.
+
 ## Four states, no fifth bucket
 
 `PASS` / `FAIL` / `SKIP` / `BLOCKED`. A timeout is BLOCKED; a missing interpreter is SKIP; an

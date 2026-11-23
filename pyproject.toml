@@ -22,8 +22,10 @@ dependencies = []
 [project.scripts]
 aitb = "aitb_bench.core:main"
 
-# 仓库地址在公开前不留：指向 private 仓的 URL 对匿名访客是 404（红队 R8/P0）。
-# 公开当天再加 [project.urls]。
+[project.urls]
+Homepage = "https://github.com/AITB-Bench/aitb-bench"
+Repository = "https://github.com/AITB-Bench/aitb-bench"
+Issues = "https://github.com/AITB-Bench/aitb-bench/issues"
 
 [tool.setuptools]
 packages = ["aitb_bench"]
