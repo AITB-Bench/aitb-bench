@@ -39,12 +39,12 @@ def find_preset(name):
 
 
 def _runs_dir():
-    """$AITB_RUNS > 仓库内 runs（开发态）> 当前工作目录 runs（安装态，避免写进 site-packages）。"""
+    """$AITB_RUNS > git 检出根部的 runs（开发/克隆态）> 当前工作目录 runs（安装态，避免写进 site-packages）。"""
     env = os.environ.get("AITB_RUNS")
     if env:
         return Path(env)
-    repo = (BENCH / ".git").exists() or (BENCH.parent / ".git").exists()
-    base = (BENCH / "runs") if repo else (Path.cwd() / "runs")
+    gitroot = next((p for p in [BENCH, *BENCH.parents] if (p / ".git").exists()), None)
+    base = (gitroot / "runs") if gitroot else (Path.cwd() / "runs")
     try:
         base.mkdir(parents=True, exist_ok=True)
         return base
