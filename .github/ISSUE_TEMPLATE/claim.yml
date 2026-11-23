@@ -1,0 +1,39 @@
+name: Claim refutation
+description: A sentence in the docs or a promise in the code that one counterexample can kill.
+title: "[claim] "
+labels: ["claim"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        A refutation needs three things: the exact sentence, the counterexample, and the place you ran it.
+        Doctrine is not defended here — claims are edited or narrowed.
+  - type: input
+    id: sentence
+    attributes:
+      label: The sentence
+      description: Quote it exactly, with the file and line.
+      placeholder: 'README.md:47 — "a zero-byte file never passes"'
+    validations:
+      required: true
+  - type: textarea
+    id: counterexample
+    attributes:
+      label: The counterexample
+      description: The smallest case that kills the sentence.
+      placeholder: |
+        preset with a files check and min_size 0 against a 0-byte file
+    validations:
+      required: true
+  - type: textarea
+    id: run
+    attributes:
+      label: Where you ran it
+      description: OS, Python version, `aitb` version, and the run directory or manifest hash if any.
+    validations:
+      required: true
+  - type: textarea
+    id: proposed
+    attributes:
+      label: Proposed edit (optional)
+      description: How the sentence should read after the refutation.

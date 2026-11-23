@@ -1,0 +1,54 @@
+name: Bug report
+description: The bench produced a reading that does not match what actually happened.
+title: "[bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        A wrong reading is worse than a crash here. Crashes are obvious; a silent `PASS` is not.
+        If a `BLOCKED` or `SKIP` was reported as `PASS` (or the reverse), say so explicitly in the title.
+  - type: input
+    id: version
+    attributes:
+      label: Version / commit
+      placeholder: 0.1.0 or commit sha
+    validations:
+      required: true
+  - type: input
+    id: env
+    attributes:
+      label: Environment
+      placeholder: Windows 11 · Python 3.12 · pwsh 7.6
+    validations:
+      required: true
+  - type: textarea
+    id: preset
+    attributes:
+      label: The preset (or the smallest reproduction)
+      description: Paste the JSON. Redact anything private.
+      render: json
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What should the reading be, and why
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: What the bench reported
+      description: Include the console line and, if available, the run directory contents.
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before filing
+      options:
+        - label: I removed absolute paths and private data from the reproduction.
+          required: true
+        - label: I checked whether this is already covered by a claim issue.
+          required: false

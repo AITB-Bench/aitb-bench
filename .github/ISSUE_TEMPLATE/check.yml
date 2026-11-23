@@ -1,0 +1,35 @@
+name: New check
+description: A check for an instrument, written as preset data that a stranger can re-run.
+title: "[check] "
+labels: ["check"]
+body:
+  - type: input
+    id: subject
+    attributes:
+      label: The instrument under test
+      description: What emits a pass/fail verdict, and which promise is being tested?
+      placeholder: e.g. a policy linter that claims to exit non-zero on absence
+    validations:
+      required: true
+  - type: textarea
+    id: preset
+    attributes:
+      label: Preset entry
+      render: json
+      placeholder: '{"id": "x.y", "type": "cmd", "cmd": "...", "expect": "..."}'
+    validations:
+      required: true
+  - type: textarea
+    id: control
+    attributes:
+      label: Negative control
+      description: Which entry is designed to go red, and what does that prove?
+    validations:
+      required: true
+  - type: textarea
+    id: stranger
+    attributes:
+      label: Re-run by a stranger
+      description: What must be installed, and what did you get on a clean environment?
+    validations:
+      required: true
