@@ -293,7 +293,7 @@ def execute(preset, offline=False, strict=False):
     run_meta = {
         "run_id": run_id, "preset": preset["name"], "title": preset.get("title", preset["name"]),
         "started_at": run_id, "host": platform.node(), "os": platform.platform(),
-        "python": sys.version.split()[0], "counts": counts, "strict": strict,
+        "python": sys.version.split()[0], "counts": counts, "strict": strict, "offline": offline,
     }
     (rdir / "run.json").write_text(json.dumps(run_meta, ensure_ascii=False, indent=1), encoding="utf-8")
     (rdir / "verdicts.json").write_text(json.dumps(verdicts, ensure_ascii=False, indent=1), encoding="utf-8")
