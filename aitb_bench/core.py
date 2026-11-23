@@ -112,8 +112,8 @@ def a_files(spec, ctx):
             p = base / p
         if not p.exists():
             miss.append(f"缺 {p}")
-        elif item.get("min_size") and p.stat().st_size < item["min_size"]:
-            miss.append(f"{p.name} 仅 {p.stat().st_size} B")
+        elif p.stat().st_size < item.get("min_size", 1):
+            miss.append(f"{p.name} 仅 {p.stat().st_size} B（需 ≥{item.get('min_size', 1)}）")
     if miss:
         return "FAIL", "; ".join(miss), "", 0
     return "PASS", f"{len(spec['paths'])} 个文件在场", "", 0
@@ -148,23 +148,43 @@ def a_http(spec, ctx):
 
 
 def a_pyver(spec, ctx):
-    """环境矩阵：对每个可用的解释器跑同一条命令；缺的记 SKIP，不冒充 PASS。"""
+    """环境矩阵：对每个可用的解释器跑同一条命令；缺的记 SKIP，坏的不许冒充缺席。"""
     cand = spec.get("interpreters") or ["python", "python3", "py -3", "py -3.11", "py -3.12"]
-    rows, ok, tried = [], True, 0
+    rows, ok, tried, blocked = [], True, 0, 0
+    absent_marks = ("not installed", "requested python version", "can't open", "cannot open",
+                    "未安装", "no installed", "not found", "no suitable python runtime")
     for it in cand:
         rc, out, ms = run_cmd(f"{it} -c \"import sys;print(sys.version.split()[0])\"", cwd=BENCH, timeout=30)
+        if rc == 124:
+            blocked += 1
+            rows.append(f"{it}: BLOCKED（版本探测超时）")
+            continue
         if rc != 0:
-            rows.append(f"{it}: 不在场")
+            low = (out or "").lower()
+            looks_absent = any(m.lower() in low for m in absent_marks)
+            exe = it.split()[0]
+            if shutil.which(exe) and not looks_absent:
+                # 在场但不可用（损坏 / 被权限拦住）：这是 BLOCKED——没测到，不等于测失败
+                blocked += 1
+                rows.append(f"{it}: BLOCKED（在场但不可执行：{out.strip().splitlines()[-1][:60] if out.strip() else 'unknown'}）")
+            else:
+                rows.append(f"{it}: 不在场")
             continue
         tried += 1
         ver = out.strip().splitlines()[-1] if out.strip() else "?"
         rc2, out2, ms2 = run_cmd(f"{it} {spec['script']}", cwd=(BENCH / spec["cwd"]).resolve(),
                                  timeout=spec.get("timeout", 300))
+        if rc2 == 124:
+            blocked += 1
+            rows.append(f"{it} ({ver}): BLOCKED（执行超时）")
+            continue
         good = rc2 == 0 and (spec.get("expect") in out2 if spec.get("expect") else True)
         rows.append(f"{it} ({ver}): {'ok' if good else 'FAIL'}")
         ok = ok and good
-    if tried == 0:
+    if tried == 0 and blocked == 0:
         return "SKIP", "无任何解释器可用", "; ".join(rows), 0
+    if blocked:
+        return "BLOCKED", f"{blocked} 个解释器无法判定（超时或不可执行）", "; ".join(rows), 0
     return ("PASS" if ok else "FAIL"), f"{tried} 个解释器跑通", "; ".join(rows), 0
 
 
@@ -221,12 +241,14 @@ def execute(preset, offline=False, strict=False):
         t0 = time.time()
         status, why, evidence, ms = fn(spec, ctx)
         want = spec.get("expect_status", "PASS")
+        neg = want == "FAIL"  # 负控：这条检查被要求必须失败，它为 FAIL 是"按设计变红"
         if status != want:
             why = f"反预期：期望 {want}，实得 {status}（{why}）"
             status = "FAIL"
         verdicts.append({"id": spec["id"], "type": spec["type"], "status": status,
-                         "why": why, "evidence": evidence, "ms": ms or int((time.time() - t0) * 1000)})
-        print(f"[{status:<7}] {spec['id']:<38} {why}")
+                         "why": why, "evidence": evidence, "ms": ms or int((time.time() - t0) * 1000),
+                         "negative_control": neg})
+        print(f"[{status:<7}]{'[NEG-CTRL]' if neg else '          '} {spec['id']:<38} {why}")
 
     counts = {k: sum(1 for v in verdicts if v["status"] == k) for k in VERDICTS}
     run_meta = {
@@ -271,8 +293,10 @@ def render_report(preset, verdicts, counts):
          f"profile=`{preset.get('profile', 'standard')}` · 生成时间见 run.json", "",
          "| 检查 | 类型 | 状态 | 依据 | 耗时 |", "|---|---|---|---|---|"]
     for v in verdicts:
-        L.append(f"| {v['id']} | {v['type']} | **{v['status']}** | {v['why']} | {v['ms']} ms |")
-    L += ["", f"合计：PASS {counts['PASS']} / FAIL {counts['FAIL']} / SKIP {counts['SKIP']} / BLOCKED {counts['BLOCKED']}", ""]
+        tag = " **[负控]**" if v.get("negative_control") else ""
+        L.append(f"| {v['id']} | {v['type']} | **{v['status']}**{tag} | {v['why']} | {v['ms']} ms |")
+    L += ["", f"合计：PASS {counts['PASS']} / FAIL {counts['FAIL']} / SKIP {counts['SKIP']} / BLOCKED {counts['BLOCKED']}", "",
+          "负控（`expect_status: FAIL`）的 FAIL 是按设计变红，不是缺陷；它证明这台子有能力变红。", ""]
     if preset.get("notes"):
         L += ["## 边界", "", preset["notes"].strip(), ""]
     return "\n".join(L)
@@ -283,7 +307,8 @@ COLORS = {"PASS": "#7ee2a8", "FAIL": "#ff7b72", "SKIP": "#8b949e", "BLOCKED": "#
 
 def render_html(preset, verdicts, counts, meta):
     rows = "".join(
-        f"<tr><td class=i>{html.escape(v['id'])}</td><td class=t>{v['type']}</td>"
+        f"<tr><td class=i>{html.escape(v['id'])}{' <span class=neg>负控</span>' if v.get('negative_control') else ''}</td>"
+        f"<td class=t>{v['type']}</td>"
         f"<td class=s style=color:{COLORS[v['status']]}>{v['status']}</td>"
         f"<td class=w>{html.escape(v['why'])}</td><td class=m>{v['ms']}</td></tr>" for v in verdicts)
     return f"""<!doctype html><meta charset=utf-8><title>{html.escape(preset.get('title','bench'))}</title>
@@ -292,7 +317,8 @@ h1{{font-size:19px;margin:0 0 4px}}p.sub{{color:#8b949e;font-size:12.5px;margin:
 table{{width:100%;border-collapse:collapse;font-size:13px}}tr{{border-bottom:1px solid #23272e}}
 td{{padding:9px 8px;vertical-align:top}}.i{{font-family:ui-monospace,Consolas,monospace;width:34%}}
 .t{{color:#8b949e;width:9%}}.s{{width:9%;font-weight:600}}.w{{color:#c9ccd1}}.m{{color:#6e7681;width:7%;text-align:right}}
-.kpi{{display:flex;gap:22px;margin:0 0 20px;font-size:14px}}b{{font-size:20px;font-variant-numeric:tabular-nums}}</style>
+.kpi{{display:flex;gap:22px;margin:0 0 20px;font-size:14px}}b{{font-size:20px;font-variant-numeric:tabular-nums}}
+.neg{{font-size:10px;color:#d9a441;border:1px solid #6b4a1e;border-radius:9px;padding:1px 6px;margin-left:6px;vertical-align:2px}}</style>
 <h1>{html.escape(preset.get('title','bench'))}</h1>
 <p class=sub>{html.escape(meta['run_id'])} · {html.escape(meta['os'])} · python {meta['python']}</p>
 <div class=kpi><span>PASS <b style=color:#7ee2a8>{counts['PASS']}</b></span><span>FAIL <b style=color:#ff7b72>{counts['FAIL']}</b></span>

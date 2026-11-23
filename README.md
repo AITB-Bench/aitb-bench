@@ -42,7 +42,8 @@ Every run lands in `runs/<timestamp>_<preset>/` containing:
 
 ## Four states, no fifth bucket
 
-`PASS` / `FAIL` / `SKIP` / `BLOCKED`. A timeout is BLOCKED; a missing interpreter is SKIP.
+`PASS` / `FAIL` / `SKIP` / `BLOCKED`. A timeout is BLOCKED; a missing interpreter is SKIP; an
+interpreter that is present but cannot execute is BLOCKED (not measured ≠ measured failing).
 Neither is ever folded into PASS. Add `--strict` when the bench is used as a gate.
 
 ## Where the directory goes
@@ -54,6 +55,10 @@ into site-packages), it falls back to `./runs`. Override with:
 AITB_RUNS=/path/to/runs
 AITB_PRESETS=/path/to/presets
 ```
+
+`AITB_PRESETS` **adds** a search directory; it does not replace the built-in presets, so `aitb demo`
+still resolves after you set it. Preset names are resolved in this order: `$AITB_PRESETS`, the
+package's own `presets/`, then `./presets`. First match wins.
 
 ## Adding a check
 
@@ -67,9 +72,16 @@ A preset is JSON; checks live in data, not code:
 - `expect_status: "FAIL"` asserts that this check **must** fail. It is how a negative control is
   written into the record — and it makes the run red on purpose, which is exactly what `selftest`
   does. It is not an "expected failure counts as pass" mechanism; if you want a green run, do not
-  put negative controls in it.
-- `files` checks take `min_size`, so "the file exists" is never sufficient.
+  put negative controls in it. Such checks are labelled `[NEG-CTRL]` in the console and `负控` in
+  `report.md` / `snapshot.html`, so a reviewer can tell "designed to be red" from "broke".
+- `files` checks default to `min_size: 1`, so a zero-byte file never passes; write `min_size: 0`
+  when an empty file is the point (`.gitkeep`), and a larger number when the file must carry content.
 - `needs_network: true` marks online checks; `--offline` turns them into SKIP.
+- Values may use `${VAR}` from the environment (`${AITB_RUNS}` etc.); expansion happens at preset
+  load, and a failed expansion warns instead of silently blanking the string.
+- `demo` and `selftest` are two presets running through the same code path — `selftest` is not a
+  privileged self-test hook. That is deliberate: the negative controls have to survive the same
+  runner that a stranger's preset goes through.
 
 ## What this does not do
 
