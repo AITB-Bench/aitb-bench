@@ -17,6 +17,11 @@ def load_vars():
     p = CFG if CFG.exists() else EX
     if p.exists():
         v = dict(json.loads(p.read_text(encoding="utf-8")).get("vars", {}) or {})
+    # 配置里的相对值按"调用者所在目录"解析，不按包目录解析：预设的 cwd 是包目录，
+    # 若相对值也按包目录解析，${W3C_PKG}/xxx 会指到 aitb_bench/evidence 里去（外人首次跑必红）。
+    for k, val in list(v.items()):
+        if isinstance(val, str) and val.startswith("."):
+            v[k] = str((Path.cwd() / val).resolve())
     # 配置文件优先；未声明的名字再查环境变量（README 里承诺 ${AITB_RUNS} 这类写法可用）
     for k, val in os.environ.items():
         v.setdefault(k, val)

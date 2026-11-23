@@ -1,0 +1,22 @@
+{
+ "checked_at": "2026-11-23T21:10:08+0800",
+ "epoch": 1795439408,
+ "tool": "github_visibility.py (git ls-remote, no credential)",
+ "results": [
+  {
+   "repo": "AITB-Bench/aitb-bench",
+   "verdict": "PUBLIC",
+   "note": "9acd838c5977e097ccbd705d023e65150193363f\trefs/heads/main"
+  },
+  {
+   "repo": "LGD-Eval/aitb-bench",
+   "verdict": "PUBLIC",
+   "note": "9acd838c5977e097ccbd705d023e65150193363f\trefs/heads/main"
+  },
+  {
+   "repo": "stevenzhao07/aitb-bench",
+   "verdict": "PUBLIC",
+   "note": "d4dded4ef61f34917cce1166380baa4566214d3c\trefs/heads/main"
+  }
+ ]
+}

@@ -1,9 +1,11 @@
 {
-  "core.py": "61c42db06985f1d8e9d3eed57460827323829e667edc1515bcf26f8af275c27e",
-  "vars.py": "77c9500e64184902aba25f94721dd0c863c952ab39a276b066c9bbaa81779f13",
+  "core.py": "cce5da0fdc937f6a0bb0464bc5615be216c15e6306817f9bc92e66c9092275c1",
+  "vars.py": "da4eb7fb5e97cdb6c7044769fefd45382eadd3191fb75a0b4a5c98ac718998cd",
   "__init__.py": "54a1dafedfb0bf8694cf11cec74cfaf5e61175b72fbeaae3552be7030415daed",
   "presets": {
     "demo.json": "cc5520daf81555a33cb676bfe5f88cc506e3961fb781d0f951efca854749afa5",
-    "selftest.json": "24873270e48b4143394fc1c3482caa22564711f0c9cdf8a03605dbf4dee48cbc"
+    "selftest.json": "24873270e48b4143394fc1c3482caa22564711f0c9cdf8a03605dbf4dee48cbc",
+    "w3c-aiam-review.json": "119b3d4b24d7c973b4bf8b6f7416d88a91972bd84cf80e9d9abcd2c5f2edd7ae",
+    "w3c-aiam.json": "8c2c8ec5f741901bb6a9e0ee9f0b570d8d5626ad8d3a21ffc4c53add4326a2f8"
   }
 }

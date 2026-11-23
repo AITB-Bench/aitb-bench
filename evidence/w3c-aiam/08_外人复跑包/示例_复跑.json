@@ -1,0 +1,19 @@
+{
+  "runner": {"name": "示例外部执行者-2", "affiliation": "独立", "date": "2026-11-23", "mode": "reproduce", "read_order": "no"},
+  "sources": {"protocol_version": "draft-saihm-memory-protocol-03", "protocol_read_on": "2026-11-23"},
+  "rows": [
+    {"row": "O1", "obligation_short": "保留期限与起算点", "determination": "NA", "read_point": "无（tier 声明在运营方文档）", "reason": "格式没有承载期限的字段", "confidence": "high"},
+    {"row": "O2", "obligation_short": "更正前原值可取得", "determination": "NA", "read_point": "§2.1 可重算 cellId，但无法保证旧单元未被 forget", "reason": "能证明未静默覆盖，不能证明留存，故整体判不可评估", "confidence": "medium"},
+    {"row": "O3", "obligation_short": "更正注明理由/人员/日期", "determination": "NS", "read_point": "§2.1 元组；§4 工具面", "reason": "无相关字段与操作", "confidence": "high"},
+    {"row": "O4", "obligation_short": "授权归属", "determination": "NS", "read_point": "§1.2 托管 profile 代签", "reason": "托管 profile 下签名不能归属于行为人，指令明确，应判不满足而非不可评估", "confidence": "high"},
+    {"row": "O5", "obligation_short": "删除执行到声明类别", "determination": "S", "read_point": "§2.7 两类删除 + destructionAnchor", "reason": "声明与锚点齐备", "confidence": "high"},
+    {"row": "O6", "obligation_short": "删除记录被保留", "determination": "S", "read_point": "§2.5 FORGET 收据可检索", "reason": "删除有收据且入公开日志", "confidence": "high"},
+    {"row": "O7", "obligation_short": "删除与保留义务的边界", "determination": "NS", "read_point": "无", "reason": "格式与协议均不表达保留依据", "confidence": "high"}
+  ],
+  "overall": {
+    "q1_which_row_would_you_keep": "O7",
+    "q2_row_impossible_for_any_format": "",
+    "q3_three_value_consistency": "O2 与 O4 的判定显示 NA/NS 界线需要更明确的规则",
+    "q4_internal_count_discrepancy": "同上，需在口径中写明 NA 仅用于格式无落点"
+  }
+}

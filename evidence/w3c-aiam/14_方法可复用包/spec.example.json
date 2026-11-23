@@ -1,0 +1,141 @@
+{
+ "title": "SAIHM -03 × 保留/删除义务交叉映射 · 锚点规格（示例）",
+ "note": "换协议就改 source/start/end/must；判定逻辑不在本文件里，只在被引的原文里。",
+ "checks": [
+  {"id": "R1", "claim": "期限只在运营方声明里", "source": "../01_证据链/raw2/13_协议-03_正文.txt",
+   "start": "1\\.4\\.", "end": "1\\.5\\.",
+   "must": ["a named, operator-chosen persistence class with stated durability and retention properties",
+            "Tier names carry no protocol semantics"],
+   "must_not": []},
+
+  {"id": "R1b", "claim": "单元元组无期限字段", "source": "../01_证据链/raw2/13_协议-03_正文.txt",
+   "start": "2\\.1\\.\\s*Cell shape", "end": "2\\.2\\.\\s*Identity",
+   "must": ["tier: short ASCII string naming the storage tier"],
+   "must_not": ["retention", "durability"]},
+
+  {"id": "R2", "claim": "旧 cellId 可重算，故不可静默覆盖", "source": "../01_证据链/raw2/13_协议-03_正文.txt",
+   "start": "2\\.1\\.\\s*Cell shape", "end": "2\\.2\\.\\s*Identity",
+   "must": ["recompute cellId",
+            "MUST refuse to serve a cell whose stored cellId does not match",
+            "SHA-256"],
+   "must_not": []},
+
+  {"id": "R3", "claim": "无 reason/actor/supersession 字段", "source": "../01_证据链/raw2/13_协议-03_正文.txt",
+   "start": "2\\.1\\.\\s*Cell shape", "end": "2\\.2\\.\\s*Identity",
+   "must": ["cellId, holderId, kekVersion, tier, cellNonce, ciphertext, signature, timestamp"],
+   "must_not": ["reason", "supersed"]},
+
+  {"id": "R4", "claim": "身份由 ML-DSA-65 公钥绑定", "source": "../01_证据链/raw2/13_协议-03_正文.txt",
+   "start": "2\\.1\\.\\s*Cell shape", "end": "2\\.2\\.\\s*Identity",
+   "must": ["holderId: 32-byte holder identifier: the SHA-256 digest of the holder"],
+   "must_not": []},
+
+  {"id": "R5", "claim": "删除可被任何观察者重建", "source": "../01_证据链/raw2/13_协议-03_正文.txt",
+   "start": "2\\.7\\.\\s*Erasure", "end": "2\\.8\\.\\s*Order of effect",
+   "must": ["write a FORGET receipt for the cellId to the audit log",
+            "a public, append-only set of erased cellIds",
+            "MUST NOT return an erased cell to anyone"],
+   "must_not": []},
+
+  {"id": "R5b", "claim": "删除类别只在运营方文档可读", "source": "../01_证据链/raw2/13_协议-03_正文.txt",
+   "start": "2\\.7\\.\\s*Erasure", "end": "2\\.8\\.\\s*Order of effect",
+   "must": ["MUST state in its published documentation which class it provides",
+            "Clients MUST NOT assert either class"],
+   "must_not": ["erasureClass", "erasure_class"]},
+
+  {"id": "R5c", "claim": "destructionAnchor 在工具返回面", "source": "../01_证据链/raw2/13_协议-03_正文.txt",
+   "start": "2\\.5\\.\\s*Audit log", "end": "2\\.6\\.\\s*Sharing",
+   "must": ["returns it as destructionAnchor"],
+   "must_not": []},
+
+  {"id": "R6", "claim": "FORGET 收据可按四键检索", "source": "../01_证据链/raw2/13_协议-03_正文.txt",
+   "start": "2\\.5\\.\\s*Audit log", "end": "2\\.6\\.\\s*Sharing",
+   "must": ["list entries by subjectId, by holderId and by operation",
+            "every FORGET receipt",
+            "check the receipt's signature against the holder's public key"],
+   "must_not": []},
+
+  {"id": "R7", "claim": "收据体系无边界字段", "source": "../01_证据链/raw2/13_协议-03_正文.txt",
+   "start": "2\\.5\\.\\s*Audit log", "end": "2\\.6\\.\\s*Sharing",
+   "must": ["receiptId, subjectId, operation, holderId, signature, timestamp, receiptNonce"],
+   "must_not": ["obligation", "lawful basis"]},
+
+  {"id": "S1", "claim": "HIPAA 6 年、起算取较晚者", "source": "../01_证据链/raw2/15_HIPAA_164.316.txt",
+   "start": null, "end": null,
+   "must": ["for 6 years from the date of its creation or the date when it last was in effect, whichever is later"],
+   "must_not": []},
+
+  {"id": "S2", "claim": "PIPEDA 只留必要 + 要求给上下限", "source": "../01_证据链/raw2/10_PIPEDA_FullText.html",
+   "start": null, "end": null,
+   "must": ["retained only as long as necessary for the fulfilment of those purposes",
+            "minimum and maximum retention periods"],
+   "must_not": []},
+
+  {"id": "S3", "claim": "PIPL 最短必要 + 停止处理 + 三年", "source": "../01_证据链/raw2/14_PIPL_全文.txt",
+   "start": null, "end": null,
+   "must": ["实现处理目的所必要的最短时间",
+            "停止除存储和采取必要的安全保护措施之外的处理",
+            "至少保存三年"],
+   "must_not": []},
+
+  {"id": "S4", "claim": "LGPD 第 16 条与第 37 条", "source": "../01_证据链/raw2/09_LGPD_Lei13709.html",
+   "start": null, "end": null,
+   "must": ["Art. 16", "Art. 37"],
+   "must_not": []},
+
+  {"id": "S5", "claim": "GDPR 删除须无不当迟延", "source": "../01_证据链/raw2/16_GDPR_art-17-gdpr.txt",
+   "start": null, "end": null,
+   "must": ["the erasure of personal data concerning him or her without undue delay"],
+   "must_not": []},
+
+  {"id": "S6", "claim": "GDPR 可携带格式与传输", "source": "../01_证据链/raw2/16_GDPR_art-20-gdpr.txt",
+   "start": null, "end": null,
+   "must": ["structured, commonly used and machine-readable format", "transmit those data to another controller"],
+   "must_not": []},
+
+  {"id": "S7", "claim": "PIPL 可携带须提供转移途径", "source": "../01_证据链/raw2/14_PIPL_全文.txt",
+   "start": null, "end": null,
+   "must": ["转移至其指定的个人信息处理者"],
+   "must_not": []},
+
+  {"id": "V1", "claim": "我方提出的一句话已原样进入 charter v1.1 §2", "source": "../01_证据链/raw2/18_charter_v1.1_20261123.txt",
+   "start": null, "end": null,
+   "must": ["re-examines that deliverable as a decision under §9", "rather than leaving it pinned to a text that no longer says what it said"],
+   "must_not": []},
+
+  {"id": "V2", "claim": "v1.1 自述 §3 范围未改", "source": "../01_证据链/raw2/18_charter_v1.1_20261123.txt",
+   "start": null, "end": null,
+   "must": ["Scope (§3) is unchanged"],
+   "must_not": []},
+
+  {"id": "V3", "claim": "§3 仍点名可比法域清单", "source": "../01_证据链/raw2/18_charter_v1.1_20261123.txt",
+   "start": null, "end": null,
+   "must": ["comparable regimes (HIPAA, PIPEDA, PIPL, LGPD)"],
+   "must_not": []},
+
+  {"id": "V4", "claim": "v1.1 正文不含 medical device 措辞", "source": "../01_证据链/raw2/18_charter_v1.1_20261123.txt",
+   "start": null, "end": null,
+   "must": [],
+   "must_not": ["medical device", "medical-device"]},
+
+  {"id": "V5", "claim": "W3C Team 通知确认 v1.1 于 2026-11-23 通过", "source": "../01_证据链/raw3/0009.html",
+   "start": null, "end": null,
+   "must": ["Status: v1.1 — Adopted on 2026-11-23"],
+   "must_not": []},
+
+  {"id": "V6", "claim": "§3 把 crosswalk 写为 informative 的第 4 项", "source": "../01_证据链/raw2/18_charter_v1.1_20261123.txt",
+   "start": null, "end": null,
+   "must": ["A regulatory crosswalk pack (informative): mappings from the referenced protocol"],
+   "must_not": []},
+
+  {"id": "V7", "claim": "§5 交付物清单：informative，映射即 §3 所列", "source": "../01_证据链/raw2/18_charter_v1.1_20261123.txt",
+   "start": null, "end": null,
+   "must": ["Regulatory crosswalk pack (informative) — the mappings enumerated in §3"],
+   "must_not": []},
+
+  {"id": "X1", "claim": "协议承认运营方仍负无不当迟延的删除责任", "source": "../01_证据链/raw2/13_协议-03_正文.txt",
+   "start": null, "end": null,
+   "must": ["remain responsible for erasure without undue delay"],
+   "must_not": []}
+ ]
+}

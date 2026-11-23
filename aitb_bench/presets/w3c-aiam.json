@@ -1,0 +1,47 @@
+{
+ "name": "w3c-aiam",
+ "title": "W3C AI Agent Memory CG · charter v1.1 贡献线（证据/提案/门禁）",
+ "profile": "full",
+ "notes": "本线专用：§3 点名清单对账、15 行判定两份自洽、锚点机器核对、证据副本在位、归档仍可访问。数字来自实跑与机械对账，不手填。本文件不含本机绝对路径：包根走 ${W3C_PKG}，见 config.example.json。",
+ "checks": [
+  {"id": "artifacts.present", "type": "files",
+   "base": "${W3C_PKG}",
+   "paths": [
+    {"path": "00_README.md", "min_size": 1500},
+    {"path": "04_交叉映射贡献提案.md", "min_size": 4000},
+    {"path": "04b_提案_list版.md", "min_size": 4000},
+    {"path": "07_覆盖矩阵.svg", "min_size": 3000},
+    {"path": "07_覆盖矩阵.png", "min_size": 100000},
+    {"path": "16_期限极差图.svg", "min_size": 3000},
+    {"path": "16_期限极差图.png", "min_size": 100000},
+    {"path": "08_外人复跑包/A_复跑任务包.md", "min_size": 4000},
+    {"path": "08_外人复跑包/B_核对任务包.md", "min_size": 2000},
+    {"path": "08_外人复跑包/复跑评分.py", "min_size": 1000},
+    {"path": "08_外人复跑包/锚点自检.py", "min_size": 2000},
+    {"path": "09_全法域覆盖说明.md", "min_size": 3000},
+    {"path": "10_第3节点名清单对账与法域补全.md", "min_size": 3000},
+    {"path": "06_条款原文摘录.md", "min_size": 4000},
+    {"path": "15_红队攻击清单.md", "min_size": 2000}
+   ]},
+
+  {"id": "doc.proposal-consistency", "type": "cmd",
+   "cmd": "python probes\\w3c_aiam_consistency.py", "expect": "CONSISTENCY: PASS", "timeout": 60},
+
+  {"id": "method.kit-runs", "type": "cmd",
+   "cwd": "${W3C_PKG}/14_方法可复用包",
+   "cmd": "python crosswalk_anchor_check.py spec.example.json", "expect": "25/25 通过", "timeout": 60},
+
+  {"id": "protocol.anchor-check", "type": "cmd",
+   "cwd": "${W3C_PKG}/08_外人复跑包",
+   "cmd": "python 锚点自检.py", "expect": "25/25 通过", "timeout": 60},
+
+  {"id": "net.w3c-nov-archive", "type": "http", "needs_network": true,
+   "targets": [{"url": "https://lists.w3.org/Archives/Public/public-ai-agent-memory-interop/2026Nov/", "expect": 200}]},
+
+  {"id": "net.w3c-group-page", "type": "http", "needs_network": true,
+   "targets": [{"url": "https://www.w3.org/community/ai-agent-memory-interop/", "expect": 200}]},
+
+  {"id": "net.protocol-draft-03", "type": "http", "needs_network": true,
+   "targets": [{"url": "https://datatracker.ietf.org/doc/draft-saihm-memory-protocol/03/", "expect": 200}]}
+ ]
+}

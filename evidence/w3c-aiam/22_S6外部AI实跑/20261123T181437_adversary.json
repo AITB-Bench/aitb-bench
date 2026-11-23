@@ -1,0 +1,86 @@
+{
+ "lens": "adversary",
+ "model": "deepseek-ai/DeepSeek-V3.2",
+ "seconds": 60.4,
+ "prompt_sha16": "943134a9c5325979",
+ "usage": {
+  "prompt_tokens": 6168,
+  "completion_tokens": 1176,
+  "total_tokens": 7344,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0
+  },
+  "prompt_cache_hit_tokens": 0,
+  "prompt_cache_miss_tokens": 6168
+ },
+ "parsed": true,
+ "findings": [
+  {
+   "severity": "major",
+   "quote": "the Chair's recorded reading of 'comparable regimes' in §3 as any law, regulation or standard that sets requirements for how records are kept, protected, retained, corrected or erased. On that reading, the medical-device rules EU MDR, 21 CFR Part 820, ISO 13485 and the rules for NMPA registration review are comparable regimes.",
+   "problem": "The author presents the Chair's personal reading as the authoritative interpretation of the charter's scope, expanding the instrument set without group consensus.",
+   "fix": "Replace 'the Chair's recorded reading' with 'a possible reading of' or similar, making it clear this is a proposal, not an established fact.",
+   "class": "overstated"
+  },
+  {
+   "severity": "major",
+   "quote": "the three §3 items that are not scored are named here rather than left for a reader to discover, each with the reason: of the nine, ISO/IEC 27001:2022, ISO/IEC 42001:2023 and NIST AI RMF 1.0 carry no row, and the other six do.",
+   "problem": "The author frames their own choice not to score certain instruments as a necessary outcome of their method, rather than a debatable interpretive decision.",
+   "fix": "Rephrase to present the exclusion as a proposal for discussion, e.g., 'I propose not scoring these three because...'",
+   "class": "self-serving"
+  },
+  {
+   "severity": "major",
+   "quote": "HIPAA's six years attaches, as I read it, to the documentation a covered entity must maintain — its policies and procedures, and its records of actions, activities and assessments — not to the memory records themselves. That is, in substance, a change ledger and a deletion receipt.",
+   "problem": "The author makes a substantive legal interpretation (that HIPAA's retention rule doesn't apply to memory records) and presents it as the basis for a 'not assessable' determination, which is contestable.",
+   "fix": "Qualify the statement as an interpretation, e.g., 'In my reading, HIPAA's six-year rule attaches to documentation...' and note the alternative view.",
+   "class": "overstated"
+  },
+  {
+   "severity": "major",
+   "quote": "In the archive record of this thread up to 2026-11-23 no one has mapped it.",
+   "problem": "This is a claim of novelty that is unsupported within the document; the author provides no evidence of having searched the archive.",
+   "fix": "Remove the claim or support it with a specific citation.",
+   "class": "unsupported"
+  },
+  {
+   "severity": "major",
+   "quote": "R7 has no such path — it needs either a field or an explicit statement that the boundary is out of the format's scope. That is the one I would most expect to be corrected.",
+   "problem": "The author shifts from analysis to a personal prediction about what 'should' be corrected, inserting opinion into a supposedly factual annex.",
+   "fix": "none - delete",
+   "class": "self-serving"
+  },
+  {
+   "severity": "minor",
+   "quote": "I did not obtain the ISO/IEC 42001:2023 text; no clause number is given for it, and the row records only the absence of a stated period.",
+   "problem": "The author admits to not reading a key instrument they are making a determination about, undermining the credibility of their method.",
+   "fix": "Either obtain the text before posting or remove the instrument from the analysis.",
+   "class": "unsupported"
+  },
+  {
+   "severity": "minor",
+   "quote": "Every legal reading here is mine, and I would rather be corrected than agreed with",
+   "problem": "This disclaimer at the very end of a long, technical document feels like an afterthought and does not mitigate the assertive tone of the preceding analysis.",
+   "fix": "Move this disclaimer much earlier, perhaps into the 'Terms' section of Part A.",
+   "class": "unclear"
+  },
+  {
+   "severity": "minor",
+   "quote": "A single memory record can sit under all three.",
+   "problem": "This is presented as a fact, but it's a hypothetical scenario. The document doesn't establish that a single record would actually be subject to all three regimes simultaneously.",
+   "fix": "Qualify as a potential scenario, e.g., 'A single memory record could, in theory, be subject to all three.'",
+   "class": "overstated"
+  },
+  {
+   "severity": "minor",
+   "quote": "the eight tools (§4) are the protocol operations an implementation exposes — `remember`, `recall`, `forget`, `status`, `share`, `revoke_share`, `governance_propose`, `governance_vote` — each acting on a cell or on a receipt, and none of them a bulk export",
+   "problem": "The author asserts the protocol lacks bulk export, but this is a negative claim that requires checking the entire spec to verify. The method section only mentions checking for the presence of fields.",
+   "fix": "Support with a citation to the part of the spec that defines the toolset, showing no export tool is listed.",
+   "class": "unsupported"
+  }
+ ],
+ "raw": "```json\n{\n  \"findings\": [\n    {\n      \"severity\": \"major\",\n      \"quote\": \"the Chair's recorded reading of 'comparable regimes' in §3 as any law, regulation or standard that sets requirements for how records are kept, protected, retained, corrected or erased. On that reading, the medical-device rules EU MDR, 21 CFR Part 820, ISO 13485 and the rules for NMPA registration review are comparable regimes.\",\n      \"problem\": \"The author presents the Chair's personal reading as the authoritative interpretation of the charter's scope, expanding the instrument set without group consensus.\",\n      \"fix\": \"Replace 'the Chair's recorded reading' with 'a possible reading of' or similar, making it clear this is a proposal, not an established fact.\",\n      \"class\": \"overstated\"\n    },\n    {\n      \"severity\": \"major\",\n      \"quote\": \"the three §3 items that are not scored are named here rather than left for a reader to discover, each with the reason: of the nine, ISO/IEC 27001:2022, ISO/IEC 42001:2023 and NIST AI RMF 1.0 carry no row, and the other six do.\",\n      \"problem\": \"The author frames their own choice not to score certain instruments as a necessary outcome of their method, rather than a debatable interpretive decision.\",\n      \"fix\": \"Rephrase to present the exclusion as a proposal for discussion, e.g., 'I propose not scoring these three because...'\",\n      \"class\": \"self-serving\"\n    },\n    {\n      \"severity\": \"major\",\n      \"quote\": \"HIPAA's six years attaches, as I read it, to the documentation a covered entity must maintain — its policies and procedures, and its records of actions, activities and assessments — not to the memory records themselves. That is, in substance, a change ledger and a deletion receipt.\",\n      \"problem\": \"The author makes a substantive legal interpretation (that HIPAA's retention rule doesn't apply to memory records) and presents it as the basis for a 'not assessable' determination, which is contestable.\",\n      \"fix\": \"Qualify the statement as an interpretation, e.g., 'In my reading, HIPAA's six-year rule attaches to documentation...' and note the alternative view.\",\n      \"class\": \"overstated\"\n    },\n    {\n      \"severity\": \"major\",\n      \"quote\": \"In the archive record of this thread up to 2026-11-23 no one has mapped it.\",\n      \"problem\": \"This is a claim of novelty that is unsupported within the document; the author provides no evidence of having searched the archive.\",\n      \"fix\": \"Remove the claim or support it with a specific citation.\",\n      \"class\": \"unsupported\"\n    },\n    {\n      \"severity\": \"major\",\n      \"quote\": \"R7 has no such path — it needs either a field or an explicit statement that the boundary is out of the format's scope. That is the one I would most expect to be corrected.\",\n      \"problem\": \"The author shifts from analysis to a personal prediction about what 'should' be corrected, inserting opinion into a supposedly factual annex.\",\n      \"fix\": \"none - delete\",\n      \"class\": \"self-serving\"\n    },\n    {\n      \"severity\": \"minor\",\n      \"quote\": \"I did not obtain the ISO/IEC 42001:2023 text; no clause number is given for it, and the row records only the absence of a stated period.\",\n      \"problem\": \"The author admits to not reading a key instrument they are making a determination about, undermining the credibility of their method.\",\n      \"fix\": \"Either obtain the text before posting or remove the instrument from the analysis.\",\n      \"class\": \"unsupported\"\n    },\n    {\n      \"severity\": \"minor\",\n      \"quote\": \"Every legal reading here is mine, and I would rather be corrected than agreed with\",\n      \"problem\": \"This disclaimer at the very end of a long, technical document feels like an afterthought and does not mitigate the assertive tone of the preceding analysis.\",\n      \"fix\": \"Move this disclaimer much earlier, perhaps into the 'Terms' section of Part A.\",\n      \"class\": \"unclear\"\n    },\n    {\n      \"severity\": \"minor\",\n      \"quote\": \"A single memory record can sit under all three.\",\n      \"problem\": \"This is presented as a fact, but it's a hypothetical scenario. The document doesn't establish that a single record would actually be subject to all three regimes simultaneously.\",\n      \"fix\": \"Qualify as a potential scenario, e.g., 'A single memory record could, in theory, be subject to all three.'\",\n      \"class\": \"overstated\"\n    },\n    {\n      \"severity\": \"minor\",\n      \"quote\": \"the eight tools (§4) are the protocol operations an implementation exposes — `remember`, `recall`, `forget`, `status`, `share`, `revoke_share`, `governance_propose`, `governance_vote` — each acting on a cell or on a receipt, and none of them a bulk export\",\n      \"problem\": \"The author asserts the protocol lacks bulk export, but this is a negative claim that requires checking the entire spec to verify. The method section only mentions checking for the presence of fields.\",\n      \"fix\": \"Support with a citation to the part of the spec that defines the toolset, showing no export tool is listed.\",\n      \"class\": \"unsupported\"\n    }\n  ]\n}\n```"
+}

@@ -1,0 +1,7 @@
+{
+ "_schema": "Copy to config.local.json if you need different paths. ${VAR} placeholders in presets are resolved from here first, then from the environment. Relative values are resolved against the directory you run from.",
+ "vars": {
+  "W3C_PKG": "./evidence/w3c-aiam",
+  "STANDARD_DIR": "./evidence/standard"
+ }
+}

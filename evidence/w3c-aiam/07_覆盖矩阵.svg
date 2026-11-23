@@ -1,0 +1,283 @@
+﻿<svg xmlns='http://www.w3.org/2000/svg' width='1180' height='1110' viewBox='0 0 1180 1110' font-family="'Microsoft YaHei','PingFang SC',sans-serif">
+<rect width='1180' height='1110' fill='#ffffff'/>
+<text x='36' y='46' font-size='20' font-weight='600' fill='#1a1a1a'>义务 × 协议读取点覆盖矩阵（13 行 × 6 轴，§3 点名清单全覆盖）</text>
+<text x='36' y='72' font-size='12' fill='#7a7a7a'>绿＝协议面有可读落点可判定　橙＝有义务但格式无落点（缺口）　灰＝该条款不设此义务　蓝＝对象不属于义务（管理体系/自愿框架），不适用判定</text>
+<text x='36' y='92' font-size='12' fill='#7a7a7a'>§3 点名 9 项：(a) 法律 6 项已逐条判定；(b) 管理体系标准 2 项只判载体；(c) 自愿框架 1 项不判。器械 4 行经主席书面读法列为 comparable regimes，属 §3 范围内；第 6 轴为我方增设。</text>
+<text x='372' y='128' font-size='12.5' font-weight='600' fill='#333' text-anchor='middle'>留存 / 可取回</text>
+<text x='516' y='128' font-size='12.5' font-weight='600' fill='#333' text-anchor='middle'>完整性 / 保护</text>
+<text x='660' y='128' font-size='12.5' font-weight='600' fill='#333' text-anchor='middle'>期限载体</text>
+<text x='804' y='128' font-size='12.5' font-weight='600' fill='#333' text-anchor='middle'>更正可辨</text>
+<text x='948' y='128' font-size='12.5' font-weight='600' fill='#333' text-anchor='middle'>删除留痕</text>
+<text x='1092' y='128' font-size='12.5' font-weight='600' fill='#333' text-anchor='middle'>授权归属</text>
+<rect x='20' y='182' width='1140' height='60' fill='#f7f8f9'/>
+<text x='282' y='208' font-size='12.5' fill='#1f1f1f' text-anchor='end'>GDPR</text>
+<text x='282' y='226' font-size='10.5' fill='#6b6b6b' text-anchor='end'>Art. 17   ·  §3 点名(a)</text>
+<rect x='306' y='194' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='320' cy='216' r='4.5' fill='#9aa0a6'/>
+<text x='332' y='220' font-size='10.5' fill='#2b2b2b'>不设下限</text>
+<rect x='450' y='194' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='464' cy='216' r='4.5' fill='#9aa0a6'/>
+<text x='476' y='220' font-size='10.5' fill='#2b2b2b'>不设</text>
+<rect x='594' y='194' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='608' cy='216' r='4.5' fill='#9aa0a6'/>
+<text x='620' y='220' font-size='10.5' fill='#2b2b2b'>不设</text>
+<rect x='738' y='194' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='752' cy='216' r='4.5' fill='#9aa0a6'/>
+<text x='764' y='220' font-size='10.5' fill='#2b2b2b'>不设</text>
+<rect x='882' y='194' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='896' cy='216' r='4.5' fill='#2e7d5b'/>
+<text x='908' y='220' font-size='10.5' fill='#2b2b2b'>两类删除</text>
+<rect x='1026' y='194' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='1040' cy='216' r='4.5' fill='#b4762a'/>
+<text x='1052' y='220' font-size='10.5' fill='#2b2b2b'>边界不可表示</text>
+<text x='282' y='268' font-size='12.5' fill='#1f1f1f' text-anchor='end'>EU AI Act 2024/1689</text>
+<text x='282' y='286' font-size='10.5' fill='#6b6b6b' text-anchor='end'>Art. 19(1)/26(6)   ·  §3 点名(a)</text>
+<rect x='306' y='254' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='320' cy='276' r='4.5' fill='#2e7d5b'/>
+<text x='332' y='280' font-size='10.5' fill='#2b2b2b'>审计日志</text>
+<rect x='450' y='254' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='464' cy='276' r='4.5' fill='#9aa0a6'/>
+<text x='476' y='280' font-size='10.5' fill='#2b2b2b'>不设</text>
+<rect x='594' y='254' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='608' cy='276' r='4.5' fill='#b4762a'/>
+<text x='620' y='280' font-size='10.5' fill='#2b2b2b'>无期限字段</text>
+<rect x='738' y='254' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='752' cy='276' r='4.5' fill='#9aa0a6'/>
+<text x='764' y='280' font-size='10.5' fill='#2b2b2b'>不设</text>
+<rect x='882' y='254' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='896' cy='276' r='4.5' fill='#9aa0a6'/>
+<text x='908' y='280' font-size='10.5' fill='#2b2b2b'>不设</text>
+<rect x='1026' y='254' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='1040' cy='276' r='4.5' fill='#9aa0a6'/>
+<text x='1052' y='280' font-size='10.5' fill='#2b2b2b'>不设</text>
+<rect x='20' y='302' width='1140' height='60' fill='#f7f8f9'/>
+<text x='282' y='328' font-size='12.5' fill='#1f1f1f' text-anchor='end'>NIST AI RMF 1.0</text>
+<text x='282' y='346' font-size='10.5' fill='#6b6b6b' text-anchor='end'>自愿框架   ·  §3 点名(c)</text>
+<rect x='306' y='314' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='320' cy='336' r='4.5' fill='#2f5f9e'/>
+<text x='332' y='340' font-size='10.5' fill='#2b2b2b'>不适用</text>
+<rect x='450' y='314' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='464' cy='336' r='4.5' fill='#2f5f9e'/>
+<text x='476' y='340' font-size='10.5' fill='#2b2b2b'>不适用</text>
+<rect x='594' y='314' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='608' cy='336' r='4.5' fill='#2f5f9e'/>
+<text x='620' y='340' font-size='10.5' fill='#2b2b2b'>不适用</text>
+<rect x='738' y='314' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='752' cy='336' r='4.5' fill='#2f5f9e'/>
+<text x='764' y='340' font-size='10.5' fill='#2b2b2b'>不适用</text>
+<rect x='882' y='314' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='896' cy='336' r='4.5' fill='#2f5f9e'/>
+<text x='908' y='340' font-size='10.5' fill='#2b2b2b'>不适用</text>
+<rect x='1026' y='314' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='1040' cy='336' r='4.5' fill='#2f5f9e'/>
+<text x='1052' y='340' font-size='10.5' fill='#2b2b2b'>不适用</text>
+<text x='282' y='388' font-size='12.5' fill='#1f1f1f' text-anchor='end'>ISO/IEC 27001:2022</text>
+<text x='282' y='406' font-size='10.5' fill='#6b6b6b' text-anchor='end'>A.5.33 / A.8.10 / A.8.13   ·  §3 点名(b)</text>
+<rect x='306' y='374' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='320' cy='396' r='4.5' fill='#2e7d5b'/>
+<text x='332' y='400' font-size='10.5' fill='#2b2b2b'>备份+保护</text>
+<rect x='450' y='374' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='464' cy='396' r='4.5' fill='#2e7d5b'/>
+<text x='476' y='400' font-size='10.5' fill='#2b2b2b'>防篡改</text>
+<rect x='594' y='374' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='608' cy='396' r='4.5' fill='#b4762a'/>
+<text x='620' y='400' font-size='10.5' fill='#2b2b2b'>无期限数值</text>
+<rect x='738' y='374' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='752' cy='396' r='4.5' fill='#9aa0a6'/>
+<text x='764' y='400' font-size='10.5' fill='#2b2b2b'>不设</text>
+<rect x='882' y='374' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='896' cy='396' r='4.5' fill='#b4762a'/>
+<text x='908' y='400' font-size='10.5' fill='#2b2b2b'>删除无留痕</text>
+<rect x='1026' y='374' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='1040' cy='396' r='4.5' fill='#2e7d5b'/>
+<text x='1052' y='400' font-size='10.5' fill='#2b2b2b'>访问控制</text>
+<rect x='20' y='422' width='1140' height='60' fill='#f7f8f9'/>
+<text x='282' y='448' font-size='12.5' fill='#1f1f1f' text-anchor='end'>ISO/IEC 42001:2023</text>
+<text x='282' y='466' font-size='10.5' fill='#6b6b6b' text-anchor='end'>体系文件化信息   ·  §3 点名(b)</text>
+<rect x='306' y='434' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='320' cy='456' r='4.5' fill='#2f5f9e'/>
+<text x='332' y='460' font-size='10.5' fill='#2b2b2b'>不适用</text>
+<rect x='450' y='434' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='464' cy='456' r='4.5' fill='#2f5f9e'/>
+<text x='476' y='460' font-size='10.5' fill='#2b2b2b'>不适用</text>
+<rect x='594' y='434' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='608' cy='456' r='4.5' fill='#b4762a'/>
+<text x='620' y='460' font-size='10.5' fill='#2b2b2b'>无期限数值</text>
+<rect x='738' y='434' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='752' cy='456' r='4.5' fill='#9aa0a6'/>
+<text x='764' y='460' font-size='10.5' fill='#2b2b2b'>不设</text>
+<rect x='882' y='434' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='896' cy='456' r='4.5' fill='#2f5f9e'/>
+<text x='908' y='460' font-size='10.5' fill='#2b2b2b'>不适用</text>
+<rect x='1026' y='434' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='1040' cy='456' r='4.5' fill='#2f5f9e'/>
+<text x='1052' y='460' font-size='10.5' fill='#2b2b2b'>不适用</text>
+<text x='282' y='508' font-size='12.5' fill='#1f1f1f' text-anchor='end'>HIPAA</text>
+<text x='282' y='526' font-size='10.5' fill='#6b6b6b' text-anchor='end'>45 CFR 164.316(b)(2)(i)   ·  §3 点名(a)</text>
+<rect x='306' y='494' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='320' cy='516' r='4.5' fill='#2e7d5b'/>
+<text x='332' y='520' font-size='10.5' fill='#2b2b2b'>文档可取回</text>
+<rect x='450' y='494' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='464' cy='516' r='4.5' fill='#2e7d5b'/>
+<text x='476' y='520' font-size='10.5' fill='#2b2b2b'>加密+签名</text>
+<rect x='594' y='494' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='608' cy='516' r='4.5' fill='#b4762a'/>
+<text x='620' y='520' font-size='10.5' fill='#2b2b2b'>无期限字段</text>
+<rect x='738' y='494' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='752' cy='516' r='4.5' fill='#9aa0a6'/>
+<text x='764' y='520' font-size='10.5' fill='#2b2b2b'>不设</text>
+<rect x='882' y='494' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='896' cy='516' r='4.5' fill='#9aa0a6'/>
+<text x='908' y='520' font-size='10.5' fill='#2b2b2b'>不设</text>
+<rect x='1026' y='494' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='1040' cy='516' r='4.5' fill='#9aa0a6'/>
+<text x='1052' y='520' font-size='10.5' fill='#2b2b2b'>不设</text>
+<rect x='20' y='542' width='1140' height='60' fill='#f7f8f9'/>
+<text x='282' y='568' font-size='12.5' fill='#1f1f1f' text-anchor='end'>PIPEDA</text>
+<text x='282' y='586' font-size='10.5' fill='#6b6b6b' text-anchor='end'>Schedule 1 原则 4.5 / 4.5.2   ·  §3 点名(a)</text>
+<rect x='306' y='554' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='320' cy='576' r='4.5' fill='#9aa0a6'/>
+<text x='332' y='580' font-size='10.5' fill='#2b2b2b'>不设下限</text>
+<rect x='450' y='554' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='464' cy='576' r='4.5' fill='#9aa0a6'/>
+<text x='476' y='580' font-size='10.5' fill='#2b2b2b'>不设</text>
+<rect x='594' y='554' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='608' cy='576' r='4.5' fill='#b4762a'/>
+<text x='620' y='580' font-size='10.5' fill='#2b2b2b'>要求同时给上下限</text>
+<rect x='738' y='554' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='752' cy='576' r='4.5' fill='#9aa0a6'/>
+<text x='764' y='580' font-size='10.5' fill='#2b2b2b'>不设</text>
+<rect x='882' y='554' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='896' cy='576' r='4.5' fill='#9aa0a6'/>
+<text x='908' y='580' font-size='10.5' fill='#2b2b2b'>不设</text>
+<rect x='1026' y='554' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='1040' cy='576' r='4.5' fill='#9aa0a6'/>
+<text x='1052' y='580' font-size='10.5' fill='#2b2b2b'>不设</text>
+<text x='282' y='628' font-size='12.5' fill='#1f1f1f' text-anchor='end'>PIPL</text>
+<text x='282' y='646' font-size='10.5' fill='#6b6b6b' text-anchor='end'>第 19 / 47 条   ·  §3 点名(a)</text>
+<rect x='306' y='614' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='320' cy='636' r='4.5' fill='#2e7d5b'/>
+<text x='332' y='640' font-size='10.5' fill='#2b2b2b'>可取回</text>
+<rect x='450' y='614' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='464' cy='636' r='4.5' fill='#2e7d5b'/>
+<text x='476' y='640' font-size='10.5' fill='#2b2b2b'>加密+签名</text>
+<rect x='594' y='614' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='608' cy='636' r='4.5' fill='#b4762a'/>
+<text x='620' y='640' font-size='10.5' fill='#2b2b2b'>最短必要无载体</text>
+<rect x='738' y='614' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='752' cy='636' r='4.5' fill='#b4762a'/>
+<text x='764' y='640' font-size='10.5' fill='#2b2b2b'>无理由/人员</text>
+<rect x='882' y='614' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='896' cy='636' r='4.5' fill='#2e7d5b'/>
+<text x='908' y='640' font-size='10.5' fill='#2b2b2b'>删除收据</text>
+<rect x='1026' y='614' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='1040' cy='636' r='4.5' fill='#b4762a'/>
+<text x='1052' y='640' font-size='10.5' fill='#2b2b2b'>权限归属合一</text>
+<rect x='20' y='662' width='1140' height='60' fill='#f7f8f9'/>
+<text x='282' y='688' font-size='12.5' fill='#1f1f1f' text-anchor='end'>LGPD</text>
+<text x='282' y='706' font-size='10.5' fill='#6b6b6b' text-anchor='end'>Art. 16 / 18(VI) / 37 / 40   ·  §3 点名(a)</text>
+<rect x='306' y='674' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='320' cy='696' r='4.5' fill='#9aa0a6'/>
+<text x='332' y='700' font-size='10.5' fill='#2b2b2b'>不设下限</text>
+<rect x='450' y='674' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='464' cy='696' r='4.5' fill='#9aa0a6'/>
+<text x='476' y='700' font-size='10.5' fill='#2b2b2b'>不设</text>
+<rect x='594' y='674' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='608' cy='696' r='4.5' fill='#b4762a'/>
+<text x='620' y='700' font-size='10.5' fill='#2b2b2b'>例外+ANPD另定</text>
+<rect x='738' y='674' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='752' cy='696' r='4.5' fill='#b4762a'/>
+<text x='764' y='700' font-size='10.5' fill='#2b2b2b'>无原值要求</text>
+<rect x='882' y='674' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='896' cy='696' r='4.5' fill='#b4762a'/>
+<text x='908' y='700' font-size='10.5' fill='#2b2b2b'>处理记录可覆盖</text>
+<rect x='1026' y='674' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='1040' cy='696' r='4.5' fill='#9aa0a6'/>
+<text x='1052' y='700' font-size='10.5' fill='#2b2b2b'>不设</text>
+<text x='282' y='748' font-size='12.5' fill='#1f1f1f' text-anchor='end'>EU MDR 2017/745</text>
+<text x='282' y='766' font-size='10.5' fill='#6b6b6b' text-anchor='end'>Art. 10(8)   ·  经主席读法纳入</text>
+<rect x='306' y='734' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='320' cy='756' r='4.5' fill='#2e7d5b'/>
+<text x='332' y='760' font-size='10.5' fill='#2b2b2b'>可取回</text>
+<rect x='450' y='734' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='464' cy='756' r='4.5' fill='#2e7d5b'/>
+<text x='476' y='760' font-size='10.5' fill='#2b2b2b'>加密+签名</text>
+<rect x='594' y='734' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='608' cy='756' r='4.5' fill='#b4762a'/>
+<text x='620' y='760' font-size='10.5' fill='#2b2b2b'>无期限字段</text>
+<rect x='738' y='734' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='752' cy='756' r='4.5' fill='#b4762a'/>
+<text x='764' y='760' font-size='10.5' fill='#2b2b2b'>无更正记录</text>
+<rect x='882' y='734' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='896' cy='756' r='4.5' fill='#9aa0a6'/>
+<text x='908' y='760' font-size='10.5' fill='#2b2b2b'>不设</text>
+<rect x='1026' y='734' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='1040' cy='756' r='4.5' fill='#9aa0a6'/>
+<text x='1052' y='760' font-size='10.5' fill='#2b2b2b'>不设</text>
+<rect x='20' y='782' width='1140' height='60' fill='#f7f8f9'/>
+<text x='282' y='808' font-size='12.5' fill='#1f1f1f' text-anchor='end'>21 CFR 820.35</text>
+<text x='282' y='826' font-size='10.5' fill='#6b6b6b' text-anchor='end'>+ ISO 13485 4.2.5   ·  经主席读法纳入</text>
+<rect x='306' y='794' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='320' cy='816' r='4.5' fill='#2e7d5b'/>
+<text x='332' y='820' font-size='10.5' fill='#2b2b2b'>可取回</text>
+<rect x='450' y='794' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='464' cy='816' r='4.5' fill='#2e7d5b'/>
+<text x='476' y='820' font-size='10.5' fill='#2b2b2b'>加密+签名</text>
+<rect x='594' y='794' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='608' cy='816' r='4.5' fill='#b4762a'/>
+<text x='620' y='820' font-size='10.5' fill='#2b2b2b'>无期限字段</text>
+<rect x='738' y='794' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='752' cy='816' r='4.5' fill='#b4762a'/>
+<text x='764' y='820' font-size='10.5' fill='#2b2b2b'>仅内容要求</text>
+<rect x='882' y='794' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='896' cy='816' r='4.5' fill='#9aa0a6'/>
+<text x='908' y='820' font-size='10.5' fill='#2b2b2b'>不设</text>
+<rect x='1026' y='794' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='1040' cy='816' r='4.5' fill='#9aa0a6'/>
+<text x='1052' y='820' font-size='10.5' fill='#2b2b2b'>不设</text>
+<text x='282' y='868' font-size='12.5' fill='#1f1f1f' text-anchor='end'>中国 GMP 第 45 条</text>
+<text x='282' y='886' font-size='10.5' fill='#6b6b6b' text-anchor='end'>（2026-11-01 施行）   ·  经主席读法纳入</text>
+<rect x='306' y='854' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='320' cy='876' r='4.5' fill='#2e7d5b'/>
+<text x='332' y='880' font-size='10.5' fill='#2b2b2b'>可取回</text>
+<rect x='450' y='854' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='464' cy='876' r='4.5' fill='#2e7d5b'/>
+<text x='476' y='880' font-size='10.5' fill='#2b2b2b'>加密+签名</text>
+<rect x='594' y='854' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='608' cy='876' r='4.5' fill='#b4762a'/>
+<text x='620' y='880' font-size='10.5' fill='#2b2b2b'>无期限字段</text>
+<rect x='738' y='854' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='752' cy='876' r='4.5' fill='#b4762a'/>
+<text x='764' y='880' font-size='10.5' fill='#2b2b2b'>无理由/人员</text>
+<rect x='882' y='854' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='896' cy='876' r='4.5' fill='#9aa0a6'/>
+<text x='908' y='880' font-size='10.5' fill='#2b2b2b'>不设</text>
+<rect x='1026' y='854' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='1040' cy='876' r='4.5' fill='#9aa0a6'/>
+<text x='1052' y='880' font-size='10.5' fill='#2b2b2b'>不设</text>
+<rect x='20' y='902' width='1140' height='60' fill='#f7f8f9'/>
+<text x='282' y='928' font-size='12.5' fill='#1f1f1f' text-anchor='end'>中国 GMP 第 46 条</text>
+<text x='282' y='946' font-size='10.5' fill='#6b6b6b' text-anchor='end'>（电子记录）   ·  经主席读法纳入</text>
+<rect x='306' y='914' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='320' cy='936' r='4.5' fill='#2e7d5b'/>
+<text x='332' y='940' font-size='10.5' fill='#2b2b2b'>备份可取回</text>
+<rect x='450' y='914' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='464' cy='936' r='4.5' fill='#2e7d5b'/>
+<text x='476' y='940' font-size='10.5' fill='#2b2b2b'>加密+签名</text>
+<rect x='594' y='914' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='608' cy='936' r='4.5' fill='#b4762a'/>
+<text x='620' y='940' font-size='10.5' fill='#2b2b2b'>备份期限无载体</text>
+<rect x='738' y='914' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='752' cy='936' r='4.5' fill='#b4762a'/>
+<text x='764' y='940' font-size='10.5' fill='#2b2b2b'>无理由/人员</text>
+<rect x='882' y='914' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='896' cy='936' r='4.5' fill='#2e7d5b'/>
+<text x='908' y='940' font-size='10.5' fill='#2b2b2b'>删除收据</text>
+<rect x='1026' y='914' width='132' height='44' rx='4' fill='none' stroke='#e2e4e6'/>
+<circle cx='1040' cy='936' r='4.5' fill='#b4762a'/>
+<text x='1052' y='940' font-size='10.5' fill='#2b2b2b'>签名合一</text>
+<text x='36' y='998' font-size='12.5' fill='#222'>合计 78 格（13 行 × 6 轴）：绿 19　橙 22　灰 27　蓝 10</text>
+<text x='36' y='1020' font-size='12' fill='#444'>橙格集中在三处：期限载体 11 格（无外部可核载体）、更正可辨 6 格（内容要求与理由要求分处两条，见 F3）、授权归属 3 格（签名合一）</text>
+<text x='36' y='1040' font-size='12' fill='#444'>蓝格 10 格全部来自 ISO 42001 与 NIST AI RMF：前者的义务是组织自建体系并自证，后者官方明示 voluntary，二者都不产生可逐条判定的义务（见 F4）</text>
+<text x='36' y='1064' font-size='11' fill='#8a8a8a'>依据：charter v1.0 §3（v1.1 声明 §3 unchanged）；draft-saihm-memory-protocol-03（2026-10-11）；条款原文见 06 与 raw2，对账与分类学见 10</text>
+</svg>
