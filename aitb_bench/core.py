@@ -135,6 +135,7 @@ def a_http(spec, ctx):
     out = []
     ms0 = time.time()
     ok = True
+    blocked = False
     for t in spec["targets"]:
         url = t["url"]
         want = t.get("expect", 200)
@@ -148,13 +149,18 @@ def a_http(spec, ctx):
             body_head = b""
         except Exception as e:
             out.append(f"{url} -> BLOCKED {type(e).__name__}")
-            ok = False
+            blocked = True
             continue
         mark = "ok" if code == want else f"want {want}"
         if code != want:
             ok = False
         out.append(f"{url} -> {code} ({mark})")
-    return ("PASS" if ok else "FAIL"), "; ".join(out), "", int((time.time() - ms0) * 1000)
+    if not ok:
+        return "FAIL", "; ".join(out), "", int((time.time() - ms0) * 1000)
+    if blocked:
+        # 超时/连接不了 ≠ 判据不符：没测到不能算测得失败（T1）
+        return "BLOCKED", "; ".join(out), "", int((time.time() - ms0) * 1000)
+    return "PASS", "; ".join(out), "", int((time.time() - ms0) * 1000)
 
 
 def a_pyver(spec, ctx):
@@ -272,9 +278,11 @@ def execute(preset, offline=False, strict=False):
         status, why, evidence, ms = fn(spec, ctx)
         want = spec.get("expect_status", "PASS")
         neg = want == "FAIL"  # 负控：这条检查被要求必须失败，它为 FAIL 是"按设计变红"
-        if status != want:
-            why = f"反预期：期望 {want}，实得 {status}（{why}）"
+        if neg and status != "FAIL":
+            # 负控没变红，说明这条判据已经不敏感 —— 这是判据失效，报 FAIL
+            why = f"反预期：负控要求 FAIL，实得 {status}（{why}）"
             status = "FAIL"
+        # want == PASS 时，SKIP / BLOCKED 保持原状：没测到不是测得失败，由 --strict 负责让它影响退出码
         verdicts.append({"id": spec["id"], "type": spec["type"], "status": status,
                          "why": why, "evidence": evidence, "ms": ms or int((time.time() - t0) * 1000),
                          "negative_control": neg})

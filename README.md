@@ -78,7 +78,8 @@ AITB_PRESETS=/path/to/presets
 
 `AITB_PRESETS` **adds** a search directory; it does not replace the built-in presets, so `aitb demo`
 still resolves after you set it. Preset names are resolved in this order: `$AITB_PRESETS`, the
-package's own `presets/`, then `./presets`. First match wins.
+package's own `presets/`, then `./presets`. First match wins. If `AITB_PRESETS` points at something
+that is not a directory, it is ignored with a warning — the built-in presets are still searched.
 
 ## Adding a check
 
