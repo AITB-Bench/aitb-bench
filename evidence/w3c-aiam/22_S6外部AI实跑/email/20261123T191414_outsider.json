@@ -1,0 +1,107 @@
+{
+ "lens": "outsider",
+ "model": "deepseek-ai/DeepSeek-V3.2",
+ "seconds": 52.6,
+ "prompt_sha16": "dc76f1f3891b531e",
+ "usage": {
+  "prompt_tokens": 2806,
+  "completion_tokens": 1171,
+  "total_tokens": 3977,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0
+  },
+  "prompt_cache_hit_tokens": 0,
+  "prompt_cache_miss_tokens": 2806
+ },
+ "parsed": true,
+ "findings": [
+  {
+   "severity": "major",
+   "quote": "the Chair's recorded reading of 'comparable regimes' brings in (the reading is in the 2026-11-03 reply, https://lists.w3.org/Archives/Public/public-ai-agent-memory-interop/2026Nov/0003.html).",
+   "problem": "The document references a URL for a key definition but instructs the reader not to open URLs, leaving the definition's content unknown.",
+   "fix": "Quote the relevant part of the reading from the linked archive.",
+   "class": "unsupported"
+  },
+  {
+   "severity": "major",
+   "quote": "I did not obtain the ISO/IEC 42001:2023 text, which is why no clause number appears for it here; the annex says the same.",
+   "problem": "The author admits not reading a key document being analyzed, making the analysis of it unsupported.",
+   "fix": "Obtain and read the text, or remove the instrument from the analysis.",
+   "class": "unsupported"
+  },
+  {
+   "severity": "major",
+   "quote": "the archive record of this thread up to 2026-11-23 no one has mapped it.",
+   "problem": "Claims knowledge of an entire archive's contents without providing evidence; the reader cannot verify this.",
+   "fix": "Cite a specific search result or omit the claim.",
+   "class": "unsupported"
+  },
+  {
+   "severity": "major",
+   "quote": "I raised the field-level precedent for separating them on 2026-10-22 (https://lists.w3.org/Archives/Public/public-ai-agent-memory-interop/2026Oct/0027.html)",
+   "problem": "References a prior contribution by URL only, so the reader cannot understand the precedent being cited.",
+   "fix": "Summarize the key point of the precedent in the text.",
+   "class": "unsupported"
+  },
+  {
+   "severity": "major",
+   "quote": "The annex, attached, carries the method, the instrument set with paragraph-level citations, and the fifteen rows",
+   "problem": "The annex is referenced but not included in the provided document text, so the core evidence is missing.",
+   "fix": "Include the annex in the post.",
+   "class": "unsupported"
+  },
+  {
+   "severity": "major",
+   "quote": "The anchor check that supports the rows, and its first-run failures, are available on request.",
+   "problem": "Mentions supporting evidence that is not provided, leaving the analysis unverifiable.",
+   "fix": "Include the anchor check summary or results in the post.",
+   "class": "unsupported"
+  },
+  {
+   "severity": "minor",
+   "quote": "\"-03\" is draft-saihm-memory-protocol-03, posted 2026-10-11.",
+   "problem": "Uses an undefined shorthand \"-03\" throughout without establishing it as a known convention for this audience.",
+   "fix": "Use the full name on first reference and define the shorthand clearly.",
+   "class": "unclear"
+  },
+  {
+   "severity": "minor",
+   "quote": "the two meet only in vocabulary - I would like 'not assessable' and 'not exercised' - the latter being the word in the report format under discussion - to keep their distance",
+   "problem": "The terms 'not exercised' and 'report format under discussion' are not defined or introduced earlier.",
+   "fix": "Define 'not exercised' and clarify what 'report format' is being discussed.",
+   "class": "unclear"
+  },
+  {
+   "severity": "minor",
+   "quote": "the Chair's recorded reading of section 3 names EU MDR, 21 CFR Part 820, ISO 13485 and the NMPA registration-review rules as comparable regimes",
+   "problem": "Acronyms NMPA is used without expansion, assuming reader knowledge.",
+   "fix": "Expand NMPA on first use.",
+   "class": "unclear"
+  },
+  {
+   "severity": "minor",
+   "quote": "the same ML-DSA-65 signature.",
+   "problem": "Uses an undefined technical term 'ML-DSA-65' without explanation.",
+   "fix": "Briefly explain what ML-DSA-65 is (e.g., a signature algorithm).",
+   "class": "unclear"
+  },
+  {
+   "severity": "minor",
+   "quote": "FHIR is the HL7 standard for exchanging health data and R5 its current release, where Trial Use means published but not yet normative",
+   "problem": "Assumes the reader does not know FHIR but then uses jargon like 'Trial Use' and 'normative' without clear definition.",
+   "fix": "Provide a clearer, self-contained explanation of the relevance of 'Trial Use'.",
+   "class": "unclear"
+  },
+  {
+   "severity": "minor",
+   "quote": "the sharpest test of the horizon point below.",
+   "problem": "Refers to a 'horizon point' concept that has not yet been introduced or defined.",
+   "fix": "Introduce the concept of a 'horizon point' before referring to it.",
+   "class": "unclear"
+  }
+ ],
+ "raw": "```json\n{\n    \"findings\": [\n        {\n            \"severity\": \"major\",\n            \"quote\": \"the Chair's recorded reading of 'comparable regimes' brings in (the reading is in the 2026-11-03 reply, https://lists.w3.org/Archives/Public/public-ai-agent-memory-interop/2026Nov/0003.html).\",\n            \"problem\": \"The document references a URL for a key definition but instructs the reader not to open URLs, leaving the definition's content unknown.\",\n            \"fix\": \"Quote the relevant part of the reading from the linked archive.\",\n            \"class\": \"unsupported\"\n        },\n        {\n            \"severity\": \"major\",\n            \"quote\": \"I did not obtain the ISO/IEC 42001:2023 text, which is why no clause number appears for it here; the annex says the same.\",\n            \"problem\": \"The author admits not reading a key document being analyzed, making the analysis of it unsupported.\",\n            \"fix\": \"Obtain and read the text, or remove the instrument from the analysis.\",\n            \"class\": \"unsupported\"\n        },\n        {\n            \"severity\": \"major\",\n            \"quote\": \"the archive record of this thread up to 2026-11-23 no one has mapped it.\",\n            \"problem\": \"Claims knowledge of an entire archive's contents without providing evidence; the reader cannot verify this.\",\n            \"fix\": \"Cite a specific search result or omit the claim.\",\n            \"class\": \"unsupported\"\n        },\n        {\n            \"severity\": \"major\",\n            \"quote\": \"I raised the field-level precedent for separating them on 2026-10-22 (https://lists.w3.org/Archives/Public/public-ai-agent-memory-interop/2026Oct/0027.html)\",\n            \"problem\": \"References a prior contribution by URL only, so the reader cannot understand the precedent being cited.\",\n            \"fix\": \"Summarize the key point of the precedent in the text.\",\n            \"class\": \"unsupported\"\n        },\n        {\n            \"severity\": \"major\",\n            \"quote\": \"The annex, attached, carries the method, the instrument set with paragraph-level citations, and the fifteen rows\",\n            \"problem\": \"The annex is referenced but not included in the provided document text, so the core evidence is missing.\",\n            \"fix\": \"Include the annex in the post.\",\n            \"class\": \"unsupported\"\n        },\n        {\n            \"severity\": \"major\",\n            \"quote\": \"The anchor check that supports the rows, and its first-run failures, are available on request.\",\n            \"problem\": \"Mentions supporting evidence that is not provided, leaving the analysis unverifiable.\",\n            \"fix\": \"Include the anchor check summary or results in the post.\",\n            \"class\": \"unsupported\"\n        },\n        {\n            \"severity\": \"minor\",\n            \"quote\": \"\\\"-03\\\" is draft-saihm-memory-protocol-03, posted 2026-10-11.\",\n            \"problem\": \"Uses an undefined shorthand \\\"-03\\\" throughout without establishing it as a known convention for this audience.\",\n            \"fix\": \"Use the full name on first reference and define the shorthand clearly.\",\n            \"class\": \"unclear\"\n        },\n        {\n            \"severity\": \"minor\",\n            \"quote\": \"the two meet only in vocabulary - I would like 'not assessable' and 'not exercised' - the latter being the word in the report format under discussion - to keep their distance\",\n            \"problem\": \"The terms 'not exercised' and 'report format under discussion' are not defined or introduced earlier.\",\n            \"fix\": \"Define 'not exercised' and clarify what 'report format' is being discussed.\",\n            \"class\": \"unclear\"\n        },\n        {\n            \"severity\": \"minor\",\n            \"quote\": \"the Chair's recorded reading of section 3 names EU MDR, 21 CFR Part 820, ISO 13485 and the NMPA registration-review rules as comparable regimes\",\n            \"problem\": \"Acronyms NMPA is used without expansion, assuming reader knowledge.\",\n            \"fix\": \"Expand NMPA on first use.\",\n            \"class\": \"unclear\"\n        },\n        {\n            \"severity\": \"minor\",\n            \"quote\": \"the same ML-DSA-65 signature.\",\n            \"problem\": \"Uses an undefined technical term 'ML-DSA-65' without explanation.\",\n            \"fix\": \"Briefly explain what ML-DSA-65 is (e.g., a signature algorithm).\",\n            \"class\": \"unclear\"\n        },\n        {\n            \"severity\": \"minor\",\n            \"quote\": \"FHIR is the HL7 standard for exchanging health data and R5 its current release, where Trial Use means published but not yet normative\",\n            \"problem\": \"Assumes the reader does not know FHIR but then uses jargon like 'Trial Use' and 'normative' without clear definition.\",\n            \"fix\": \"Provide a clearer, self-contained explanation of the relevance of 'Trial Use'.\",\n            \"class\": \"unclear\"\n        },\n        {\n            \"severity\": \"minor\",\n            \"quote\": \"the sharpest test of the horizon point below.\",\n            \"problem\": \"Refers to a 'horizon point' concept that has not yet been introduced or defined.\",\n            \"fix\": \"Introduce the concept of a 'horizon point' before referring to it.\",\n            \"class\": \"unclear\"\n        }\n    ]\n}\n```"
+}

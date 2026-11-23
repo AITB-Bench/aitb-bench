@@ -1,0 +1,352 @@
+{
+ "target": "邮件正文.txt",
+ "tag": "final_subject_fix",
+ "stamp": "20261123T191414",
+ "doc_sha256_16": "3ebc6ced1bce1a87",
+ "doc_chars": 10983,
+ "model": "deepseek-ai/DeepSeek-V3.2",
+ "temperature": 0,
+ "lenses": [
+  "expert",
+  "process",
+  "adversary",
+  "outsider"
+ ],
+ "prompt_tokens_total": 11218,
+ "counts": {
+  "blocker": 0,
+  "major": 21,
+  "minor": 20
+ },
+ "findings": [
+  {
+   "severity": "major",
+   "quote": "the Chair's recorded reading of 'comparable regimes' in section 3 as any law, regulation or standard that sets requirements for how records are kept, protected, retained, corrected or erased. On that reading, the medical-device rules EU MDR, 21 CFR Part 820, ISO 13485 and the rules for NMPA registration review are comparable regimes.",
+   "problem": "The document attributes a specific, expansive interpretation of 'comparable regimes' to the Chair, but the cited source (a reply) is not provided in the text for verification. This is an unsupported attribution of a legal interpretation.",
+   "fix": "Replace 'the Chair's recorded reading' with 'a proposed reading' or provide the full text of the reply.",
+   "class": "unsupported",
+   "lens": "expert"
+  },
+  {
+   "severity": "major",
+   "quote": "HIPAA's six-year rule (45 CFR 164.316(b)(2)(i)), by contrast, attaches, as I read it, to the documentation a covered entity must maintain - its policies and procedures, and its records of actions, activities and assessments - which is why R9 is recorded as not assessable rather than satisfied.",
+   "problem": "The interpretation of 45 CFR 164.316(b)(2)(i) is presented as a definitive reading that leads to a 'not assessable' determination, but this is a legal interpretation, not a stated fact from the regulation.",
+   "fix": "Rephrase to clarify this is the author's interpretation, e.g., 'In my reading, HIPAA's six-year rule attaches to documentation...'",
+   "class": "overstated",
+   "lens": "expert"
+  },
+  {
+   "severity": "major",
+   "quote": "the AI Act requires logs for at least six months (Articles 19(1) and 26(6))",
+   "problem": "The claim oversimplifies the EU AI Act's logging requirements. Article 19(1) relates to high-risk AI systems and record-keeping, not a generic 'logs for at least six months'. The specific duration and context are not quoted.",
+   "fix": "Specify the exact requirement and context from the cited articles, or rephrase as 'the AI Act includes record-keeping requirements (e.g., Articles 19(1), 26(6))'.",
+   "class": "overstated",
+   "lens": "expert"
+  },
+  {
+   "severity": "major",
+   "quote": "21 CFR 820.35 read with the incorporated ISO 13485 clause 4.2.5 requires at least the lifetime of the device, but not less than two years from the date of product release.",
+   "problem": "This merges requirements from 21 CFR 820.35 and ISO 13485 without clear citation for the composite 'lifetime of the device, but not less than two years' rule. The exact source of this combined requirement is unclear.",
+   "fix": "Provide separate, precise citations for the lifetime requirement and the two-year minimum, clarifying which instrument states each.",
+   "class": "unclear",
+   "lens": "expert"
+  },
+  {
+   "severity": "major",
+   "quote": "China's device GMP - in force since 2026-11-01 - is the only instrument in the set whose requirements attach to the electronic record itself rather than to documentation about it: Article 46(2) requires that changes and deletions be performed by authorised personnel and that records of the change and the deletion be retained.",
+   "problem": "The claim that this is the 'only instrument in the set' with requirements attaching to the electronic record itself is a strong comparative legal conclusion that may overlook nuances in other cited instruments (e.g., GDPR's right to erasure).",
+   "fix": "Qualify the claim, e.g., 'China's device GMP Article 46(2) explicitly attaches requirements to the electronic record itself...'",
+   "class": "overstated",
+   "lens": "expert"
+  },
+  {
+   "severity": "major",
+   "quote": "the Chair's recorded reading of 'comparable regimes' in section 3 as any law, regulation or standard that sets requirements for how records are kept, protected, retained, corrected or erased. On that reading, the medical-device rules EU MDR, 21 CFR Part 820, ISO 13485 and the rules for NMPA registration review are comparable regimes.",
+   "problem": "The author asserts the Chair's reading includes specific device regulations, but the cited source (2026-11-03 reply) is not provided in the text for verification.",
+   "fix": "Quote the relevant sentence from the 2026-11-03 reply directly in the text.",
+   "class": "unsupported",
+   "lens": "process"
+  },
+  {
+   "severity": "major",
+   "quote": "I did not obtain the ISO/IEC 42001:2023 text, which is why no clause number appears for it here; the annex says the same.",
+   "problem": "The author admits not reading a key source document (ISO/IEC 42001:2023) but still makes a determination about it.",
+   "fix": "Obtain and read the standard before scoring, or remove it from the analysis with a note.",
+   "class": "unsupported",
+   "lens": "process"
+  },
+  {
+   "severity": "major",
+   "quote": "HIPAA's six-year rule (45 CFR 164.316(b)(2)(i)), by contrast, attaches, as I read it, to the documentation a covered entity must maintain... which is why R9 is recorded as not assessable rather than satisfied.",
+   "problem": "The interpretation of HIPAA's attachment point is presented as the author's reading ('as I read it') without citing a supporting read-point (e.g., regulatory guidance) that a third party could verify.",
+   "fix": "Cite a specific, verifiable source (e.g., an HHS interpretation) that supports this reading of the rule's scope.",
+   "class": "unsupported",
+   "lens": "process"
+  },
+  {
+   "severity": "major",
+   "quote": "China's device GMP - in force since 2026-11-01 - is the only instrument in the set whose requirements attach to the electronic record itself rather than to documentation about it",
+   "problem": "The claim that it is the 'only instrument' is a strong absolute statement. Without having fully assessed every clause of every other instrument (e.g., all HIPAA, PIPEDA provisions), this cannot be definitively supported.",
+   "fix": "Qualify the statement, e.g., 'is the only instrument in my analysis where I found requirements attaching directly...'",
+   "class": "overstated",
+   "lens": "process"
+  },
+  {
+   "severity": "major",
+   "quote": "the Chair's recorded reading of 'comparable regimes' in section 3 as any law, regulation or standard that sets requirements for how records are kept, protected, retained, corrected or erased. On that reading, the medical-device rules EU MDR, 21 CFR Part 820, ISO 13485 and the rules for NMPA registration review are comparable regimes.",
+   "problem": "The author presents the Chair's personal reading as authoritative for the group's scope, expanding the charter's list of instruments without group consensus.",
+   "fix": "Replace 'the Chair's recorded reading' with 'a proposed interpretation' or similar, clarifying it is not an official group decision.",
+   "class": "overstated",
+   "lens": "adversary"
+  },
+  {
+   "severity": "major",
+   "quote": "What these fifteen rows add is scored rows on the device side... These device instruments are not an aside: the Chair's recorded reading of section 3 names... and that reading is why they carry rows here.",
+   "problem": "The author justifies the inclusion of major new regulatory domains (medical devices) based solely on a single, non-consensus reading of the charter.",
+   "fix": "Acknowledge this is a proposal to expand scope, not an application of an agreed scope.",
+   "class": "overstated",
+   "lens": "adversary"
+  },
+  {
+   "severity": "major",
+   "quote": "I did not obtain the ISO/IEC 42001:2023 text, which is why no clause number appears for it here; the annex says the same.",
+   "problem": "The author admits to not reading a key standard listed in the charter, yet includes a determination about it ('cannot be scored').",
+   "fix": "Either obtain the text or remove the instrument from the analysis with a note that it was omitted due to inaccessibility.",
+   "class": "unsupported",
+   "lens": "adversary"
+  },
+  {
+   "severity": "major",
+   "quote": "Treating that as a reason not to score it is an interpretive choice, and I record it as one rather than as a fact that settles the question",
+   "problem": "The author excludes NIST AI RMF (a charter-listed item) based on its voluntary nature, which is a substantive, debatable interpretation presented as a settled methodological choice.",
+   "fix": "Score it as 'not assessable' with the reason being the voluntary nature, or include it and note the challenge.",
+   "class": "overstated",
+   "lens": "adversary"
+  },
+  {
+   "severity": "major",
+   "quote": "One row adds a sixth axis - attribution of the act to an authorised person - because Article 46(2) of China's GMP attaches the requirement to a person and not to a record; I flag it as an addition rather than pass it off as part of the Chair's reading.",
+   "problem": "The author modifies their own proposed unit (the five axes) mid-analysis to accommodate a finding from an instrument they introduced via the contested Chair's reading.",
+   "fix": "Stick to the originally proposed five axes for all instruments, or justify the new axis as a necessary expansion for all analyses.",
+   "class": "internal-inconsistency",
+   "lens": "adversary"
+  },
+  {
+   "severity": "major",
+   "quote": "China's device GMP - in force since 2026-11-01 - is the only instrument in the set whose requirements attach to the electronic record itself... in the archive record of this thread up to 2026-11-23 no one has mapped it.",
+   "problem": "Claims novelty ('no one has mapped it') for an analysis of an instrument the author themselves introduced to the discussion, which is self-serving.",
+   "fix": "Remove the claim of novelty.",
+   "class": "self-serving",
+   "lens": "adversary"
+  },
+  {
+   "severity": "major",
+   "quote": "the Chair's recorded reading of 'comparable regimes' brings in (the reading is in the 2026-11-03 reply, https://lists.w3.org/Archives/Public/public-ai-agent-memory-interop/2026Nov/0003.html).",
+   "problem": "The document references a URL for a key definition but instructs the reader not to open URLs, leaving the definition's content unknown.",
+   "fix": "Quote the relevant part of the reading from the linked archive.",
+   "class": "unsupported",
+   "lens": "outsider"
+  },
+  {
+   "severity": "major",
+   "quote": "I did not obtain the ISO/IEC 42001:2023 text, which is why no clause number appears for it here; the annex says the same.",
+   "problem": "The author admits not reading a key document being analyzed, making the analysis of it unsupported.",
+   "fix": "Obtain and read the text, or remove the instrument from the analysis.",
+   "class": "unsupported",
+   "lens": "outsider"
+  },
+  {
+   "severity": "major",
+   "quote": "the archive record of this thread up to 2026-11-23 no one has mapped it.",
+   "problem": "Claims knowledge of an entire archive's contents without providing evidence; the reader cannot verify this.",
+   "fix": "Cite a specific search result or omit the claim.",
+   "class": "unsupported",
+   "lens": "outsider"
+  },
+  {
+   "severity": "major",
+   "quote": "I raised the field-level precedent for separating them on 2026-10-22 (https://lists.w3.org/Archives/Public/public-ai-agent-memory-interop/2026Oct/0027.html)",
+   "problem": "References a prior contribution by URL only, so the reader cannot understand the precedent being cited.",
+   "fix": "Summarize the key point of the precedent in the text.",
+   "class": "unsupported",
+   "lens": "outsider"
+  },
+  {
+   "severity": "major",
+   "quote": "The annex, attached, carries the method, the instrument set with paragraph-level citations, and the fifteen rows",
+   "problem": "The annex is referenced but not included in the provided document text, so the core evidence is missing.",
+   "fix": "Include the annex in the post.",
+   "class": "unsupported",
+   "lens": "outsider"
+  },
+  {
+   "severity": "major",
+   "quote": "The anchor check that supports the rows, and its first-run failures, are available on request.",
+   "problem": "Mentions supporting evidence that is not provided, leaving the analysis unverifiable.",
+   "fix": "Include the anchor check summary or results in the post.",
+   "class": "unsupported",
+   "lens": "outsider"
+  },
+  {
+   "severity": "minor",
+   "quote": "I did not obtain the ISO/IEC 42001:2023 text, which is why no clause number appears for it here; the annex says the same.",
+   "problem": "The author admits to not having read a key instrument (ISO/IEC 42001:2023) that is part of the analysis set. This undermines the basis for its exclusion and any claims about its content.",
+   "fix": "Obtain and review the standard before making determinations about its scorable nature, or remove it from the analysis set.",
+   "class": "unsupported",
+   "lens": "expert"
+  },
+  {
+   "severity": "minor",
+   "quote": "One is voluntary on its own terms: NIST states that the AI RMF is 'intended for voluntary use'. Treating that as a reason not to score it is an interpretive choice...",
+   "problem": "The document correctly quotes NIST AI RMF as voluntary but then uses this as a reason to exclude it from scoring, while other voluntary standards (ISO ones) are excluded for different reasons. This creates an internal inconsistency in the treatment of 'voluntary' instruments.",
+   "fix": "Apply a consistent rationale for excluding voluntary instruments, or score NIST AI RMF under the same 'not assessable' rubric as the ISO standards.",
+   "class": "internal-inconsistency",
+   "lens": "expert"
+  },
+  {
+   "severity": "minor",
+   "quote": "the annex says the same.",
+   "problem": "The reference to 'the annex' is unclear. The annex is mentioned as attached but its content is not visible in the provided document text, making this reference unverifiable.",
+   "fix": "Incorporate the relevant statement from the annex into the main text, or remove the reference.",
+   "class": "unclear",
+   "lens": "expert"
+  },
+  {
+   "severity": "minor",
+   "quote": "the Chair's recorded reading of section 3 names EU MDR, 21 CFR Part 820, ISO 13485 and the NMPA registration-review rules as comparable regimes, and that reading is why they carry rows here.",
+   "problem": "Repeats the earlier unsupported claim about the Chair's reading as the justification for including specific regimes. This compounds the earlier problem.",
+   "fix": "As per the first finding, rephrase to clarify the source or nature of the interpretation.",
+   "class": "unsupported",
+   "lens": "expert"
+  },
+  {
+   "severity": "minor",
+   "quote": "the annex says the same.",
+   "problem": "The statement is unclear; it's not specified what 'the same' refers to (presumably the inability to score the standard).",
+   "fix": "Clarify: 'the annex likewise records no clause number and marks it as not assessable for the same reason.'",
+   "class": "unclear",
+   "lens": "process"
+  },
+  {
+   "severity": "minor",
+   "quote": "the Chair's recorded reading of section 3 names EU MDR, 21 CFR Part 820, ISO 13485 and the NMPA registration-review rules as comparable regimes, and that reading is why they carry rows here.",
+   "problem": "The list of regimes here differs slightly from the earlier list, which included 'China's GMP' but not 'ISO 13485'. This creates a minor internal inconsistency.",
+   "fix": "Ensure the lists are consistent. If China's GMP is included based on the same reading, state that.",
+   "class": "internal-inconsistency",
+   "lens": "process"
+  },
+  {
+   "severity": "minor",
+   "quote": "One row adds a sixth axis - attribution of the act to an authorised person - because Article 46(2) of China's GMP attaches the requirement to a person and not to a record; I flag it as an addition rather than pass it off as part of the Chair's reading.",
+   "problem": "The 'sixth axis' (attribution) is not one of the five axes (kept, protected, retained, corrected, erased) derived from the Chair's sentence. Adding it changes the proposed unit's structure, which should be explicitly justified as a necessary expansion.",
+   "fix": "Explicitly propose expanding the unit's axes to include 'attributed' based on the evidence from China's GMP.",
+   "class": "unclear",
+   "lens": "process"
+  },
+  {
+   "severity": "minor",
+   "quote": "HIPAA's six years and PIPEDA's requirement... are the only two of the four that carry an explicit figure or an explicit two-sided bound - the sharpest test of the horizon point below.",
+   "problem": "The claim 'only two of the four' is a count that could be wrong if another data-protection statute in the set (PIPL, LGPD) has an explicit retention figure the author missed.",
+   "fix": "Add a qualifier like 'based on my reading' or cite the specific clauses reviewed to support the count.",
+   "class": "unsupported",
+   "lens": "process"
+  },
+  {
+   "severity": "minor",
+   "quote": "the archive record of this thread up to 2026-11-23 no one has mapped it.",
+   "problem": "This is an absolute claim about the contents of an archive (the mailing list thread) that is not provided in the text for verification.",
+   "fix": "Remove the absolute claim or rephrase as 'I have not found a prior mapping in the thread archive.'",
+   "class": "unsupported",
+   "lens": "process"
+  },
+  {
+   "severity": "minor",
+   "quote": "Those are Trial Use, so a precedent and not an authority - but they show the distinction is a field choice someone already made, not a new requirement invented here.",
+   "problem": "The logical connection is slightly unclear. Stating it's 'not a new requirement invented here' could imply the crosswalk is inventing requirements, which may not be the author's intent.",
+   "fix": "Clarify: '...show the distinction is a field choice already established in a related domain, supporting its feasibility.'",
+   "class": "unclear",
+   "lens": "process"
+  },
+  {
+   "severity": "minor",
+   "quote": "The three section 3 items that are not scored are named here rather than left for a reader to discover, each with the reason",
+   "problem": "The phrasing 'rather than left for a reader to discover' frames the author as uniquely diligent, which is a subjective, self-serving framing.",
+   "fix": "Rephrase neutrally: 'The three section 3 items that are not scored, and the reason for each, are:'",
+   "class": "self-serving",
+   "lens": "adversary"
+  },
+  {
+   "severity": "minor",
+   "quote": "the annex says the same.",
+   "problem": "Vague reference to an annex not included in the provided text. A reader cannot verify the claim.",
+   "fix": "Provide the specific statement from the annex or omit the phrase.",
+   "class": "unclear",
+   "lens": "adversary"
+  },
+  {
+   "severity": "minor",
+   "quote": "HIPAA's six-year rule (45 CFR 164.316(b)(2)(i)), by contrast, attaches, as I read it, to the documentation a covered entity must maintain",
+   "problem": "The phrase 'as I read it' highlights a personal, potentially contestable legal interpretation without supporting citation or argument.",
+   "fix": "Either state the interpretation confidently with supporting reasoning, or present it more tentatively as one possible view.",
+   "class": "overstated",
+   "lens": "adversary"
+  },
+  {
+   "severity": "minor",
+   "quote": "Those are Trial Use, so a precedent and not an authority - but they show the distinction is a field choice someone already made, not a new requirement invented here.",
+   "problem": "Dismisses the cited precedent ('not an authority') while simultaneously using it to argue the distinction is not novel, which is contradictory.",
+   "fix": "Either present it as a valid precedent or don't cite it. Remove 'not an authority'.",
+   "class": "internal-inconsistency",
+   "lens": "adversary"
+  },
+  {
+   "severity": "minor",
+   "quote": "\"-03\" is draft-saihm-memory-protocol-03, posted 2026-10-11.",
+   "problem": "Uses an undefined shorthand \"-03\" throughout without establishing it as a known convention for this audience.",
+   "fix": "Use the full name on first reference and define the shorthand clearly.",
+   "class": "unclear",
+   "lens": "outsider"
+  },
+  {
+   "severity": "minor",
+   "quote": "the two meet only in vocabulary - I would like 'not assessable' and 'not exercised' - the latter being the word in the report format under discussion - to keep their distance",
+   "problem": "The terms 'not exercised' and 'report format under discussion' are not defined or introduced earlier.",
+   "fix": "Define 'not exercised' and clarify what 'report format' is being discussed.",
+   "class": "unclear",
+   "lens": "outsider"
+  },
+  {
+   "severity": "minor",
+   "quote": "the Chair's recorded reading of section 3 names EU MDR, 21 CFR Part 820, ISO 13485 and the NMPA registration-review rules as comparable regimes",
+   "problem": "Acronyms NMPA is used without expansion, assuming reader knowledge.",
+   "fix": "Expand NMPA on first use.",
+   "class": "unclear",
+   "lens": "outsider"
+  },
+  {
+   "severity": "minor",
+   "quote": "the same ML-DSA-65 signature.",
+   "problem": "Uses an undefined technical term 'ML-DSA-65' without explanation.",
+   "fix": "Briefly explain what ML-DSA-65 is (e.g., a signature algorithm).",
+   "class": "unclear",
+   "lens": "outsider"
+  },
+  {
+   "severity": "minor",
+   "quote": "FHIR is the HL7 standard for exchanging health data and R5 its current release, where Trial Use means published but not yet normative",
+   "problem": "Assumes the reader does not know FHIR but then uses jargon like 'Trial Use' and 'normative' without clear definition.",
+   "fix": "Provide a clearer, self-contained explanation of the relevance of 'Trial Use'.",
+   "class": "unclear",
+   "lens": "outsider"
+  },
+  {
+   "severity": "minor",
+   "quote": "the sharpest test of the horizon point below.",
+   "problem": "Refers to a 'horizon point' concept that has not yet been introduced or defined.",
+   "fix": "Introduce the concept of a 'horizon point' before referring to it.",
+   "class": "unclear",
+   "lens": "outsider"
+  }
+ ],
+ "all_parsed": true
+}

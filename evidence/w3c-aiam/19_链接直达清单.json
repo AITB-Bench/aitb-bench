@@ -1,0 +1,32 @@
+{
+ "name": "w3c-aiam · 本线全部被引对象",
+ "note": "每条：id / url / must（正文必须命中的片段，大小写不敏感）。命不中即 FAIL——状态码不是证据。",
+ "items": [
+  {"id": "E1",  "url": "https://lists.w3.org/Archives/Public/public-ai-agent-memory-interop/2026Oct/0014.html", "must": ["closes 2 November 2026"]},
+  {"id": "E2",  "url": "https://lists.w3.org/Archives/Public/public-ai-agent-memory-interop/2026Oct/0027.html", "must": ["Use case: retention"]},
+  {"id": "E3",  "url": "https://lists.w3.org/Archives/Public/public-ai-agent-memory-interop/2026Oct/0034.html", "must": ["Xinghua proposed one sentence"]},
+  {"id": "E4",  "url": "https://lists.w3.org/Archives/Public/public-ai-agent-memory-interop/2026Nov/0003.html", "must": ["comparable regimes"]},
+  {"id": "E5",  "url": "https://lists.w3.org/Archives/Public/public-ai-agent-memory-interop/2026Nov/0007.html", "must": ["NMPA registration review"]},
+  {"id": "E6",  "url": "https://lists.w3.org/Archives/Public/public-ai-agent-memory-interop/2026Nov/0008.html", "must": ["This departs from what I said"]},
+  {"id": "E9",  "url": "https://www.w3.org/community/ai-agent-memory-interop/2026/11/23/charter-ai-agent-memory-interoperability-community-group-v1-1/", "must": ["re-examines that deliverable as a decision under \u00a79"]},
+  {"id": "E10", "url": "https://www.w3.org/community/ai-agent-memory-interop/", "must": ["charter"]},
+  {"id": "E11", "url": "https://lists.w3.org/Archives/Public/public-ai-agent-memory-interop/2026Nov/0009.html", "must": ["Adopted on 2026-11-23"]},
+  {"id": "P1",  "url": "https://datatracker.ietf.org/doc/draft-saihm-memory-protocol/03/", "must": ["saihm-memory-protocol"]},
+  {"id": "P2",  "url": "https://www.ietf.org/archive/id/draft-khandelwal-bmwg-agent-memory-integrity-02.html", "must": ["REJECTED and REPORTED are passes"]},
+  {"id": "P3",  "url": "https://build.fhir.org/provenance-definitions.html", "must": ["onBehalfOf"]},
+  {"id": "P4",  "url": "https://www.w3.org/community/agent-conformance/", "must": ["Agent Conformance"]},
+  {"id": "P5",  "url": "https://www.nist.gov/itl/ai-risk-management-framework", "must": ["voluntary"]},
+  {"id": "L1",  "url": "https://gdpr-info.eu/art-17-gdpr/", "must": ["without undue delay"]},
+  {"id": "L2",  "url": "https://gdpr-info.eu/art-20-gdpr/", "must": ["structured, commonly used and machine-readable format"]},
+  {"id": "L3",  "url": "https://artificialintelligenceact.eu/article/19/", "must": ["logs"]},
+  {"id": "L4",  "url": "https://artificialintelligenceact.eu/article/26/", "must": ["logs"]},
+  {"id": "L5",  "url": "https://www.ecfr.gov/api/renderer/v1/content/enhanced/current/title-45?part=164&section=164.316", "must": ["6 years"]},
+  {"id": "L6",  "url": "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-H/part-820/subpart-B/section-820.35", "must": ["820.35"]},
+  {"id": "L7",  "url": "https://www.gov.cn/gongbao/2026/issue_12506/202601/content_7055196.html", "must": ["\u7b2c\u56db\u5341\u4e94\u6761"]},
+  {"id": "L8",  "url": "http://www.npc.gov.cn/c2/c30834/202108/t20210820_313088.html", "must": ["\u7b2c\u56db\u5341\u4e94\u6761"]},
+  {"id": "L9",  "url": "https://laws-lois.justice.gc.ca/eng/acts/P-8.6/FullText.html", "must": ["retention"]},
+  {"id": "L10", "url": "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm", "must": ["Art. 16"]},
+  {"id": "L11", "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32017R0745", "must": [], "blocked_status": [202], "note": "EUR-Lex 对脚本反爬；人工浏览器可达，本地副本见 raw/01_MDR"},
+  {"id": "L12", "url": "https://www.isms.online/iso-27001/annex-a-2022/", "must": ["Information Deletion"]}
+ ]
+}

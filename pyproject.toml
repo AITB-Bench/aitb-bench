@@ -9,7 +9,7 @@ description = "AITB - Assurance Instrument Test Bench: test the instrument that 
 readme = "README.md"
 requires-python = ">=3.9"
 license = "Apache-2.0"
-authors = [{name = "赵兴华 / Steven Zhao", email = "zhaoxinghua06@126.com"}]
+authors = [{name = "Steven Zhao", email = "aitb-bench@users.noreply.github.com"}]
 keywords = ["assurance", "test-bench", "conformance", "verification", "negative-control", "evidence"]
 classifiers = [
   "Programming Language :: Python :: 3",

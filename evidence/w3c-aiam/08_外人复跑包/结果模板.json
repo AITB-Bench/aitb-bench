@@ -1,0 +1,31 @@
+{
+  "runner": {
+    "name": "填写你的姓名或代号",
+    "affiliation": "独立 / 机构名（可留空）",
+    "date": "YYYY-MM-DD",
+    "mode": "reproduce",
+    "read_order": "是否在填写前看过 B_核对任务包 (yes/no)"
+  },
+  "sources": {
+    "instrument_sheet": "A_复跑任务包.md 第一节 材料 1",
+    "protocol_version": "draft-saihm-memory-protocol-03",
+    "protocol_read_on": "YYYY-MM-DD"
+  },
+  "rows": [
+    {
+      "row": "O1",
+      "obligation_short": "保留期限与起算点",
+      "determination": "S | NS | NA",
+      "read_point": "写到节号/字段/工具返回项；没有则写 无",
+      "reason": "一句话",
+      "confidence": "high | medium | low"
+    }
+  ],
+  "overall": {
+    "q1_which_row_would_you_keep": "",
+    "q2_row_impossible_for_any_format": "",
+    "q3_three_value_consistency": "",
+    "q4_internal_count_discrepancy": "",
+    "notes": ""
+  }
+}

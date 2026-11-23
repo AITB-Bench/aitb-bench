@@ -20,6 +20,17 @@ PAIRS = [
     (SRC / "bench.py", PKG / "core.py"),
     (SRC / "vars.py", PKG / "vars.py"),
     (SRC / "presets" / "selftest.json", PKG / "presets" / "selftest.json"),
+    # W3C AIAM review line: the gates a stranger needs in order to rerun the
+    # published verdict. Presets carry ${VAR} only; no machine paths.
+    (SRC / "presets" / "w3c-aiam.json", PKG / "presets" / "w3c-aiam.json"),
+    (SRC / "presets" / "w3c-aiam-review.json", PKG / "presets" / "w3c-aiam-review.json"),
+    (SRC / "probes" / "w3c_s6_receipts.py", PKG / "probes" / "w3c_s6_receipts.py"),
+    (SRC / "probes" / "w3c_s9_visibility.py", PKG / "probes" / "w3c_s9_visibility.py"),
+    (SRC / "probes" / "w3c_aiam_consistency.py", PKG / "probes" / "w3c_aiam_consistency.py"),
+    (SRC / "tools" / "s6_external_review.py", PKG / "tools" / "s6_external_review.py"),
+    (SRC / "tools" / "github_visibility.py", PKG / "tools" / "github_visibility.py"),
+    (SRC / "tools" / "link_direct_check.py", PKG / "tools" / "link_direct_check.py"),
+    (SRC / "tools" / "w3c_archive_probe.py", PKG / "tools" / "w3c_archive_probe.py"),
 ]
 
 FORBIDDEN_PATHS = re.compile(r"[CDEF]:\\\\")

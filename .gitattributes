@@ -1,0 +1,7 @@
+# Keep archival copies byte-identical: their SHA-256 values are published evidence.
+evidence/** -text
+# Everything we author stays LF in the working tree so the same file hashes
+# the same on Windows, macOS and Linux.
+*.py text eol=lf
+*.json text eol=lf
+*.md text eol=lf

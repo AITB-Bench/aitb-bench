@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta charset="GBK" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="generator" content="hypermail 3.0.0, see https://github.com/hypermail-project/hypermail/" />
+<title>Use case: retention — and what &quot;the same record&quot; has to mean at the end of it from Steven Zhao on 2026-10-22 (public-ai-agent-memory-interop@w3.org from October 2026)</title>
+<meta name="Author" content="Steven Zhao (zhaoxinghua07&#x40;&#0049;&#0050;&#0054;&#0046;&#0099;&#0111;&#0109;)" />
+<meta name="Subject" content="Use case: retention — and what &quot;the same record&quot; has to mean at the end of it" />
+<meta name="Date" content="2026-10-22" />
+<link rel="stylesheet" title="Normal view" href="/assets/styles/public.css" />
+<link rel="help" href="/Help/" />
+<link rel="start" href="../" title="public-ai-agent-memory-interop@w3.org archives" />
+<script defer="defer" src="/assets/js/archives.js"></script>
+</head>
+<body class="message">
+<header class="head">
+<nav class="breadcrumb" id="upper">
+  <ul>
+    <li><a href="https://www.w3.org/">W3C home</a></li>
+    <li><a href="/">Mailing lists</a></li>
+    <li><a href="../../">Public</a></li>
+    <li><a href="../">public-ai-agent-memory-interop@w3.org</a></li>
+    <li><a href="./">October 2026</a></li>
+  </ul>
+</nav>
+<h1>Use case: retention — and what &quot;the same record&quot; has to mean at the end of it</h1>
+<!-- received="Thu Oct 22 02:44:13 2026" -->
+<!-- isoreceived="20261022024413" -->
+<!-- sent="Thu, 22 Oct 2026 10:44:03 +0800 (CST)" -->
+<!-- isosent="20261022024403" -->
+<!-- name="Steven Zhao" -->
+<!-- email="zhaoxinghua07&#x40;&#0049;&#0050;&#0054;&#0046;&#0099;&#0111;&#0109;" -->
+<!-- subject="Use case: retention — and what &quot;the same record&quot; has to mean at the end of it" -->
+<!-- id="287468be.203e.1a1617e81ec.Coremail.zhaoxinghua07@126.com" -->
+<!-- charset="GBK" -->
+<!-- expires="-1" -->
+<nav id="navbar">
+<ul class="links hmenu_container">
+<li>
+<span class="heading">This message</span>: <ul class="hmenu"><li><a href="#start" id="options1">Message body</a></li>
+<li><a href="mailto:public-ai-agent-memory-interop&#x40;&#0119;&#0051;&#0046;&#0111;&#0114;&#0103;?Subject=Re%3A%20Use%20case%3A%20retention%20%A1%AA%20and%20what%20%22the%20same%20record%22%20has%20to%20mean%20at%20the%20end%20of%20it&amp;In-Reply-To=%3C287468be.203e.1a1617e81ec.Coremail.zhaoxinghua07%40126.com%3E&amp;References=%3C287468be.203e.1a1617e81ec.Coremail.zhaoxinghua07%40126.com%3E">Respond</a></li>
+<li><a href="#options3">More options</a></li>
+</ul></li>
+<li>
+<span class="heading">Related messages</span>: <ul class="hmenu">
+<!-- unext="start" -->
+<li><a href="0028.html">Next message</a></li>
+<li><a href="0026.html">Previous message</a></li>
+<!-- unextthread="start" -->
+<li><a href="0028.html">Next in thread</a></li>
+<li><a href="#replies">Replies</a></li>
+<!-- ureply="end" -->
+</ul></li>
+</ul>
+</nav>
+</header>
+<!-- body="start" -->
+<main class="mail">
+<ul class="headers" aria-label="message headers">
+<li><span class="from">
+<span class="heading">From</span>: Steven Zhao &lt;<a href="mailto:zhaoxinghua07&#x40;&#0049;&#0050;&#0054;&#0046;&#0099;&#0111;&#0109;?Subject=Re%3A%20Use%20case%3A%20retention%20%A1%AA%20and%20what%20%22the%20same%20record%22%20has%20to%20mean%20at%20the%20end%20of%20it&amp;In-Reply-To=%3C287468be.203e.1a1617e81ec.Coremail.zhaoxinghua07%40126.com%3E&amp;References=%3C287468be.203e.1a1617e81ec.Coremail.zhaoxinghua07%40126.com%3E">zhaoxinghua07&#x40;&#0049;&#0050;&#0054;&#0046;&#0099;&#0111;&#0109;</a>&gt;
+</span></li>
+<li><span class="date"><span class="heading">Date</span>: Thu, 22 Oct 2026 10:44:03 +0800 (CST)</span></li>
+<li><span class="to"><span class="heading">To</span>: <a href="mailto:public-ai-agent-memory-interop&#x40;&#0119;&#0051;&#0046;&#0111;&#0114;&#0103;?Subject=Re%3A%20Use%20case%3A%20retention%20%A1%AA%20and%20what%20%22the%20same%20record%22%20has%20to%20mean%20at%20the%20end%20of%20it&amp;In-Reply-To=%3C287468be.203e.1a1617e81ec.Coremail.zhaoxinghua07%40126.com%3E&amp;References=%3C287468be.203e.1a1617e81ec.Coremail.zhaoxinghua07%40126.com%3E">public-ai-agent-memory-interop&#x40;&#0119;&#0051;&#0046;&#0111;&#0114;&#0103;</a>
+</span></li>
+<li><span class="message-id"><span class="heading">Message-ID</span>: &lt;287468be.203e.1a1617e81ec.Coremail.zhaoxinghua07&#x40;&#0049;&#0050;&#0054;&#0046;&#0099;&#0111;&#0109;&gt;
+</span></li>
+</ul>
+<section id="start" class="message-body-part">
+<pre class="body">
+Hello all,
+
+On 20 October I said on the charter thread that I would write this up if the catalogue wanted such an entry. This is it, in the shape Jeongho's entry used. Migration and cross-provider continuity are covered by Yasha and Silvio; Jeongho has how far an erasure has to reach. This one brings the part that has to hold before any of those questions can be asked: retention — the period during which the record has to exist at all, and the reconciliation that has to succeed at the end of it.
+
+Setting. A regulated process in which an agent keeps working notes as it helps carry the process out: what it did, on what basis, what it decided not to do, and on whose authority. Some of those notes become part of a record that the manufacturer is required by law to keep. In the EU, the technical documentation must be kept available to competent authorities for at least 10 years after the last device is placed on the market and at least 15 years for implantables (MDR 2017/745, Article 10(8)). In the US, the same records are now controlled under 21 CFR 820.35, read with the ISO 13485 clause incorporated by reference. An inspector or a notified body arrives in year seven and asks a question about what happened on a particular date.
+
+Nothing in that question is about erasure, and nothing in it is about portability. It is about whether what is served today as &quot;the record of that day&quot; is the record that was written on that day, and about what the system can put in front of the inspector to support the answer.
+
+Actors.
+
+The operator, who runs the agent and its memory store, and who holds the retention obligation.
+The agent, which wrote the notes and has been editing them ever since.
+An inspector or auditor, who arrives after the fact and was not present when the record was made.
+In the erasure case, also the data subject, whose request has to be reconciled against an obligation to keep.
+
+What has to remain. Not the bytes, necessarily, but four things:
+
+Identity over time — that the record retrieved in year seven is the record of the event, and not a later state of it presented as the original.
+Change-identifiability — that a correction made in year three is visible as a correction, with the prior value recoverable and the change attributable to someone.
+Authority — that the record shows who approved it, not merely who touched it.
+Retrievability on demand — that it can be produced when asked for, without the operator reconstructing it specially for the occasion.
+
+What may be removed, and on what boundary. The erasure question does not disappear because a retention obligation exists; it becomes a boundary question. In the EU the boundary is statutory: GDPR Article 17(3)(b) disapplies the right to erasure to the extent that processing is necessary for compliance with a legal obligation to which the controller is subject — an obligation arising under Union or Member State law. That resolves the collision in law. What it does not do is resolve it in the store: the store still has to be able to show that what it kept is what the obligation covers, and that what it removed was outside it. That is a per-store answer today.
+
+Why this is not hypothetical. agmi, a conformance suite for agent memory at rest published at agentmemoryintegrity.org and reproducible from its repository, seeds a store through the store's own API, edits the record beneath that API, reopens the store, and reads again — recording one of three verdicts: served, reported, refused. Its maintainer reported to this list on 21 October 2026 that, on the simplest edit — one record altered beneath the tool's own API — 12 of the 31 measured rows served the altered record as current with no signal, 11 reported it only in a later audit, and 8 refused it on the read path. He describes those measurements as published and reproducible; I have not run them, and I am reporting them rather than making them. The board has since grown from 31 measured rows to 39 configurations, and the same three verdicts carry new cases — an older authorization written over a newer one, and a whole store restored to a state before a revocation — so the numbers above are a dated snapshot, not a current count.
+
+The relevant point for this use case is not which number is worst but that all three behaviours are what a format that does not say which one is required will permit. My reading, offered as a reading: if a retention obligation is read as &quot;keep what was written&quot;, the first behaviour is a silent failure of it, the second is recoverable, and the third is a refusal that an operator will route around. Which one a store does is currently a property of the implementation rather than of the format — and that is the kind of gap a profile can close. Aligning a conformance criterion to those three words would at least make the answer comparable across stores.
+
+What the auditor needs to verify:
+
+Currency — that a record presented as current is the current revision, and that a record presented as of a date is the state at that date, distinguishable without trusting the operator's assurance.
+Provenance of edits — that each change carries who made it and on what authority, and that the earlier value is still recoverable.
+Boundary of erasure — that where content was removed under an erasure request, the removal is marked as a removal rather than closed up, and that the retained remainder is still coherent.
+Survival of the whole — that the answers above still hold after the agent has been upgraded, after the store has been migrated, and after the format itself has a new revision.
+
+Open questions for the Group:
+
+Should a memory cell carry an explicit statement of which revision of the record it is (a revision identity, not just a timestamp), so that &quot;as current&quot; and &quot;as of date X&quot; are answered by the cell rather than by the store's behaviour?
+Where a cell is superseded, should the format require that the superseded value remain addressable, given that this is what a retention obligation turns on and what an erasure obligation has to be reconciled against?
+Is a retention horizon something the format should be able to carry at all, or is it correctly left to the profile — and if the latter, what must the cell expose so that a profile can enforce it without the store cooperating?
+
+AI disclosure: drafted with AI assistance from sources I read myself; the reading and the position are mine, and I take responsibility for them.
+
+Speaking as an individual participant, not on behalf of any organisation. I work in medical-device regulatory compliance and hold no commercial interest in an agent-memory implementation.
+
+Regards,
+Xinghua Zhao
+Independent researcher
+ORCID: 0009-0001-0512-1237</pre>
+</section>
+<p class="received"><span class="heading">Received on</span> Thursday, 22 October 2026 02:44:13 UTC</p>
+</main>
+<!-- body="end" -->
+<footer class="foot">
+<nav id="navbarfoot">
+<ul class="links hmenu_container">
+<li><span class="heading">This message</span>: <span class="message_body"><a href="#start">Message body</a></span></li>
+<!-- lnext="start" -->
+<li><span class="heading">Next message</span>: <a href="0028.html">Yasha Khandelwal: "Re: Use case: retention &#8212; and what &#0034;the same record&#0034; has to mean at the end of it"</a></li>
+<li><span class="heading">Previous message</span>: <a href="0026.html">Jeongho Song: "Re: Call for consensus: charter v1.1 (status of the normative  reference), closes 2 November 2026"</a></li>
+<!-- lnextthread="start" -->
+<li><span class="heading">Next in thread</span>: <a href="0028.html">Yasha Khandelwal: "Re: Use case: retention &#8212; and what &#0034;the same record&#0034; has to mean at the end of it"</a></li>
+<li id="replies"><span class="heading">Reply</span>: <a href="0028.html">Yasha Khandelwal: "Re: Use case: retention &#8212; and what &#0034;the same record&#0034; has to mean at the end of it"</a></li>
+<!-- lreply="end" -->
+</ul>
+<ul class="links hmenu_container">
+<li id="options3"><span class="heading">Mail actions</span>: <ul class="hmenu"><li><a href="mailto:public-ai-agent-memory-interop&#x40;&#0119;&#0051;&#0046;&#0111;&#0114;&#0103;?Subject=Re%3A%20Use%20case%3A%20retention%20%A1%AA%20and%20what%20%22the%20same%20record%22%20has%20to%20mean%20at%20the%20end%20of%20it&amp;In-Reply-To=%3C287468be.203e.1a1617e81ec.Coremail.zhaoxinghua07%40126.com%3E&amp;References=%3C287468be.203e.1a1617e81ec.Coremail.zhaoxinghua07%40126.com%3E">respond to this message</a></li>
+<li><a href="mailto:public-ai-agent-memory-interop&#x40;&#0119;&#0051;&#0046;&#0111;&#0114;&#0103;">mail a new topic</a></li></ul></li>
+<li><span class="heading">Contemporary messages sorted</span>: <ul class="hmenu"><li><a href="index.html#msg27">by date</a></li>
+<li><a href="thread.html#msg27">by thread</a></li>
+<li><a href="subject.html#msg27">by subject</a></li>
+<li><a href="author.html#msg27">by author</a></li>
+</ul></li>
+<li><span class="heading">Help</span>: <ul class="hmenu">
+    <li><a href="/Help/" rel="help">how to use the archives</a></li>
+    <li><a href="https://www.w3.org/Search/Mail/Public/search?lists=public-ai-agent-memory-interop">search the archives</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+<!-- trailer="footer" -->
+<p class="colophon">
+This archive was generated by <a href="https://github.com/hypermail-project/hypermail/">hypermail 3.0.0</a>: Saturday, 31 October 2026 08:24:01 UTC
+</p>
+</footer>
+</body>
+</html>

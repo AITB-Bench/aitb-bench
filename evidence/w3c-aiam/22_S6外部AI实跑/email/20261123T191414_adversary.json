@@ -1,0 +1,93 @@
+{
+ "lens": "adversary",
+ "model": "deepseek-ai/DeepSeek-V3.2",
+ "seconds": 63.7,
+ "prompt_sha16": "c790f76d3519d43f",
+ "usage": {
+  "prompt_tokens": 2802,
+  "completion_tokens": 1245,
+  "total_tokens": 4047,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0
+  },
+  "prompt_cache_hit_tokens": 0,
+  "prompt_cache_miss_tokens": 2802
+ },
+ "parsed": true,
+ "findings": [
+  {
+   "severity": "major",
+   "quote": "the Chair's recorded reading of 'comparable regimes' in section 3 as any law, regulation or standard that sets requirements for how records are kept, protected, retained, corrected or erased. On that reading, the medical-device rules EU MDR, 21 CFR Part 820, ISO 13485 and the rules for NMPA registration review are comparable regimes.",
+   "problem": "The author presents the Chair's personal reading as authoritative for the group's scope, expanding the charter's list of instruments without group consensus.",
+   "fix": "Replace 'the Chair's recorded reading' with 'a proposed interpretation' or similar, clarifying it is not an official group decision.",
+   "class": "overstated"
+  },
+  {
+   "severity": "major",
+   "quote": "What these fifteen rows add is scored rows on the device side... These device instruments are not an aside: the Chair's recorded reading of section 3 names... and that reading is why they carry rows here.",
+   "problem": "The author justifies the inclusion of major new regulatory domains (medical devices) based solely on a single, non-consensus reading of the charter.",
+   "fix": "Acknowledge this is a proposal to expand scope, not an application of an agreed scope.",
+   "class": "overstated"
+  },
+  {
+   "severity": "major",
+   "quote": "I did not obtain the ISO/IEC 42001:2023 text, which is why no clause number appears for it here; the annex says the same.",
+   "problem": "The author admits to not reading a key standard listed in the charter, yet includes a determination about it ('cannot be scored').",
+   "fix": "Either obtain the text or remove the instrument from the analysis with a note that it was omitted due to inaccessibility.",
+   "class": "unsupported"
+  },
+  {
+   "severity": "major",
+   "quote": "Treating that as a reason not to score it is an interpretive choice, and I record it as one rather than as a fact that settles the question",
+   "problem": "The author excludes NIST AI RMF (a charter-listed item) based on its voluntary nature, which is a substantive, debatable interpretation presented as a settled methodological choice.",
+   "fix": "Score it as 'not assessable' with the reason being the voluntary nature, or include it and note the challenge.",
+   "class": "overstated"
+  },
+  {
+   "severity": "major",
+   "quote": "One row adds a sixth axis - attribution of the act to an authorised person - because Article 46(2) of China's GMP attaches the requirement to a person and not to a record; I flag it as an addition rather than pass it off as part of the Chair's reading.",
+   "problem": "The author modifies their own proposed unit (the five axes) mid-analysis to accommodate a finding from an instrument they introduced via the contested Chair's reading.",
+   "fix": "Stick to the originally proposed five axes for all instruments, or justify the new axis as a necessary expansion for all analyses.",
+   "class": "internal-inconsistency"
+  },
+  {
+   "severity": "major",
+   "quote": "China's device GMP - in force since 2026-11-01 - is the only instrument in the set whose requirements attach to the electronic record itself... in the archive record of this thread up to 2026-11-23 no one has mapped it.",
+   "problem": "Claims novelty ('no one has mapped it') for an analysis of an instrument the author themselves introduced to the discussion, which is self-serving.",
+   "fix": "Remove the claim of novelty.",
+   "class": "self-serving"
+  },
+  {
+   "severity": "minor",
+   "quote": "The three section 3 items that are not scored are named here rather than left for a reader to discover, each with the reason",
+   "problem": "The phrasing 'rather than left for a reader to discover' frames the author as uniquely diligent, which is a subjective, self-serving framing.",
+   "fix": "Rephrase neutrally: 'The three section 3 items that are not scored, and the reason for each, are:'",
+   "class": "self-serving"
+  },
+  {
+   "severity": "minor",
+   "quote": "the annex says the same.",
+   "problem": "Vague reference to an annex not included in the provided text. A reader cannot verify the claim.",
+   "fix": "Provide the specific statement from the annex or omit the phrase.",
+   "class": "unclear"
+  },
+  {
+   "severity": "minor",
+   "quote": "HIPAA's six-year rule (45 CFR 164.316(b)(2)(i)), by contrast, attaches, as I read it, to the documentation a covered entity must maintain",
+   "problem": "The phrase 'as I read it' highlights a personal, potentially contestable legal interpretation without supporting citation or argument.",
+   "fix": "Either state the interpretation confidently with supporting reasoning, or present it more tentatively as one possible view.",
+   "class": "overstated"
+  },
+  {
+   "severity": "minor",
+   "quote": "Those are Trial Use, so a precedent and not an authority - but they show the distinction is a field choice someone already made, not a new requirement invented here.",
+   "problem": "Dismisses the cited precedent ('not an authority') while simultaneously using it to argue the distinction is not novel, which is contradictory.",
+   "fix": "Either present it as a valid precedent or don't cite it. Remove 'not an authority'.",
+   "class": "internal-inconsistency"
+  }
+ ],
+ "raw": "```json\n{\n    \"findings\": [\n        {\n            \"severity\": \"major\",\n            \"quote\": \"the Chair's recorded reading of 'comparable regimes' in section 3 as any law, regulation or standard that sets requirements for how records are kept, protected, retained, corrected or erased. On that reading, the medical-device rules EU MDR, 21 CFR Part 820, ISO 13485 and the rules for NMPA registration review are comparable regimes.\",\n            \"problem\": \"The author presents the Chair's personal reading as authoritative for the group's scope, expanding the charter's list of instruments without group consensus.\",\n            \"fix\": \"Replace 'the Chair's recorded reading' with 'a proposed interpretation' or similar, clarifying it is not an official group decision.\",\n            \"class\": \"overstated\"\n        },\n        {\n            \"severity\": \"major\",\n            \"quote\": \"What these fifteen rows add is scored rows on the device side... These device instruments are not an aside: the Chair's recorded reading of section 3 names... and that reading is why they carry rows here.\",\n            \"problem\": \"The author justifies the inclusion of major new regulatory domains (medical devices) based solely on a single, non-consensus reading of the charter.\",\n            \"fix\": \"Acknowledge this is a proposal to expand scope, not an application of an agreed scope.\",\n            \"class\": \"overstated\"\n        },\n        {\n            \"severity\": \"major\",\n            \"quote\": \"I did not obtain the ISO/IEC 42001:2023 text, which is why no clause number appears for it here; the annex says the same.\",\n            \"problem\": \"The author admits to not reading a key standard listed in the charter, yet includes a determination about it ('cannot be scored').\",\n            \"fix\": \"Either obtain the text or remove the instrument from the analysis with a note that it was omitted due to inaccessibility.\",\n            \"class\": \"unsupported\"\n        },\n        {\n            \"severity\": \"major\",\n            \"quote\": \"Treating that as a reason not to score it is an interpretive choice, and I record it as one rather than as a fact that settles the question\",\n            \"problem\": \"The author excludes NIST AI RMF (a charter-listed item) based on its voluntary nature, which is a substantive, debatable interpretation presented as a settled methodological choice.\",\n            \"fix\": \"Score it as 'not assessable' with the reason being the voluntary nature, or include it and note the challenge.\",\n            \"class\": \"overstated\"\n        },\n        {\n            \"severity\": \"major\",\n            \"quote\": \"One row adds a sixth axis - attribution of the act to an authorised person - because Article 46(2) of China's GMP attaches the requirement to a person and not to a record; I flag it as an addition rather than pass it off as part of the Chair's reading.\",\n            \"problem\": \"The author modifies their own proposed unit (the five axes) mid-analysis to accommodate a finding from an instrument they introduced via the contested Chair's reading.\",\n            \"fix\": \"Stick to the originally proposed five axes for all instruments, or justify the new axis as a necessary expansion for all analyses.\",\n            \"class\": \"internal-inconsistency\"\n        },\n        {\n            \"severity\": \"major\",\n            \"quote\": \"China's device GMP - in force since 2026-11-01 - is the only instrument in the set whose requirements attach to the electronic record itself... in the archive record of this thread up to 2026-11-23 no one has mapped it.\",\n            \"problem\": \"Claims novelty ('no one has mapped it') for an analysis of an instrument the author themselves introduced to the discussion, which is self-serving.\",\n            \"fix\": \"Remove the claim of novelty.\",\n            \"class\": \"self-serving\"\n        },\n        {\n            \"severity\": \"minor\",\n            \"quote\": \"The three section 3 items that are not scored are named here rather than left for a reader to discover, each with the reason\",\n            \"problem\": \"The phrasing 'rather than left for a reader to discover' frames the author as uniquely diligent, which is a subjective, self-serving framing.\",\n            \"fix\": \"Rephrase neutrally: 'The three section 3 items that are not scored, and the reason for each, are:'\",\n            \"class\": \"self-serving\"\n        },\n        {\n            \"severity\": \"minor\",\n            \"quote\": \"the annex says the same.\",\n            \"problem\": \"Vague reference to an annex not included in the provided text. A reader cannot verify the claim.\",\n            \"fix\": \"Provide the specific statement from the annex or omit the phrase.\",\n            \"class\": \"unclear\"\n        },\n        {\n            \"severity\": \"minor\",\n            \"quote\": \"HIPAA's six-year rule (45 CFR 164.316(b)(2)(i)), by contrast, attaches, as I read it, to the documentation a covered entity must maintain\",\n            \"problem\": \"The phrase 'as I read it' highlights a personal, potentially contestable legal interpretation without supporting citation or argument.\",\n            \"fix\": \"Either state the interpretation confidently with supporting reasoning, or present it more tentatively as one possible view.\",\n            \"class\": \"overstated\"\n        },\n        {\n            \"severity\": \"minor\",\n            \"quote\": \"Those are Trial Use, so a precedent and not an authority - but they show the distinction is a field choice someone already made, not a new requirement invented here.\",\n            \"problem\": \"Dismisses the cited precedent ('not an authority') while simultaneously using it to argue the distinction is not novel, which is contradictory.\",\n            \"fix\": \"Either present it as a valid precedent or don't cite it. Remove 'not an authority'.\",\n            \"class\": \"internal-inconsistency\"\n        }\n    ]\n}\n```"
+}

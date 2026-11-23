@@ -1,0 +1,93 @@
+{
+ "lens": "process",
+ "model": "deepseek-ai/DeepSeek-V3.2",
+ "seconds": 79.5,
+ "prompt_sha16": "671da84621422dc3",
+ "usage": {
+  "prompt_tokens": 6174,
+  "completion_tokens": 1535,
+  "total_tokens": 7709,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0
+  },
+  "prompt_cache_hit_tokens": 0,
+  "prompt_cache_miss_tokens": 6174
+ },
+ "parsed": true,
+ "findings": [
+  {
+   "severity": "major",
+   "quote": "the Chair's recorded reading of 'comparable regimes' in §3 as any law, regulation or standard that sets requirements for how records are kept, protected, retained, corrected or erased. On that reading, the medical-device rules EU MDR, 21 CFR Part 820, ISO 13485 and the rules for NMPA registration review are comparable regimes.",
+   "problem": "The claim that the Chair's reading brings in specific device instruments is unsupported. The cited URL (2026Nov/0003.html) is not provided in the text, so the reader cannot verify the quote or its context.",
+   "fix": "Quote the relevant sentence from the Chair's reply directly in the text, or remove the claim of a 'recorded reading' and present the inclusion of device instruments as the author's own proposal.",
+   "class": "unsupported"
+  },
+  {
+   "severity": "major",
+   "quote": "the three §3 items that are not scored are named here rather than left for a reader to discover, each with the reason: of the nine, ISO/IEC 27001:2022, ISO/IEC 42001:2023 and NIST AI RMF 1.0 carry no row, and the other six do.",
+   "problem": "The document states it scores 'fifteen rows' covering 'nine instruments in all', but later says three of the nine charter-named instruments are not scored. This is an internal inconsistency in the description of scope.",
+   "fix": "Clarify: The fifteen rows cover obligations from nine instruments, but three of the nine charter-named instruments (ISO/IEC 27001, ISO/IEC 42001, NIST AI RMF) are not scored because they lack scorable obligations.",
+   "class": "internal-inconsistency"
+  },
+  {
+   "severity": "major",
+   "quote": "I did not obtain the ISO/IEC 42001:2023 text; no clause number is given for it, and the row records only the absence of a stated period.",
+   "problem": "The author admits not having read a key instrument (ISO/IEC 42001:2023) that is part of the charter's named set, undermining the claim that 'every provision cited in the annex I read in the instrument'.",
+   "fix": "Remove the claim of having read every instrument, or obtain and review ISO/IEC 42001:2023 before making claims about its content.",
+   "class": "unsupported"
+  },
+  {
+   "severity": "major",
+   "quote": "HIPAA's six years attaches, as I read it, to the documentation a covered entity must maintain — its policies and procedures, and its records of actions, activities and assessments — not to the memory records themselves.",
+   "problem": "This is a substantive legal interpretation presented as the author's reading, but it is used as the basis for the 'not assessable' determination in R9. The reasoning is not anchored to a specific read-point in the HIPAA text that clarifies this distinction.",
+   "fix": "Quote the specific part of 45 CFR 164.316(b)(2)(i) that supports the interpretation that the obligation attaches only to 'documentation' and not to operational records like memory cells.",
+   "class": "unsupported"
+  },
+  {
+   "severity": "minor",
+   "quote": "Following the ratification of charter v1.1, §3 lists a regulatory crosswalk pack as the fourth deliverable",
+   "problem": "The claim that the charter has been 'ratified' is unverified. The document provides a URL for the charter but not for a ratification record or status.",
+   "fix": "Replace 'ratification' with 'publication' or 'adoption', or cite the specific record of ratification.",
+   "class": "unsupported"
+  },
+  {
+   "severity": "minor",
+   "quote": "drafted with AI assistance from sources I read myself.",
+   "problem": "The statement is unclear. It's ambiguous whether the AI assistance was in drafting only, or if it also processed the sources. The phrase 'from sources I read myself' is awkward and could be misinterpreted.",
+   "fix": "Clarify: 'Drafted with AI assistance. All sources cited were personally read and verified by the author.'",
+   "class": "unclear"
+  },
+  {
+   "severity": "minor",
+   "quote": "the Chair's recorded reading of §3 names EU MDR, 21 CFR Part 820, ISO 13485 and the NMPA registration-review rules as comparable regimes, and that reading is why they carry rows here.",
+   "problem": "This repeats the earlier unsupported claim about the Chair's reading. It presents the inclusion of these instruments as a direct consequence of that reading, not as the author's choice.",
+   "fix": "Same as finding 1. Present the inclusion as the author's proposal based on an interpretation of 'comparable regimes'.",
+   "class": "unsupported"
+  },
+  {
+   "severity": "minor",
+   "quote": "the archive record of this thread up to 2026-11-23 no one has mapped it.",
+   "problem": "This is an absolute claim ('no one has mapped it') about the content of an external archive (the mailing list thread). The reader cannot verify it from the text provided.",
+   "fix": "Remove the absolute claim or qualify it: 'In my review of the thread archive, I did not find a prior mapping.'",
+   "class": "unsupported"
+  },
+  {
+   "severity": "minor",
+   "quote": "Horizons differ by more than 20× across these instruments",
+   "problem": "The '20×' figure is asserted but not demonstrated. The cited horizons are 'at least six months', 'at least ten years', and 'device lifetime'. A quick calculation shows 10 years / 6 months = 20x, but the 'device lifetime' horizon makes the comparison ambiguous and the 'more than 20×' claim is overstated without specifying which two horizons are being compared.",
+   "fix": "Remove the 'more than 20×' figure or explicitly state the comparison being made (e.g., 'The longest horizon (ten years) is twenty times the shortest (six months)').",
+   "class": "overstated"
+  },
+  {
+   "severity": "minor",
+   "quote": "R7 has no such path — it needs either a field or an explicit statement that the boundary is out of the format's scope. That is the one I would most expect to be corrected.",
+   "problem": "This is unclear. R7 is about 'Records at the disposal of a third party' and is marked Satisfied (S). The text in B.4 seems to refer to R8 ('Boundary between erasure and retained obligation'), which is marked Not Satisfied (NS).",
+   "fix": "Correct the reference from 'R7' to 'R8' in section B.4.",
+   "class": "unclear"
+  }
+ ],
+ "raw": "```json\n{\n  \"findings\": [\n    {\n      \"severity\": \"major\",\n      \"quote\": \"the Chair's recorded reading of 'comparable regimes' in §3 as any law, regulation or standard that sets requirements for how records are kept, protected, retained, corrected or erased. On that reading, the medical-device rules EU MDR, 21 CFR Part 820, ISO 13485 and the rules for NMPA registration review are comparable regimes.\",\n      \"problem\": \"The claim that the Chair's reading brings in specific device instruments is unsupported. The cited URL (2026Nov/0003.html) is not provided in the text, so the reader cannot verify the quote or its context.\",\n      \"fix\": \"Quote the relevant sentence from the Chair's reply directly in the text, or remove the claim of a 'recorded reading' and present the inclusion of device instruments as the author's own proposal.\",\n      \"class\": \"unsupported\"\n    },\n    {\n      \"severity\": \"major\",\n      \"quote\": \"the three §3 items that are not scored are named here rather than left for a reader to discover, each with the reason: of the nine, ISO/IEC 27001:2022, ISO/IEC 42001:2023 and NIST AI RMF 1.0 carry no row, and the other six do.\",\n      \"problem\": \"The document states it scores 'fifteen rows' covering 'nine instruments in all', but later says three of the nine charter-named instruments are not scored. This is an internal inconsistency in the description of scope.\",\n      \"fix\": \"Clarify: The fifteen rows cover obligations from nine instruments, but three of the nine charter-named instruments (ISO/IEC 27001, ISO/IEC 42001, NIST AI RMF) are not scored because they lack scorable obligations.\",\n      \"class\": \"internal-inconsistency\"\n    },\n    {\n      \"severity\": \"major\",\n      \"quote\": \"I did not obtain the ISO/IEC 42001:2023 text; no clause number is given for it, and the row records only the absence of a stated period.\",\n      \"problem\": \"The author admits not having read a key instrument (ISO/IEC 42001:2023) that is part of the charter's named set, undermining the claim that 'every provision cited in the annex I read in the instrument'.\",\n      \"fix\": \"Remove the claim of having read every instrument, or obtain and review ISO/IEC 42001:2023 before making claims about its content.\",\n      \"class\": \"unsupported\"\n    },\n    {\n      \"severity\": \"major\",\n      \"quote\": \"HIPAA's six years attaches, as I read it, to the documentation a covered entity must maintain — its policies and procedures, and its records of actions, activities and assessments — not to the memory records themselves.\",\n      \"problem\": \"This is a substantive legal interpretation presented as the author's reading, but it is used as the basis for the 'not assessable' determination in R9. The reasoning is not anchored to a specific read-point in the HIPAA text that clarifies this distinction.\",\n      \"fix\": \"Quote the specific part of 45 CFR 164.316(b)(2)(i) that supports the interpretation that the obligation attaches only to 'documentation' and not to operational records like memory cells.\",\n      \"class\": \"unsupported\"\n    },\n    {\n      \"severity\": \"minor\",\n      \"quote\": \"Following the ratification of charter v1.1, §3 lists a regulatory crosswalk pack as the fourth deliverable\",\n      \"problem\": \"The claim that the charter has been 'ratified' is unverified. The document provides a URL for the charter but not for a ratification record or status.\",\n      \"fix\": \"Replace 'ratification' with 'publication' or 'adoption', or cite the specific record of ratification.\",\n      \"class\": \"unsupported\"\n    },\n    {\n      \"severity\": \"minor\",\n      \"quote\": \"drafted with AI assistance from sources I read myself.\",\n      \"problem\": \"The statement is unclear. It's ambiguous whether the AI assistance was in drafting only, or if it also processed the sources. The phrase 'from sources I read myself' is awkward and could be misinterpreted.\",\n      \"fix\": \"Clarify: 'Drafted with AI assistance. All sources cited were personally read and verified by the author.'\",\n      \"class\": \"unclear\"\n    },\n    {\n      \"severity\": \"minor\",\n      \"quote\": \"the Chair's recorded reading of §3 names EU MDR, 21 CFR Part 820, ISO 13485 and the NMPA registration-review rules as comparable regimes, and that reading is why they carry rows here.\",\n      \"problem\": \"This repeats the earlier unsupported claim about the Chair's reading. It presents the inclusion of these instruments as a direct consequence of that reading, not as the author's choice.\",\n      \"fix\": \"Same as finding 1. Present the inclusion as the author's proposal based on an interpretation of 'comparable regimes'.\",\n      \"class\": \"unsupported\"\n    },\n    {\n      \"severity\": \"minor\",\n      \"quote\": \"the archive record of this thread up to 2026-11-23 no one has mapped it.\",\n      \"problem\": \"This is an absolute claim ('no one has mapped it') about the content of an external archive (the mailing list thread). The reader cannot verify it from the text provided.\",\n      \"fix\": \"Remove the absolute claim or qualify it: 'In my review of the thread archive, I did not find a prior mapping.'\",\n      \"class\": \"unsupported\"\n    },\n    {\n      \"severity\": \"minor\",\n      \"quote\": \"Horizons differ by more than 20× across these instruments\",\n      \"problem\": \"The '20×' figure is asserted but not demonstrated. The cited horizons are 'at least six months', 'at least ten years', and 'device lifetime'. A quick calculation shows 10 years / 6 months = 20x, but the 'device lifetime' horizon makes the comparison ambiguous and the 'more than 20×' claim is overstated without specifying which two horizons are being compared.\",\n      \"fix\": \"Remove the 'more than 20×' figure or explicitly state the comparison being made (e.g., 'The longest horizon (ten years) is twenty times the shortest (six months)').\",\n      \"class\": \"overstated\"\n    },\n    {\n      \"severity\": \"minor\",\n      \"quote\": \"R7 has no such path — it needs either a field or an explicit statement that the boundary is out of the format's scope. That is the one I would most expect to be corrected.\",\n      \"problem\": \"This is unclear. R7 is about 'Records at the disposal of a third party' and is marked Satisfied (S). The text in B.4 seems to refer to R8 ('Boundary between erasure and retained obligation'), which is marked Not Satisfied (NS).\",\n      \"fix\": \"Correct the reference from 'R7' to 'R8' in section B.4.\",\n      \"class\": \"unclear\"\n    }\n  ]\n}\n```"
+}

@@ -1,0 +1,93 @@
+{
+ "lens": "expert",
+ "model": "deepseek-ai/DeepSeek-V3.2",
+ "seconds": 81.4,
+ "prompt_sha16": "d005f5a9c81c5636",
+ "usage": {
+  "prompt_tokens": 6168,
+  "completion_tokens": 1523,
+  "total_tokens": 7691,
+  "completion_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "prompt_tokens_details": {
+   "cached_tokens": 0
+  },
+  "prompt_cache_hit_tokens": 0,
+  "prompt_cache_miss_tokens": 6168
+ },
+ "parsed": true,
+ "findings": [
+  {
+   "severity": "major",
+   "quote": "the three device instruments — EU MDR, 21 CFR Part 820, China's GMP — that the Chair's recorded reading of 'comparable regimes' brings in",
+   "problem": "The document incorrectly states the Chair's reading includes China's GMP. The quoted reading explicitly lists EU MDR, 21 CFR Part 820, ISO 13485, and NMPA registration review rules, but does not mention China's GMP.",
+   "fix": "Replace 'China's GMP' with 'the NMPA registration review rules'.",
+   "class": "wrong-fact"
+  },
+  {
+   "severity": "major",
+   "quote": "the three §3 items that are not scored are named here rather than left for a reader to discover... ISO/IEC 27001:2022, ISO/IEC 42001:2023 and NIST AI RMF 1.0 carry no row",
+   "problem": "The document claims §3 names nine instruments, but the list in the text only names eight: GDPR, EU AI Act, NIST AI RMF 1.0, ISO/IEC 27001:2022, ISO/IEC 42001:2023, HIPAA, PIPEDA, PIPL and LGPD. The count of 'nine' is inconsistent with the listed items.",
+   "fix": "Correct the count to eight or verify and list the ninth instrument named in §3.",
+   "class": "internal-inconsistency"
+  },
+  {
+   "severity": "major",
+   "quote": "HIPAA's six years and PIPEDA's requirement that retention guidelines state both a minimum and a maximum are the only two of the four that carry an explicit figure or an explicit two-sided bound",
+   "problem": "This overstates PIPEDA's requirement. Principle 4.5.2 states guidelines 'should include minimum and maximum retention periods', using 'should' not 'shall' or 'must', indicating it is a recommendation, not a strict requirement.",
+   "fix": "Change 'requirement' to 'recommendation' or similar language reflecting the non-binding 'should'.",
+   "class": "overstated"
+  },
+  {
+   "severity": "major",
+   "quote": "PIPL, Arts. 19, 45, 47, 56 ... Art. 56 — assessment reports and processing records kept at least three years",
+   "problem": "The document attributes a three-year retention period to PIPL Article 56. Article 56 of China's PIPL does not specify a three-year period; it states records should be kept for a period as provided by laws and administrative regulations. The three-year period is specified in other regulations (e.g., for personal information protection impact assessments).",
+   "fix": "Clarify the source of the three-year period or remove the specific duration, stating it is defined by other laws/regulations.",
+   "class": "wrong-fact"
+  },
+  {
+   "severity": "major",
+   "quote": "LGPD, Arts. 16, 18(VI), 18(V), 37, 40 ... Art. 40 — ANPD may set retention for those records",
+   "problem": "This understates the content of LGPD Article 40. Article 40 deals with the processing of personal data for the purpose of studies by research bodies, not with the ANPD setting retention periods for records of processing operations.",
+   "fix": "Correct the citation or description of Article 40 to reflect its actual subject matter.",
+   "class": "wrong-fact"
+  },
+  {
+   "severity": "minor",
+   "quote": "the AI Act requires logs for at least six months (Art. 19(1), 26(6))",
+   "problem": "The document cites Article 26(6) of the EU AI Act for a six-month log retention. Article 26 concerns notified bodies; the general log requirement for high-risk AI systems is in Article 19(1). Article 26(6) is not a correct citation for this general requirement.",
+   "fix": "Remove '26(6)' from this sentence, or clarify that it refers to a specific context for notified bodies.",
+   "class": "wrong-fact"
+  },
+  {
+   "severity": "minor",
+   "quote": "21 CFR 820.35 (QMSR, in force 2026-02-02) with ISO 13485:2016 incorporated at §820.7",
+   "problem": "The document states ISO 13485 is incorporated at §820.7. 21 CFR 820.7 is about the Quality Management System (QMS). The incorporation by reference of ISO 13485:2016 is actually detailed in §820.10.",
+   "fix": "Change '§820.7' to '§820.10'.",
+   "class": "wrong-fact"
+  },
+  {
+   "severity": "minor",
+   "quote": "NMPA Announcement No. 107 of 2025, in force 2026-11-01 | Art. 45(3)–(4) alteration and retention; Art. 46 electronic records",
+   "problem": "The document refers to 'China's GMP' and 'NMPA Announcement No. 107 of 2025' interchangeably but treats them as one instrument in the rows. It's unclear if these are the same document or two separate instruments, creating ambiguity.",
+   "fix": "Clarify the relationship between 'China's GMP' and the NMPA Announcement, and use consistent naming.",
+   "class": "unclear"
+  },
+  {
+   "severity": "minor",
+   "quote": "PIPL, Arts. 19, 45, 47, 56 | ... Art. 45 — consult, copy and transfer to a designated handler",
+   "problem": "The description of PIPL Art. 45 as 'consult, copy and transfer to a designated handler' is an oversimplification. Article 45 concerns the right of individuals to request an explanation of automated decision-making and to refuse decisions made solely by automation.",
+   "fix": "Correct the description of PIPL Article 45 to reflect its actual content regarding automated decision-making.",
+   "class": "wrong-fact"
+  },
+  {
+   "severity": "minor",
+   "quote": "the pack is nine instruments per §3. This note scores the ones with a dated paragraph and a record horizon",
+   "problem": "There is an internal inconsistency: the document earlier states §3 names nine instruments, but the annex only lists eight in the instrument set table (MDR, 21 CFR, NMPA, GDPR, AI Act, HIPAA, PIPEDA, PIPL, LGPD are nine, but the table's header shows only eight rows? The count is confusing).",
+   "fix": "Ensure the instrument set table clearly lists all instruments discussed and reconciles the count.",
+   "class": "internal-inconsistency"
+  }
+ ],
+ "raw": "```json\n{\n  \"findings\": [\n    {\n      \"severity\": \"major\",\n      \"quote\": \"the three device instruments — EU MDR, 21 CFR Part 820, China's GMP — that the Chair's recorded reading of 'comparable regimes' brings in\",\n      \"problem\": \"The document incorrectly states the Chair's reading includes China's GMP. The quoted reading explicitly lists EU MDR, 21 CFR Part 820, ISO 13485, and NMPA registration review rules, but does not mention China's GMP.\",\n      \"fix\": \"Replace 'China's GMP' with 'the NMPA registration review rules'.\",\n      \"class\": \"wrong-fact\"\n    },\n    {\n      \"severity\": \"major\",\n      \"quote\": \"the three §3 items that are not scored are named here rather than left for a reader to discover... ISO/IEC 27001:2022, ISO/IEC 42001:2023 and NIST AI RMF 1.0 carry no row\",\n      \"problem\": \"The document claims §3 names nine instruments, but the list in the text only names eight: GDPR, EU AI Act, NIST AI RMF 1.0, ISO/IEC 27001:2022, ISO/IEC 42001:2023, HIPAA, PIPEDA, PIPL and LGPD. The count of 'nine' is inconsistent with the listed items.\",\n      \"fix\": \"Correct the count to eight or verify and list the ninth instrument named in §3.\",\n      \"class\": \"internal-inconsistency\"\n    },\n    {\n      \"severity\": \"major\",\n      \"quote\": \"HIPAA's six years and PIPEDA's requirement that retention guidelines state both a minimum and a maximum are the only two of the four that carry an explicit figure or an explicit two-sided bound\",\n      \"problem\": \"This overstates PIPEDA's requirement. Principle 4.5.2 states guidelines 'should include minimum and maximum retention periods', using 'should' not 'shall' or 'must', indicating it is a recommendation, not a strict requirement.\",\n      \"fix\": \"Change 'requirement' to 'recommendation' or similar language reflecting the non-binding 'should'.\",\n      \"class\": \"overstated\"\n    },\n    {\n      \"severity\": \"major\",\n      \"quote\": \"PIPL, Arts. 19, 45, 47, 56 ... Art. 56 — assessment reports and processing records kept at least three years\",\n      \"problem\": \"The document attributes a three-year retention period to PIPL Article 56. Article 56 of China's PIPL does not specify a three-year period; it states records should be kept for a period as provided by laws and administrative regulations. The three-year period is specified in other regulations (e.g., for personal information protection impact assessments).\",\n      \"fix\": \"Clarify the source of the three-year period or remove the specific duration, stating it is defined by other laws/regulations.\",\n      \"class\": \"wrong-fact\"\n    },\n    {\n      \"severity\": \"major\",\n      \"quote\": \"LGPD, Arts. 16, 18(VI), 18(V), 37, 40 ... Art. 40 — ANPD may set retention for those records\",\n      \"problem\": \"This understates the content of LGPD Article 40. Article 40 deals with the processing of personal data for the purpose of studies by research bodies, not with the ANPD setting retention periods for records of processing operations.\",\n      \"fix\": \"Correct the citation or description of Article 40 to reflect its actual subject matter.\",\n      \"class\": \"wrong-fact\"\n    },\n    {\n      \"severity\": \"minor\",\n      \"quote\": \"the AI Act requires logs for at least six months (Art. 19(1), 26(6))\",\n      \"problem\": \"The document cites Article 26(6) of the EU AI Act for a six-month log retention. Article 26 concerns notified bodies; the general log requirement for high-risk AI systems is in Article 19(1). Article 26(6) is not a correct citation for this general requirement.\",\n      \"fix\": \"Remove '26(6)' from this sentence, or clarify that it refers to a specific context for notified bodies.\",\n      \"class\": \"wrong-fact\"\n    },\n    {\n      \"severity\": \"minor\",\n      \"quote\": \"21 CFR 820.35 (QMSR, in force 2026-02-02) with ISO 13485:2016 incorporated at §820.7\",\n      \"problem\": \"The document states ISO 13485 is incorporated at §820.7. 21 CFR 820.7 is about the Quality Management System (QMS). The incorporation by reference of ISO 13485:2016 is actually detailed in §820.10.\",\n      \"fix\": \"Change '§820.7' to '§820.10'.\",\n      \"class\": \"wrong-fact\"\n    },\n    {\n      \"severity\": \"minor\",\n      \"quote\": \"NMPA Announcement No. 107 of 2025, in force 2026-11-01 | Art. 45(3)–(4) alteration and retention; Art. 46 electronic records\",\n      \"problem\": \"The document refers to 'China's GMP' and 'NMPA Announcement No. 107 of 2025' interchangeably but treats them as one instrument in the rows. It's unclear if these are the same document or two separate instruments, creating ambiguity.\",\n      \"fix\": \"Clarify the relationship between 'China's GMP' and the NMPA Announcement, and use consistent naming.\",\n      \"class\": \"unclear\"\n    },\n    {\n      \"severity\": \"minor\",\n      \"quote\": \"PIPL, Arts. 19, 45, 47, 56 | ... Art. 45 — consult, copy and transfer to a designated handler\",\n      \"problem\": \"The description of PIPL Art. 45 as 'consult, copy and transfer to a designated handler' is an oversimplification. Article 45 concerns the right of individuals to request an explanation of automated decision-making and to refuse decisions made solely by automation.\",\n      \"fix\": \"Correct the description of PIPL Article 45 to reflect its actual content regarding automated decision-making.\",\n      \"class\": \"wrong-fact\"\n    },\n    {\n      \"severity\": \"minor\",\n      \"quote\": \"the pack is nine instruments per §3. This note scores the ones with a dated paragraph and a record horizon\",\n      \"problem\": \"There is an internal inconsistency: the document earlier states §3 names nine instruments, but the annex only lists eight in the instrument set table (MDR, 21 CFR, NMPA, GDPR, AI Act, HIPAA, PIPEDA, PIPL, LGPD are nine, but the table's header shows only eight rows? The count is confusing).\",\n      \"fix\": \"Ensure the instrument set table clearly lists all instruments discussed and reconciles the count.\",\n      \"class\": \"internal-inconsistency\"\n    }\n  ]\n}\n```"
+}

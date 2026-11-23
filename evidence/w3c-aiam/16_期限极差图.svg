@@ -1,0 +1,71 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='1180' height='740' viewBox='0 0 1180 740' font-family="Microsoft YaHei,PingFang SC,sans-serif">
+<rect width='1180' height='740' fill='#ffffff'/>
+<text x='36' y='44' font-size='20' font-weight='600' fill='#1a1a1a'>留存期限的方向不统一：下限、上限、双限、无载体（F1）</text>
+<text x='36' y='70' font-size='12' fill='#7a7a7a'>横轴为对数尺度（月）。同一份记忆记录可同时受多部法规约束，而 -03 把期限交给存储层级</text>
+<text x='36' y='90' font-size='12' fill='#7a7a7a'>"stated durability and retention properties"（散文），§1.4 又写明 "Tier names carry no protocol semantics"。</text>
+
+<line x1='310' y1='128' x2='1110' y2='128' stroke='#dfe2e5'/>
+<text x='561' y='122' font-size='10.5' fill='#8a8a8a' text-anchor='middle'>6 月</text>
+<text x='658' y='122' font-size='10.5' fill='#8a8a8a' text-anchor='middle'>1 年</text>
+<text x='756' y='122' font-size='10.5' fill='#8a8a8a' text-anchor='middle'>2 年</text>
+<text x='884' y='122' font-size='10.5' fill='#8a8a8a' text-anchor='middle'>5 年</text>
+<text x='982' y='122' font-size='10.5' fill='#8a8a8a' text-anchor='middle'>10 年</text>
+<text x='1038' y='122' font-size='10.5' fill='#8a8a8a' text-anchor='middle'>15 年</text>
+
+<text x='296' y='178' font-size='12' fill='#1f1f1f' text-anchor='end'>EU AI Act 19(1)/26(6)</text>
+<text x='296' y='194' font-size='10' fill='#6b6b6b' text-anchor='end'>日志下限</text>
+<rect x='310' y='164' width='251' height='20' rx='3' fill='#3c6fa8'/>
+<text x='435' y='179' font-size='11' font-weight='600' fill='#ffffff' text-anchor='middle'>≥ 6 个月</text>
+
+<text x='296' y='240' font-size='12' fill='#1f1f1f' text-anchor='end'>中国 GMP 45(4)/46(3)</text>
+<text x='296' y='256' font-size='10' fill='#6b6b6b' text-anchor='end'>下限 + 寿命期</text>
+<text x='764' y='220' font-size='10.5' fill='#6b8fbd'>最长期限＝寿命期，无固定数值</text>
+<rect x='310' y='226' width='446' height='20' rx='3' fill='#3c6fa8'/>
+<rect x='756' y='226' width='80' height='20' rx='3' fill='#3c6fa8' opacity='0.28'/>
+<line x1='836' y1='236' x2='890' y2='236' stroke='#3c6fa8' stroke-width='1.2' stroke-dasharray='4 3'/>
+<text x='530' y='241' font-size='11' font-weight='600' fill='#ffffff' text-anchor='middle'>≥ 2 年</text>
+
+<text x='296' y='302' font-size='12' fill='#1f1f1f' text-anchor='end'>HIPAA 164.316(b)(2)(i)</text>
+<text x='296' y='318' font-size='10' fill='#6b6b6b' text-anchor='end'>对象是文档</text>
+<rect x='310' y='288' width='600' height='20' rx='3' fill='#6b8fb8'/>
+<text x='610' y='303' font-size='11' font-weight='600' fill='#ffffff' text-anchor='middle'>6 年（自创建或最后生效之较晚者）</text>
+
+<text x='296' y='364' font-size='12' fill='#1f1f1f' text-anchor='end'>EU MDR Art. 10(8)</text>
+<text x='296' y='380' font-size='10' fill='#6b6b6b' text-anchor='end'>植入类更长</text>
+<rect x='310' y='350' width='672' height='20' rx='3' fill='#2e7d5b'/>
+<rect x='982' y='350' width='56' height='20' rx='3' fill='#2e7d5b' opacity='0.28'/>
+<text x='646' y='365' font-size='11' font-weight='600' fill='#ffffff' text-anchor='middle'>≥ 10 年</text>
+<text x='1010' y='342' font-size='10.5' fill='#5f9d84' text-anchor='middle'>植入类 ≥15 年</text>
+
+<text x='296' y='426' font-size='12' fill='#1f1f1f' text-anchor='end'>21 CFR 820.35 + ISO 13485 4.2.5</text>
+<text x='296' y='442' font-size='10' fill='#6b6b6b' text-anchor='end'>内容与期限分处两条</text>
+<text x='764' y='406' font-size='10.5' fill='#6b8fbd'>最长期限＝器械寿命期，无固定数值</text>
+<rect x='310' y='412' width='446' height='20' rx='3' fill='#3c6fa8'/>
+<rect x='756' y='412' width='120' height='20' rx='3' fill='#3c6fa8' opacity='0.25'/>
+<line x1='876' y1='422' x2='930' y2='422' stroke='#3c6fa8' stroke-width='1.2' stroke-dasharray='4 3'/>
+<text x='530' y='427' font-size='11' font-weight='600' fill='#ffffff' text-anchor='middle'>≥ 2 年（自放行）</text>
+
+<text x='296' y='496' font-size='12' fill='#1f1f1f' text-anchor='end'>PIPL Art. 19</text>
+<text x='296' y='512' font-size='10' fill='#6b6b6b' text-anchor='end'>方向相反：只设上限</text>
+<text x='352' y='478' font-size='11' fill='#b4762a'>上限：实现目的所必要的最短时间（越短越好，不设下限）</text>
+<line x1='352' y1='496' x2='1090' y2='496' stroke='#b4762a' stroke-width='2'/>
+<path d='M352,496 l14,-5 l0,10 z' fill='#b4762a'/>
+
+<text x='296' y='566' font-size='12' fill='#1f1f1f' text-anchor='end'>PIPEDA 4.5 / 4.5.2</text>
+<text x='296' y='582' font-size='10' fill='#6b6b6b' text-anchor='end'>下限与上限都要给</text>
+<line x1='310' y1='566' x2='1110' y2='566' stroke='#8a8a8a' stroke-width='1' stroke-dasharray='3 3'/>
+<circle cx='520' cy='566' r='4' fill='#8a8a8a'/>
+<circle cx='900' cy='566' r='4' fill='#8a8a8a'/>
+<text x='520' y='556' font-size='10.5' fill='#5f5f5f' text-anchor='middle'>最短期限（机构须声明）</text>
+<text x='900' y='556' font-size='10.5' fill='#5f5f5f' text-anchor='middle'>最长期限（机构须声明）</text>
+
+<text x='296' y='636' font-size='12' font-weight='600' fill='#b23c3c' text-anchor='end'>-03 协议本身</text>
+<text x='296' y='652' font-size='10' fill='#6b6b6b' text-anchor='end'>格式内无期限载体</text>
+<rect x='310' y='622' width='800' height='20' rx='3' fill='#ffffff' stroke='#b23c3c' stroke-dasharray='5 4'/>
+<text x='710' y='637' font-size='11.5' font-weight='600' fill='#b23c3c' text-anchor='middle'>全篇无任何期限语句 → 期限只能存在于运营方的散文（R13 判 NS）</text>
+
+<line x1='36' y1='672' x2='1144' y2='672' stroke='#e6e8ea'/>
+<text x='36' y='692' font-size='11' fill='#5f5f5f'>四种方向并存：下限型 4 部（AI Act / GMP / MDR / 820.35）、上限型 1 部（PIPL）、双限 1 部（PIPEDA）、按文档计 1 部（HIPAA）。协议侧一种都没有。</text>
+<text x='36' y='712' font-size='11' fill='#5f5f5f'>同一份记录同时落在 AI Act（≥6 月）、MDR（≥10/15 年）、GMP（≥2 年且至寿命期）之下：期限因此是记录或声明策略的属性，不是存储层级的属性。</text>
+<text x='36' y='732' font-size='10.5' fill='#8a8a8a'>来源：逐字条款见 06_条款原文摘录.md 与 raw2/；期限数值以各法域现行文本为准，本图不构成法律意见。</text>
+</svg>

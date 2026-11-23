@@ -1,0 +1,352 @@
+{
+ "target": "04b_提案_list版.md",
+ "tag": "final-04b",
+ "stamp": "20261123T181437",
+ "doc_sha256_16": "ed937a850790c066",
+ "doc_chars": 24158,
+ "model": "deepseek-ai/DeepSeek-V3.2",
+ "temperature": 0,
+ "lenses": [
+  "expert",
+  "process",
+  "adversary",
+  "outsider"
+ ],
+ "prompt_tokens_total": 24682,
+ "counts": {
+  "blocker": 0,
+  "major": 20,
+  "minor": 21
+ },
+ "findings": [
+  {
+   "severity": "major",
+   "quote": "the three device instruments — EU MDR, 21 CFR Part 820, China's GMP — that the Chair's recorded reading of 'comparable regimes' brings in",
+   "problem": "The document incorrectly states the Chair's reading includes China's GMP. The quoted reading explicitly lists EU MDR, 21 CFR Part 820, ISO 13485, and NMPA registration review rules, but does not mention China's GMP.",
+   "fix": "Replace 'China's GMP' with 'the NMPA registration review rules'.",
+   "class": "wrong-fact",
+   "lens": "expert"
+  },
+  {
+   "severity": "major",
+   "quote": "the three §3 items that are not scored are named here rather than left for a reader to discover... ISO/IEC 27001:2022, ISO/IEC 42001:2023 and NIST AI RMF 1.0 carry no row",
+   "problem": "The document claims §3 names nine instruments, but the list in the text only names eight: GDPR, EU AI Act, NIST AI RMF 1.0, ISO/IEC 27001:2022, ISO/IEC 42001:2023, HIPAA, PIPEDA, PIPL and LGPD. The count of 'nine' is inconsistent with the listed items.",
+   "fix": "Correct the count to eight or verify and list the ninth instrument named in §3.",
+   "class": "internal-inconsistency",
+   "lens": "expert"
+  },
+  {
+   "severity": "major",
+   "quote": "HIPAA's six years and PIPEDA's requirement that retention guidelines state both a minimum and a maximum are the only two of the four that carry an explicit figure or an explicit two-sided bound",
+   "problem": "This overstates PIPEDA's requirement. Principle 4.5.2 states guidelines 'should include minimum and maximum retention periods', using 'should' not 'shall' or 'must', indicating it is a recommendation, not a strict requirement.",
+   "fix": "Change 'requirement' to 'recommendation' or similar language reflecting the non-binding 'should'.",
+   "class": "overstated",
+   "lens": "expert"
+  },
+  {
+   "severity": "major",
+   "quote": "PIPL, Arts. 19, 45, 47, 56 ... Art. 56 — assessment reports and processing records kept at least three years",
+   "problem": "The document attributes a three-year retention period to PIPL Article 56. Article 56 of China's PIPL does not specify a three-year period; it states records should be kept for a period as provided by laws and administrative regulations. The three-year period is specified in other regulations (e.g., for personal information protection impact assessments).",
+   "fix": "Clarify the source of the three-year period or remove the specific duration, stating it is defined by other laws/regulations.",
+   "class": "wrong-fact",
+   "lens": "expert"
+  },
+  {
+   "severity": "major",
+   "quote": "LGPD, Arts. 16, 18(VI), 18(V), 37, 40 ... Art. 40 — ANPD may set retention for those records",
+   "problem": "This understates the content of LGPD Article 40. Article 40 deals with the processing of personal data for the purpose of studies by research bodies, not with the ANPD setting retention periods for records of processing operations.",
+   "fix": "Correct the citation or description of Article 40 to reflect its actual subject matter.",
+   "class": "wrong-fact",
+   "lens": "expert"
+  },
+  {
+   "severity": "major",
+   "quote": "the Chair's recorded reading of 'comparable regimes' in §3 as any law, regulation or standard that sets requirements for how records are kept, protected, retained, corrected or erased. On that reading, the medical-device rules EU MDR, 21 CFR Part 820, ISO 13485 and the rules for NMPA registration review are comparable regimes.",
+   "problem": "The claim that the Chair's reading brings in specific device instruments is unsupported. The cited URL (2026Nov/0003.html) is not provided in the text, so the reader cannot verify the quote or its context.",
+   "fix": "Quote the relevant sentence from the Chair's reply directly in the text, or remove the claim of a 'recorded reading' and present the inclusion of device instruments as the author's own proposal.",
+   "class": "unsupported",
+   "lens": "process"
+  },
+  {
+   "severity": "major",
+   "quote": "the three §3 items that are not scored are named here rather than left for a reader to discover, each with the reason: of the nine, ISO/IEC 27001:2022, ISO/IEC 42001:2023 and NIST AI RMF 1.0 carry no row, and the other six do.",
+   "problem": "The document states it scores 'fifteen rows' covering 'nine instruments in all', but later says three of the nine charter-named instruments are not scored. This is an internal inconsistency in the description of scope.",
+   "fix": "Clarify: The fifteen rows cover obligations from nine instruments, but three of the nine charter-named instruments (ISO/IEC 27001, ISO/IEC 42001, NIST AI RMF) are not scored because they lack scorable obligations.",
+   "class": "internal-inconsistency",
+   "lens": "process"
+  },
+  {
+   "severity": "major",
+   "quote": "I did not obtain the ISO/IEC 42001:2023 text; no clause number is given for it, and the row records only the absence of a stated period.",
+   "problem": "The author admits not having read a key instrument (ISO/IEC 42001:2023) that is part of the charter's named set, undermining the claim that 'every provision cited in the annex I read in the instrument'.",
+   "fix": "Remove the claim of having read every instrument, or obtain and review ISO/IEC 42001:2023 before making claims about its content.",
+   "class": "unsupported",
+   "lens": "process"
+  },
+  {
+   "severity": "major",
+   "quote": "HIPAA's six years attaches, as I read it, to the documentation a covered entity must maintain — its policies and procedures, and its records of actions, activities and assessments — not to the memory records themselves.",
+   "problem": "This is a substantive legal interpretation presented as the author's reading, but it is used as the basis for the 'not assessable' determination in R9. The reasoning is not anchored to a specific read-point in the HIPAA text that clarifies this distinction.",
+   "fix": "Quote the specific part of 45 CFR 164.316(b)(2)(i) that supports the interpretation that the obligation attaches only to 'documentation' and not to operational records like memory cells.",
+   "class": "unsupported",
+   "lens": "process"
+  },
+  {
+   "severity": "major",
+   "quote": "the Chair's recorded reading of 'comparable regimes' in §3 as any law, regulation or standard that sets requirements for how records are kept, protected, retained, corrected or erased. On that reading, the medical-device rules EU MDR, 21 CFR Part 820, ISO 13485 and the rules for NMPA registration review are comparable regimes.",
+   "problem": "The author presents the Chair's personal reading as the authoritative interpretation of the charter's scope, expanding the instrument set without group consensus.",
+   "fix": "Replace 'the Chair's recorded reading' with 'a possible reading of' or similar, making it clear this is a proposal, not an established fact.",
+   "class": "overstated",
+   "lens": "adversary"
+  },
+  {
+   "severity": "major",
+   "quote": "the three §3 items that are not scored are named here rather than left for a reader to discover, each with the reason: of the nine, ISO/IEC 27001:2022, ISO/IEC 42001:2023 and NIST AI RMF 1.0 carry no row, and the other six do.",
+   "problem": "The author frames their own choice not to score certain instruments as a necessary outcome of their method, rather than a debatable interpretive decision.",
+   "fix": "Rephrase to present the exclusion as a proposal for discussion, e.g., 'I propose not scoring these three because...'",
+   "class": "self-serving",
+   "lens": "adversary"
+  },
+  {
+   "severity": "major",
+   "quote": "HIPAA's six years attaches, as I read it, to the documentation a covered entity must maintain — its policies and procedures, and its records of actions, activities and assessments — not to the memory records themselves. That is, in substance, a change ledger and a deletion receipt.",
+   "problem": "The author makes a substantive legal interpretation (that HIPAA's retention rule doesn't apply to memory records) and presents it as the basis for a 'not assessable' determination, which is contestable.",
+   "fix": "Qualify the statement as an interpretation, e.g., 'In my reading, HIPAA's six-year rule attaches to documentation...' and note the alternative view.",
+   "class": "overstated",
+   "lens": "adversary"
+  },
+  {
+   "severity": "major",
+   "quote": "In the archive record of this thread up to 2026-11-23 no one has mapped it.",
+   "problem": "This is a claim of novelty that is unsupported within the document; the author provides no evidence of having searched the archive.",
+   "fix": "Remove the claim or support it with a specific citation.",
+   "class": "unsupported",
+   "lens": "adversary"
+  },
+  {
+   "severity": "major",
+   "quote": "R7 has no such path — it needs either a field or an explicit statement that the boundary is out of the format's scope. That is the one I would most expect to be corrected.",
+   "problem": "The author shifts from analysis to a personal prediction about what 'should' be corrected, inserting opinion into a supposedly factual annex.",
+   "fix": "none - delete",
+   "class": "self-serving",
+   "lens": "adversary"
+  },
+  {
+   "severity": "major",
+   "quote": "the Chair's recorded reading of \"comparable regimes\" brings in (the reading is in the 2026-11-03 reply, https://lists.w3.org/Archives/Public/public-ai-agent-memory-interop/2026Nov/0003.html).",
+   "problem": "The document references a URL to define a key term, but the reader cannot access it. The meaning of 'comparable regimes' is therefore undefined.",
+   "fix": "Quote the relevant part of the reading directly in the text.",
+   "class": "unsupported",
+   "lens": "outsider"
+  },
+  {
+   "severity": "major",
+   "quote": "the three §3 items that are not scored are named here rather than left for a reader to discover, each with the reason: of the nine, ISO/IEC 27001:2022, ISO/IEC 42001:2023 and NIST AI RMF 1.0 carry no row, and the other six do.",
+   "problem": "The reader does not know what 'the nine' refers to, as the list of nine instruments from §3 was not provided in the document.",
+   "fix": "List the nine instruments named in §3 before discussing which are scored.",
+   "class": "unclear",
+   "lens": "outsider"
+  },
+  {
+   "severity": "major",
+   "quote": "the Chair's recorded reading of §3 names EU MDR, 21 CFR Part 820, ISO 13485 and the NMPA registration-review rules as comparable regimes, and that reading is why they carry rows here.",
+   "problem": "The document states that ISO 13485 is named as a comparable regime, but it does not appear in the instrument set or rows. This is an internal inconsistency.",
+   "fix": "Either include ISO 13485 in the analysis or correct the statement.",
+   "class": "internal-inconsistency",
+   "lens": "outsider"
+  },
+  {
+   "severity": "major",
+   "quote": "An obligation is cited to an instrument and a paragraph, decomposed into the axes the Chair's sentence names, glossed as I use them — kept (the record exists and can be read), protected (access and integrity), retained (held for a stated period), corrected (changed, with the prior value and the change visible), erased (removed, and shown to be removed)",
+   "problem": "The term 'the Chair's sentence' is undefined. The reader does not know which sentence or its content, so the origin of the five axes is unclear.",
+   "fix": "Quote the Chair's sentence that names the axes.",
+   "class": "unclear",
+   "lens": "outsider"
+  },
+  {
+   "severity": "major",
+   "quote": "I raised the field-level precedent for separating them on 2026-10-22 (https://lists.w3.org/Archives/Public/public-ai-agent-memory-interop/2026Oct/0027.html): FHIR is the HL7 standard for exchanging health data...",
+   "problem": "The document references a URL to support a claim about a precedent. The reader cannot access it, so the claim is unsupported here.",
+   "fix": "Summarize the key point from the linked discussion.",
+   "class": "unsupported",
+   "lens": "outsider"
+  },
+  {
+   "severity": "major",
+   "quote": "the eight tools (§4: `remember`, `recall`, `forget`, `status`, `share`, `revoke_share`, `governance_propose`, `governance_vote`).",
+   "problem": "The document refers to 'the eight tools' and lists them, but a reader with no background does not know what these tools are or what they do.",
+   "fix": "Add a brief, one-sentence explanation of what the 'tools' are in the context of the protocol.",
+   "class": "unclear",
+   "lens": "outsider"
+  },
+  {
+   "severity": "minor",
+   "quote": "the AI Act requires logs for at least six months (Art. 19(1), 26(6))",
+   "problem": "The document cites Article 26(6) of the EU AI Act for a six-month log retention. Article 26 concerns notified bodies; the general log requirement for high-risk AI systems is in Article 19(1). Article 26(6) is not a correct citation for this general requirement.",
+   "fix": "Remove '26(6)' from this sentence, or clarify that it refers to a specific context for notified bodies.",
+   "class": "wrong-fact",
+   "lens": "expert"
+  },
+  {
+   "severity": "minor",
+   "quote": "21 CFR 820.35 (QMSR, in force 2026-02-02) with ISO 13485:2016 incorporated at §820.7",
+   "problem": "The document states ISO 13485 is incorporated at §820.7. 21 CFR 820.7 is about the Quality Management System (QMS). The incorporation by reference of ISO 13485:2016 is actually detailed in §820.10.",
+   "fix": "Change '§820.7' to '§820.10'.",
+   "class": "wrong-fact",
+   "lens": "expert"
+  },
+  {
+   "severity": "minor",
+   "quote": "NMPA Announcement No. 107 of 2025, in force 2026-11-01 | Art. 45(3)–(4) alteration and retention; Art. 46 electronic records",
+   "problem": "The document refers to 'China's GMP' and 'NMPA Announcement No. 107 of 2025' interchangeably but treats them as one instrument in the rows. It's unclear if these are the same document or two separate instruments, creating ambiguity.",
+   "fix": "Clarify the relationship between 'China's GMP' and the NMPA Announcement, and use consistent naming.",
+   "class": "unclear",
+   "lens": "expert"
+  },
+  {
+   "severity": "minor",
+   "quote": "PIPL, Arts. 19, 45, 47, 56 | ... Art. 45 — consult, copy and transfer to a designated handler",
+   "problem": "The description of PIPL Art. 45 as 'consult, copy and transfer to a designated handler' is an oversimplification. Article 45 concerns the right of individuals to request an explanation of automated decision-making and to refuse decisions made solely by automation.",
+   "fix": "Correct the description of PIPL Article 45 to reflect its actual content regarding automated decision-making.",
+   "class": "wrong-fact",
+   "lens": "expert"
+  },
+  {
+   "severity": "minor",
+   "quote": "the pack is nine instruments per §3. This note scores the ones with a dated paragraph and a record horizon",
+   "problem": "There is an internal inconsistency: the document earlier states §3 names nine instruments, but the annex only lists eight in the instrument set table (MDR, 21 CFR, NMPA, GDPR, AI Act, HIPAA, PIPEDA, PIPL, LGPD are nine, but the table's header shows only eight rows? The count is confusing).",
+   "fix": "Ensure the instrument set table clearly lists all instruments discussed and reconciles the count.",
+   "class": "internal-inconsistency",
+   "lens": "expert"
+  },
+  {
+   "severity": "minor",
+   "quote": "Following the ratification of charter v1.1, §3 lists a regulatory crosswalk pack as the fourth deliverable",
+   "problem": "The claim that the charter has been 'ratified' is unverified. The document provides a URL for the charter but not for a ratification record or status.",
+   "fix": "Replace 'ratification' with 'publication' or 'adoption', or cite the specific record of ratification.",
+   "class": "unsupported",
+   "lens": "process"
+  },
+  {
+   "severity": "minor",
+   "quote": "drafted with AI assistance from sources I read myself.",
+   "problem": "The statement is unclear. It's ambiguous whether the AI assistance was in drafting only, or if it also processed the sources. The phrase 'from sources I read myself' is awkward and could be misinterpreted.",
+   "fix": "Clarify: 'Drafted with AI assistance. All sources cited were personally read and verified by the author.'",
+   "class": "unclear",
+   "lens": "process"
+  },
+  {
+   "severity": "minor",
+   "quote": "the Chair's recorded reading of §3 names EU MDR, 21 CFR Part 820, ISO 13485 and the NMPA registration-review rules as comparable regimes, and that reading is why they carry rows here.",
+   "problem": "This repeats the earlier unsupported claim about the Chair's reading. It presents the inclusion of these instruments as a direct consequence of that reading, not as the author's choice.",
+   "fix": "Same as finding 1. Present the inclusion as the author's proposal based on an interpretation of 'comparable regimes'.",
+   "class": "unsupported",
+   "lens": "process"
+  },
+  {
+   "severity": "minor",
+   "quote": "the archive record of this thread up to 2026-11-23 no one has mapped it.",
+   "problem": "This is an absolute claim ('no one has mapped it') about the content of an external archive (the mailing list thread). The reader cannot verify it from the text provided.",
+   "fix": "Remove the absolute claim or qualify it: 'In my review of the thread archive, I did not find a prior mapping.'",
+   "class": "unsupported",
+   "lens": "process"
+  },
+  {
+   "severity": "minor",
+   "quote": "Horizons differ by more than 20× across these instruments",
+   "problem": "The '20×' figure is asserted but not demonstrated. The cited horizons are 'at least six months', 'at least ten years', and 'device lifetime'. A quick calculation shows 10 years / 6 months = 20x, but the 'device lifetime' horizon makes the comparison ambiguous and the 'more than 20×' claim is overstated without specifying which two horizons are being compared.",
+   "fix": "Remove the 'more than 20×' figure or explicitly state the comparison being made (e.g., 'The longest horizon (ten years) is twenty times the shortest (six months)').",
+   "class": "overstated",
+   "lens": "process"
+  },
+  {
+   "severity": "minor",
+   "quote": "R7 has no such path — it needs either a field or an explicit statement that the boundary is out of the format's scope. That is the one I would most expect to be corrected.",
+   "problem": "This is unclear. R7 is about 'Records at the disposal of a third party' and is marked Satisfied (S). The text in B.4 seems to refer to R8 ('Boundary between erasure and retained obligation'), which is marked Not Satisfied (NS).",
+   "fix": "Correct the reference from 'R7' to 'R8' in section B.4.",
+   "class": "unclear",
+   "lens": "process"
+  },
+  {
+   "severity": "minor",
+   "quote": "I did not obtain the ISO/IEC 42001:2023 text; no clause number is given for it, and the row records only the absence of a stated period.",
+   "problem": "The author admits to not reading a key instrument they are making a determination about, undermining the credibility of their method.",
+   "fix": "Either obtain the text before posting or remove the instrument from the analysis.",
+   "class": "unsupported",
+   "lens": "adversary"
+  },
+  {
+   "severity": "minor",
+   "quote": "Every legal reading here is mine, and I would rather be corrected than agreed with",
+   "problem": "This disclaimer at the very end of a long, technical document feels like an afterthought and does not mitigate the assertive tone of the preceding analysis.",
+   "fix": "Move this disclaimer much earlier, perhaps into the 'Terms' section of Part A.",
+   "class": "unclear",
+   "lens": "adversary"
+  },
+  {
+   "severity": "minor",
+   "quote": "A single memory record can sit under all three.",
+   "problem": "This is presented as a fact, but it's a hypothetical scenario. The document doesn't establish that a single record would actually be subject to all three regimes simultaneously.",
+   "fix": "Qualify as a potential scenario, e.g., 'A single memory record could, in theory, be subject to all three.'",
+   "class": "overstated",
+   "lens": "adversary"
+  },
+  {
+   "severity": "minor",
+   "quote": "the eight tools (§4) are the protocol operations an implementation exposes — `remember`, `recall`, `forget`, `status`, `share`, `revoke_share`, `governance_propose`, `governance_vote` — each acting on a cell or on a receipt, and none of them a bulk export",
+   "problem": "The author asserts the protocol lacks bulk export, but this is a negative claim that requires checking the entire spec to verify. The method section only mentions checking for the presence of fields.",
+   "fix": "Support with a citation to the part of the spec that defines the toolset, showing no export tool is listed.",
+   "class": "unsupported",
+   "lens": "adversary"
+  },
+  {
+   "severity": "minor",
+   "quote": "the three device instruments — EU MDR, 21 CFR Part 820, China's GMP — that the Chair's recorded reading of \"comparable regimes\" brings in",
+   "problem": "The acronyms 'EU MDR' and 'GMP' are used before being defined. 'China's GMP' is defined later as 'China's device GMP'.",
+   "fix": "Spell out the acronyms on first use (e.g., EU Medical Device Regulation, China's Good Manufacturing Practice).",
+   "class": "unclear",
+   "lens": "outsider"
+  },
+  {
+   "severity": "minor",
+   "quote": "the two management-system standards — ISO/IEC 27001:2022 and ISO/IEC 42001:2023 — whose obligation is that an organisation establishes, evidences and improves its own system",
+   "problem": "The claim about what these standards obligate is presented as fact but is unsupported by citation or evidence within the document.",
+   "fix": "Add a citation to the specific clause(s) in the standards that state this, or qualify it as the author's interpretation.",
+   "class": "unsupported",
+   "lens": "outsider"
+  },
+  {
+   "severity": "minor",
+   "quote": "HIPAA's six years attaches, as I read it, to the documentation a covered entity must maintain — its policies and procedures, and its records of actions, activities and assessments — not to the memory records themselves.",
+   "problem": "This is a key interpretive claim about HIPAA that determines the scoring (NA). It is presented as the author's reading without supporting legal citation or reasoning, making it seem like an opinion stated as fact.",
+   "fix": "Add a brief justification or cite the specific regulatory text that leads to this reading.",
+   "class": "overstated",
+   "lens": "outsider"
+  },
+  {
+   "severity": "minor",
+   "quote": "the operator signs cells and receipts on the holder's behalf, so \"this store vouches for this record\" and \"this person caused this record\" are the same ML-DSA-65 signature.",
+   "problem": "The term 'ML-DSA-65' is undefined technical jargon. A general reader will not know what it means.",
+   "fix": "Add a brief parenthetical explanation (e.g., 'a cryptographic signature algorithm').",
+   "class": "unclear",
+   "lens": "outsider"
+  },
+  {
+   "severity": "minor",
+   "quote": "R2's satisfaction is narrower than its label suggests: it covers resistance to silent overwrite, not persistence — persistence is R1, and R1 is not assessable.",
+   "problem": "This clarification is necessary but appears only in the analysis of the table (B.3). The label in the table itself ('Original value recoverable after a correction') could mislead a reader skimming the table.",
+   "fix": "Add a note to the 'Determination' or 'Evidence read-point' column for R2 in the table to indicate the narrow scope.",
+   "class": "unclear",
+   "lens": "outsider"
+  },
+  {
+   "severity": "minor",
+   "quote": "R7 has no such path — it needs either a field or an explicit statement that the boundary is out of the format's scope. That is the one I would most expect to be corrected.",
+   "problem": "The reference to 'R7' is confusing because the preceding section (B.4) discusses closing R1 and R3. The sudden mention of R7's path feels out of place and its connection to the prior discussion is unclear.",
+   "fix": "Introduce this point about R7 more clearly, perhaps in a separate subsection or with a transitional sentence.",
+   "class": "unclear",
+   "lens": "outsider"
+  }
+ ],
+ "all_parsed": true
+}

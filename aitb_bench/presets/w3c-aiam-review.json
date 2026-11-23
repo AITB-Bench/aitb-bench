@@ -1,0 +1,54 @@
+{
+ "name": "w3c-aiam-review",
+ "title": "W3C AIAM · 发布前审查（S0/S5/S7/S9 机器可判部分）",
+ "profile": "full",
+ "notes": "对应 00_发布前审查标准_v2。S6 外部AI与S1专家不在本 preset（无独立模型通道/须人）；S9 的私有仓以 404 记录为 FAIL，不粉饰。本文件不含任何本机绝对路径：路径一律走 ${W3C_PKG} 等变量，见 config.example.json。",
+ "checks": [
+  {"id": "artifacts.review-inputs", "type": "files",
+   "base": "${W3C_PKG}",
+   "paths": [
+    {"path": "19_链接直达清单.json", "min_size": 1500},
+    {"path": "19_链接直达结果.json", "min_size": 1000},
+    {"path": "17_一页证据台.html", "min_size": 300000},
+    {"path": "18_预答辩_12问.md", "min_size": 3000},
+    {"path": "15_红队攻击清单.md", "min_size": 2000},
+    {"path": "04b_提案_list版.md", "min_size": 4000}
+   ]},
+
+  {"id": "standard.v2-present", "type": "files",
+   "base": "${STANDARD_DIR}",
+   "paths": [
+    {"path": "00_发布前审查标准_v2_20261123.md", "min_size": 5000}
+   ]},
+
+  {"id": "s6.receipts", "type": "cmd",
+   "cmd": "python probes\\w3c_s6_receipts.py", "expect": "S6: PASS", "timeout": 60},
+
+  {"id": "s7.link-direct", "type": "cmd",
+   "cmd": "python tools\\link_direct_check.py \"${W3C_PKG}/19_链接直达清单.json\"",
+   "expect": "直达且内容匹配", "timeout": 240},
+
+  {"id": "anchors.exact", "type": "cmd",
+   "cwd": "${W3C_PKG}/08_外人复跑包",
+   "cmd": "python 锚点自检.py", "expect": "25/25 通过", "timeout": 60},
+
+  {"id": "doc.consistency", "type": "cmd",
+   "cmd": "python probes\\w3c_aiam_consistency.py", "expect": "CONSISTENCY: PASS", "timeout": 90},
+
+  {"id": "method.kit", "type": "cmd",
+   "cwd": "${W3C_PKG}/14_方法可复用包",
+   "cmd": "python crosswalk_anchor_check.py spec.example.json", "expect": "25/25 通过", "timeout": 60},
+
+  {"id": "net.team-notice", "type": "http", "needs_network": true,
+   "targets": [{"url": "https://lists.w3.org/Archives/Public/public-ai-agent-memory-interop/2026Nov/0009.html", "expect": 200}]},
+
+  {"id": "net.group-page", "type": "http", "needs_network": true,
+   "targets": [{"url": "https://www.w3.org/community/ai-agent-memory-interop/", "expect": 200}]},
+
+  {"id": "net.eurlex-antibot", "type": "http", "needs_network": true,
+   "targets": [{"url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32017R0745", "expect": 202}]},
+
+  {"id": "s9.repo-visibility", "type": "cmd",
+   "cmd": "python probes\\w3c_s9_visibility.py", "expect": "S9: PASS", "timeout": 90}
+ ]
+}

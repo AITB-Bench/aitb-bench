@@ -19,6 +19,15 @@ for _s in (sys.stdout, sys.stderr):
 
 BENCH = Path(__file__).resolve().parent
 
+# vars 的取法要同时满足两种运行形态：dev 目录里 `python bench.py`（同目录 import），
+# 安装包里 `aitb` 控制台脚本（core.py 属 aitb_bench 包，必须用相对 import）。
+# 早期只写 `import vars`，CI 上 aitb demo 直接 ModuleNotFoundError，门禁形同虚设。
+try:  # 包内运行
+    from . import vars as _VARS
+except ImportError:  # 脚本运行
+    sys.path.insert(0, str(BENCH))
+    import vars as _VARS
+
 
 def _presets_dirs():
     """预设搜索路径：$AITB_PRESETS 与包内 presets **并存**（不是替换），再退到 cwd/presets。"""
@@ -97,9 +106,15 @@ def run_cmd(cmd, cwd=None, timeout=300, env=None):
 # ---------------- adapters ----------------
 
 def a_cmd(spec, ctx):
-    """跑一条命令，按 expect 子串判定。"""
-    cwd = (BENCH / spec["cwd"]).resolve() if spec.get("cwd") else BENCH
-    cmd = spec["cmd"]
+    """跑一条命令，按 expect 子串判定。cmd/cwd 支持 ${VAR}（配置或环境变量）。"""
+    _v = _VARS
+    raw_cwd = _v.expand(spec["cwd"]) if spec.get("cwd") else ""
+    if raw_cwd:
+        cwd = Path(raw_cwd)
+        cwd = cwd if cwd.is_absolute() else (Path.cwd() / cwd).resolve()
+    else:
+        cwd = BENCH
+    cmd = _v.expand(spec["cmd"])
     rc, out, ms = run_cmd(cmd, cwd=cwd, timeout=spec.get("timeout", 300))
     expect = spec.get("expect")
     tail = "\n".join([l for l in out.strip().splitlines() if l.strip()][-3:])
@@ -115,7 +130,13 @@ def a_cmd(spec, ctx):
 def a_files(spec, ctx):
     """核对文件在场与大小下限。base 可为绝对路径，path 相对 base。"""
     miss = []
-    base = Path(spec["base"]) if spec.get("base") else BENCH
+    _v = _VARS
+    raw = _v.expand(spec["base"]) if spec.get("base") else ""
+    if raw:
+        base = Path(raw)
+        base = base if base.is_absolute() else (Path.cwd() / base).resolve()
+    else:
+        base = BENCH
     for item in spec["paths"]:
         p = Path(item["path"])
         if not p.is_absolute():
@@ -210,20 +231,8 @@ ADAPTERS = {"cmd": a_cmd, "files": a_files, "http": a_http, "pyver": a_pyver}
 # ---------------- runner ----------------
 
 def _vars():
-    try:
-        import vars as _v
-        return _v
-    except Exception:
-        pass
-    try:
-        from .vars import expand
-        class _M:
-            pass
-        m = _M()
-        m.expand = expand
-        return m
-    except Exception:
-        return None
+    """返回提供 expand() 的模块；取不到就返回 None，调用方降级为"不展开变量"。"""
+    return _VARS
 
 
 def load_preset(name):

@@ -1,0 +1,3141 @@
+﻿
+<!DOCTYPE html>
+
+
+
+
+
+
+<html data-bs-theme="auto" lang="en" prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#">
+    <head>
+        
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>
+            
+    
+        draft-saihm-memory-protocol-03 - The Sovereign AI Horizontal Memory (SAIHM) Protocol
+    
+
+        </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="traceparent" content="">
+        <link href="https://static.ietf.org/fonts/inter/import.css" rel="stylesheet">
+        <link href="https://static.ietf.org/fonts/noto-sans-mono/import.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://static.ietf.org/dt/12.83.2/ietf/css/ietf.css">
+        <link rel="stylesheet" href="https://static.ietf.org/dt/12.83.2/ietf/css/select2.css">
+        
+        <script src="https://static.ietf.org/dt/12.83.2/ietf/js/theme.js"></script>
+        <style>
+            .inline { display: inline; }
+        </style>
+        
+        
+    
+
+
+
+
+<meta property="og:title" content="The Sovereign AI Horizontal Memory (SAIHM) Protocol">
+<meta property="og:url" content="https://datatracker.ietf.org/doc/draft-saihm-memory-protocol/03/">
+
+
+<link rel="canonical" href="https://datatracker.ietf.org/doc/draft-saihm-memory-protocol/03/">
+
+<meta property="og:site_name" content="IETF Datatracker">
+<meta property="og:description" content="This document defines the Sovereign AI Horizontal Memory (SAIHM) protocol, a memory layer for AI agents. A SAIHM operator stores an agent&#x27;s memory as encrypted cells bound to a post-quantum holder identity, records each state change in a public audit log, and supports revocable sharing contracts. The protocol defines an erasure operation with two stated erasure classes, intended to help an operator meet its obligations under Article 17 of EU Regulation 2016/679 (GDPR). This revision specifies the custodial profile. The operator holds the holder&#x27;s keys and performs all cryptography. The agent-side client holds no keys, runs no cryptography beyond TLS and keeps no store; it reaches the operator over HTTPS and exposes the protocol to the agent as eight Model Context Protocol (MCP) tools. The document defines the operator obligations, the HTTPS binding, the eight tools, and the checks a conformant client applies to what the operator returns.">
+<meta property="og:type" content="article">
+
+<meta property="article:section" content="Individual Internet-Draft">
+
+<meta property="article:author" content="Russell Jackson">
+
+
+
+    <link rel="alternate"
+          type="application/atom+xml"
+          title="Document changes"
+          href="/feed/document-changes/draft-saihm-memory-protocol/">
+    <meta name="description"
+          content="The Sovereign AI Horizontal Memory (SAIHM) Protocol ">
+
+        <script type="module" crossorigin="" src="https://static.ietf.org/dt/12.83.2/assets/embedded-72dc5a5f.js"></script>
+<link href="https://static.ietf.org/dt/12.83.2/assets/create-pinia-singleton-4fceef90.js" type="text/javascript" crossorigin="anonymous" rel="modulepreload" as="script" />
+<link href="https://static.ietf.org/dt/12.83.2/assets/Scrollbar-0888439d.js" type="text/javascript" crossorigin="anonymous" rel="modulepreload" as="script" />
+        
+
+<link rel="apple-touch-icon"
+      sizes="180x180"
+      href="https://static.ietf.org/dt/12.83.2/ietf/images/ietf-logo-nor-180.png">
+<link rel="icon"
+      sizes="32x32"
+      href="https://static.ietf.org/dt/12.83.2/ietf/images/ietf-logo-nor-32.png">
+<link rel="icon"
+      sizes="16x16"
+      href="https://static.ietf.org/dt/12.83.2/ietf/images/ietf-logo-nor-16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon"
+      href="https://static.ietf.org/dt/12.83.2/ietf/images/ietf-logo-nor-mask.svg"
+      color="#ffffff">
+<meta name="msapplication-TileColor"
+      content="#ffffff">
+<meta name="theme-color"
+      content="#ffffff">
+        <script src="https://static.ietf.org/dt/12.83.2/ietf/js/ietf.js"></script>
+        
+    </head>
+    <body  class="navbar-offset position-relative"
+          data-group-menu-data-url="/group/groupmenu.json">
+        
+        <noscript><iframe class="status" title="Site status" src="/status/latest"></iframe></noscript>
+<div class="vue-embed" data-component="Status"></div>
+        <a class="visually-hidden visually-hidden-focusable" href="#content">Skip to main content</a>
+        <nav class="navbar navbar-expand-lg fixed-top bg-secondary-subtle">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">
+                    
+
+
+
+<img alt="IETF Logo"
+     class="d-lm-none me-2"
+     
+     
+        
+             src="https://static.ietf.org/dt/12.83.2/ietf/images/ietf-logo-nor-white.svg"
+        
+     
+     >
+
+<img alt="IETF Logo"
+     class="d-dm-none me-2"
+     
+     
+        
+             src="https://static.ietf.org/dt/12.83.2/ietf/images/ietf-logo-nor.svg"
+        
+     
+     >
+                    Datatracker
+                    
+                </a>
+                <div class="collapse navbar-collapse" id="navbar-collapse">
+                    <ul class="nav navbar-nav flex-nowrap">
+                        
+
+
+
+
+<li class="nav-item dropdown">
+    
+        <a href="#"
+           class="nav-link dropdown-toggle"
+           role="button"
+           data-bs-toggle="dropdown"
+           aria-expanded="false">
+            Groups
+        </a>
+        <ul class="dropdown-menu mt-n1">
+        
+    <li class="dropdown-header">By area/parent</li>
+    
+
+
+
+    
+    <li class="dropend group-menu group-parent-2010">
+        <a class="dropdown-item dropdown-toggle "
+           href="/wg/#ART">
+            Apps &amp; Realtime
+        </a>
+    </li>
+
+    
+    <li class="dropend group-menu group-parent-1008">
+        <a class="dropdown-item dropdown-toggle "
+           href="/wg/#GEN">
+            General
+        </a>
+    </li>
+
+    
+    <li class="dropend group-menu group-parent-1052">
+        <a class="dropdown-item dropdown-toggle "
+           href="/wg/#INT">
+            Internet
+        </a>
+    </li>
+
+    
+    <li class="dropend group-menu group-parent-1193">
+        <a class="dropdown-item dropdown-toggle "
+           href="/wg/#OPS">
+            Ops &amp; Management
+        </a>
+    </li>
+
+    
+    <li class="dropend group-menu group-parent-1249">
+        <a class="dropdown-item dropdown-toggle "
+           href="/wg/#RTG">
+            Routing
+        </a>
+    </li>
+
+    
+    <li class="dropend group-menu group-parent-1260">
+        <a class="dropdown-item dropdown-toggle "
+           href="/wg/#SEC">
+            Security
+        </a>
+    </li>
+
+    
+    <li class="dropend group-menu group-parent-2412">
+        <a class="dropdown-item dropdown-toggle "
+           href="/wg/#WIT">
+            Web and Internet Transport
+        </a>
+    </li>
+
+    
+        <li><a class="dropdown-item" href="/group/iesg/about/">IESG</a></li>
+    
+    <li class="dropend group-menu group-parent-7">
+        <a class="dropdown-item dropdown-toggle "
+           href="/program/">
+            IAB
+        </a>
+    </li>
+
+    
+    <li class="dropend group-menu group-parent-3">
+        <a class="dropdown-item dropdown-toggle "
+           href="/rg/">
+            IRTF
+        </a>
+    </li>
+
+    
+    <li class="dropend group-menu group-parent-2309">
+        <a class="dropdown-item dropdown-toggle "
+           href="/adm/">
+            IETF LLC
+        </a>
+    </li>
+
+    
+    <li class="dropend group-menu group-parent-1876">
+        <a class="dropdown-item dropdown-toggle "
+           href="/rfcedtyp/">
+            RFC Editor
+        </a>
+    </li>
+
+
+    <li class="dropend">
+        <a class="dropdown-item dropdown-toggle "
+           href="/group/">
+            Other
+        </a>
+        
+
+
+<ul class="dropdown-menu ms-n1">
+    
+        <li>
+            <a class="dropdown-item "
+               href="/ag/">Active AGs</a>
+        </li>
+    
+        <li>
+            <a class="dropdown-item "
+               href="/area/">Active Areas</a>
+        </li>
+    
+        <li>
+            <a class="dropdown-item "
+               href="/dir/">Active Directorates</a>
+        </li>
+    
+        <li>
+            <a class="dropdown-item "
+               href="/iabworkshop/">Active IAB Workshops</a>
+        </li>
+    
+        <li>
+            <a class="dropdown-item "
+               href="/program/">Active Programs</a>
+        </li>
+    
+        <li>
+            <a class="dropdown-item "
+               href="/rag/">Active RAGs</a>
+        </li>
+    
+        <li>
+            <a class="dropdown-item "
+               href="/team/">Active Teams</a>
+        </li>
+    
+    
+</ul>
+
+    </li>
+    <li><hr class="dropdown-divider"></li>
+    <li class="dropdown-header">New work</li>
+    <li>
+        <a class="dropdown-item"
+           href="/group/chartering/">
+            Chartering groups
+        </a>
+    </li>
+    <li>
+        <a class="dropdown-item"
+           href="/wg/bofs/">
+            BOFs
+        </a>
+    </li>
+    <li>
+        <a class="dropdown-item"
+           href="/doc/bof-requests">
+            BOF Requests
+        </a>
+    </li>
+    <li><hr class="dropdown-divider"></li>
+    <li class="dropdown-header">Other groups</li>
+    <li>
+        <a class="dropdown-item"
+           href="/group/concluded/">
+            Concluded groups
+        </a>
+    </li>
+    <li>
+        <a class="dropdown-item"
+           href="/list/nonwg">
+            Non-WG lists
+        </a>
+    </li>
+    
+    </ul>
+</li>
+
+<li class="nav-item dropdown">
+    
+        <a href="#"
+           class="nav-link dropdown-toggle"
+           role="button"
+           data-bs-toggle="dropdown"
+           aria-expanded="false">
+            Documents
+        </a>
+        <ul class="dropdown-menu mt-n1">
+        
+    <li>
+        <a class="dropdown-item"
+           href="/doc/search">
+            Search
+        </a>
+    </li>
+    <li>
+        <a class="dropdown-item"
+           href="/doc/recent">
+            Recent I-Ds
+        </a>
+    </li>
+    <li>
+        <a class="dropdown-item"
+           href="/submit/">
+            Submit an Internet-Draft
+        </a>
+    </li>
+    
+    
+        <li><hr class="dropdown-divider">
+        </li>
+    
+    <li class="dropdown-header">
+        RFC streams
+    </li>
+    <li>
+        <a class="dropdown-item"
+           href="/stream/iab/">
+            IAB
+        </a>
+    </li>
+    <li>
+        <a class="dropdown-item"
+           href="/stream/irtf/">
+            IRTF
+        </a>
+    </li>
+    <li>
+        <a class="dropdown-item"
+           href="/stream/ise/">
+            ISE
+        </a>
+    </li>
+    <li>
+        <a class="dropdown-item"
+           href="/stream/editorial/">
+            Editorial
+        </a>
+    </li>
+    
+        <li><hr class="dropdown-divider">
+        </li>
+    
+    <li class="dropdown-header">
+        Subseries
+    </li>
+    <li>
+        <a class="dropdown-item"
+           href="/doc/std">
+            STD
+        </a>
+        <a class="dropdown-item"
+           href="/doc/bcp">
+            BCP
+        </a>
+        <a class="dropdown-item"
+           href="/doc/fyi">
+            FYI
+        </a>
+    </li>
+    
+    </ul>
+</li>
+
+<li class="nav-item dropdown">
+    
+        <a href="#"
+           class="nav-link dropdown-toggle"
+           role="button"
+           data-bs-toggle="dropdown"
+           aria-expanded="false">
+            Meetings
+        </a>
+        <ul class="dropdown-menu mt-n1">
+        
+    <li>
+        <a class="dropdown-item"
+           href="/meeting/agenda">
+            Agenda
+        </a>
+    </li>
+    <li>
+        <a class="dropdown-item"
+           href="/meeting/materials">
+            Materials
+        </a>
+    </li>
+    <li>
+        <a class="dropdown-item"
+           href="/meeting/floor-plan">
+            Floor plan
+        </a>
+    </li>
+    <li>
+        <a class="dropdown-item"
+           href="https://www.ietf.org/how/meetings/register/">
+            Registration
+        </a>
+    </li>
+    <li>
+        <a class="dropdown-item"
+           href="/meeting/important-dates/">
+            Important dates
+        </a>
+    </li>
+    <li>
+        <a class="dropdown-item"
+           href="/meeting/session/request/">
+            Request a session
+        </a>
+    </li>
+    
+    <li>
+        <a class="dropdown-item"
+           href="/meeting/requests">
+            Session requests
+        </a>
+    </li>
+    
+    
+        
+            <li><hr class="dropdown-divider">
+            </li>
+        
+        <li class="dropdown-header">
+            Upcoming meetings
+        </li>
+    
+    <li>
+        <a class="dropdown-item"
+           href="/meeting/upcoming">
+            Upcoming meetings
+        </a>
+    </li>
+    
+        
+            <li><hr class="dropdown-divider">
+            </li>
+        
+        <li class="dropdown-header">
+            Past meetings
+        </li>
+    
+    <li>
+        <a class="dropdown-item"
+           href="/meeting/past">
+            Past IETF meetings
+        </a>
+    </li>
+    <li>
+        <a class="dropdown-item"
+           href="/meeting/past/interim">
+            Past interim meetings
+        </a>
+    </li>
+    
+    </ul>
+</li>
+
+<li class="nav-item dropdown">
+    
+        <a href="#"
+           class="nav-link dropdown-toggle"
+           role="button"
+           data-bs-toggle="dropdown"
+           aria-expanded="false">
+            Other
+        </a>
+        <ul class="dropdown-menu mt-n1">
+        
+    <li>
+        <a class="dropdown-item"
+           href="/ipr/">
+            IPR disclosures
+        </a>
+    </li>
+    <li>
+        <a class="dropdown-item"
+           href="/liaison/">
+            Liaison statements
+        </a>
+    </li>
+    
+    <li>
+        <a class="dropdown-item"
+           href="/iesg/agenda/">
+            IESG agenda
+        </a>
+    </li>
+    <li>
+        <a class="dropdown-item"
+           href="/nomcom/">
+            NomComs
+        </a>
+    </li>
+    <li>
+        <a class="dropdown-item"
+           href="/doc/downref">
+            Downref registry
+        </a>
+    </li>
+    <li class="dropend">
+        <a class="dropdown-item dropdown-toggle" href="#">
+            Statistics
+        </a>
+        <ul class="dropdown-menu">
+            <li>
+                <a class="dropdown-item"
+                   href="/stats/document/">
+                    I-Ds/RFCs
+                </a>
+            </li>
+            <li>
+                <a class="dropdown-item"
+                   href="/stats/meeting/">
+                    Meetings
+                </a>
+            </li>
+            
+            
+        </ul>
+    </li>
+    <li>
+        <a class="dropdown-item"
+           href="/api/">
+            API Help
+        </a>
+    </li>
+    <li>
+        <a class="dropdown-item"
+           href="/release/">
+            Release notes
+        </a>
+    </li>
+    <li>
+        <a class="dropdown-item"
+           target="_blank" href="https://status.ietf.org">
+            System status
+        </a>
+    </li>
+    
+        <li><hr class="dropdown-divider">
+        </li>
+    
+    <li>
+        <a class="dropdown-item text-danger "
+           target="_blank" href="https://github.com/ietf-tools/datatracker/issues/new/choose">
+            <i class="bi bi-bug">
+            </i>
+            Report a bug
+        </a>
+    </li>
+    
+    </ul>
+</li>
+
+
+    
+
+
+
+<li class="nav-item dropdown">
+    
+        <a href="#"
+           class="nav-link dropdown-toggle"
+           role="button"
+           data-bs-toggle="dropdown"
+           aria-expanded="false">
+            
+                User
+            
+        </a>
+        <ul class="dropdown-menu  mt-n1 ">
+        
+    
+    
+        
+            <li>
+                <a class="dropdown-item "
+                   rel="nofollow"
+                   href="/accounts/login/?next=/doc/draft-saihm-memory-protocol/03/">
+                    Sign in
+                </a>
+            </li>
+            <li>
+                <a class="dropdown-item "
+                   rel="nofollow"
+                   href="/accounts/reset/">
+                    Password reset
+                </a>
+            </li>
+            <li>
+                <a class="dropdown-item "
+                   href="/accounts/settings/"
+                   rel="nofollow">
+                    Preferences
+                </a>
+            </li>
+        
+    
+    
+        <li>
+            <a class="dropdown-item "
+               href="/accounts/create/">
+                New account
+            </a>
+        </li>
+    
+    <li class="dropend">
+      <a class="dropdown-item dropdown-toggle" href="#">
+        List subscriptions
+      </a>
+      <ul class="dropdown-menu">
+            <li>
+                <a class="dropdown-item "
+                href="https://mailman3.ietf.org/mailman3/lists/">
+                    IETF Lists
+                </a>
+            </li>
+            <li>
+                <a class="dropdown-item "
+                href="https://mailman3.irtf.org/mailman3/lists/">
+                IRTF Lists
+                </a>
+            </li>
+            <li>
+                <a class="dropdown-item "
+                href="https://mailman3.iab.org/mailman3/lists/">
+                    IAB Lists
+                </a>
+            </li>
+            <li>
+                <a class="dropdown-item "
+                href="https://mailman3.rfc-editor.org/mailman3/lists/">
+                    RFC-Editor Lists
+                </a>
+            </li>
+        </ul>
+    </li>
+    
+    
+    
+    </ul></li>
+
+
+                    </ul>
+                </div>
+                <div class="d-flex align-items-center">
+                    <a class="nav-link text-danger d-none d-xl-inline me-xl-4"
+                       target="_blank"
+                       href="https://github.com/ietf-tools/datatracker/issues/new/choose">
+                        Report a bug
+                        <i class="bi bi-bug"></i>
+                    </a>
+
+                    
+                        <a class="btn me-1  btn-warning  d-none d-sm-block"
+                           rel="nofollow"
+                           href="/accounts/login/?next=/doc/draft-saihm-memory-protocol/03/">
+                            Sign in
+                        </a>
+                    
+
+                    <div class="d-none d-md-block dropdown" id="navbar-doc-search-wrapper">
+                        <input class="form-control"
+                               id="navbar-doc-search"
+                               type="text"
+                               placeholder="Document search"
+                               autocomplete="off"
+                               data-ajax-url="/doc/select2search/document/all/"
+                               aria-label="Document search">
+                        <ul class="dropdown-menu" id="navbar-doc-search-results">
+                        </ul>
+                    </div>
+                </div>
+                <button class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbar-collapse"
+                        aria-controls="navbar-collapse"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <i class="navbar-toggler-icon"></i>
+                </button>
+            </div>
+        </nav>
+        
+        <main class="pt-3 container-fluid" id="main">
+            <div class="row">
+                
+                <div class="col mx-lg-3 ietf-auto-nav" id="content">
+                    <noscript data-nosnippet>
+                        <div class="alert alert-danger alert-ignore my-3">
+                            <b>Javascript disabled?</b> Like other modern websites, the IETF Datatracker relies on Javascript.
+                            Please enable Javascript for full functionality.
+                        </div>
+                    </noscript>
+                    
+                    
+    
+    
+
+
+
+<h1>
+    The Sovereign AI Horizontal Memory (SAIHM) Protocol
+    <br>
+    <small class="text-body-secondary">draft-saihm-memory-protocol-03</small>
+</h1>
+<ul class="nav nav-tabs my-3">
+    
+        <li  class="nav-item">
+            <a class="nav-link active"
+               href="/doc/draft-saihm-memory-protocol/">
+                Status
+            </a>
+        </li>
+    
+        <li  class="nav-item">
+            <a class="nav-link "
+               href="/doc/draft-saihm-memory-protocol/email/">
+                Email expansions
+            </a>
+        </li>
+    
+        <li  class="nav-item">
+            <a class="nav-link "
+               href="/doc/draft-saihm-memory-protocol/history/">
+                History
+            </a>
+        </li>
+    
+</ul>
+
+    
+
+
+
+    <label class="my-1 fw-bold">Versions:</label>
+    <nav class="mb-3">
+
+    <ul class="revision-list pagination pagination-sm text-center flex-wrap">
+        
+            
+                 
+                    <li class="page-item ">
+                        <a class="page-link"
+                        href="/doc/draft-saihm-memory-protocol/00/"
+                        >
+                            00
+                        </a>
+                    </li>
+                
+            
+                 
+                    <li class="page-item ">
+                        <a class="page-link"
+                        href="/doc/draft-saihm-memory-protocol/01/"
+                        rel="nofollow">
+                            01
+                        </a>
+                    </li>
+                
+            
+                 
+                    <li class="page-item ">
+                        <a class="page-link"
+                        href="/doc/draft-saihm-memory-protocol/02/"
+                        rel="nofollow">
+                            02
+                        </a>
+                    </li>
+                
+            
+                 
+                    <li class="page-item active">
+                        <a class="page-link"
+                        href="/doc/draft-saihm-memory-protocol/03/"
+                        >
+                            03
+                        </a>
+                    </li>
+                
+            
+            
+        
+    </ul>
+
+    </nav>
+
+    
+
+
+
+
+    <div class="alert alert-warning " role="alert">
+        This document is an Internet-Draft (I-D).
+        Anyone may submit an I-D to the IETF.
+        This I-D is <strong>not endorsed by the IETF</strong> and has <strong>no formal standing</strong> in the
+        <a href="/doc/rfc2026/">IETF standards process</a>.
+    </div>
+
+
+    <div id="doc-timeline"></div>
+    
+        
+    
+    <table class="table table-sm table-borderless">
+        
+
+
+
+
+
+
+
+<tbody class="meta align-top  border-top">
+    <tr>
+        <th scope="row">Document</th>
+        <th scope="row">Type</th>
+        <td class="edit"></td>
+        <td>
+            
+
+
+
+
+
+
+
+    <span class="text-success">Active Internet-Draft</span>
+    (individual)
+    
+
+            
+            
+            
+        </td>
+    </tr>
+    
+    <tr>
+        <td></td>
+        <th scope="row">Author</th>
+        <td class="edit">
+            
+        </td>
+        <td>
+            
+            
+                <span ><a 
+           title="Datatracker profile of Russell Jackson"
+            href="/person/architect@saihm.net" >Russell Jackson</a> <a 
+               href="mailto:architect%40saihm.net"
+               aria-label="Compose email to architect@saihm.net"
+               title="Compose email to architect@saihm.net">
+                <i class="bi bi-envelope"></i></a></span>
+            
+            
+        </td>
+    </tr>
+    
+    
+    <tr>
+        <td></td>
+        <th scope="row">Last updated</th>
+        <td class="edit"></td>
+        <td>
+            2026-10-11
+            
+        </td>
+    </tr>
+    
+    
+        
+        
+        
+    
+    <tr>
+        <td></td>
+        <th scope="row">
+            RFC stream
+        </th>
+        <td class="edit">
+            
+        </td>
+        <td class="text-body-secondary">
+            
+                (None)
+            
+        </td>
+    </tr>
+    
+        <tr>
+            <td></td>
+            <th scope="row">
+                Intended RFC status
+            </th>
+            <td class="edit">
+                
+            </td>
+            <td>
+                
+                    Informational
+                
+            </td>
+        </tr>
+    
+    <tr>
+        <td></td>
+        <th scope="row">
+            Formats
+        </th>
+        <td class="edit">
+        </td>
+        <td>
+            
+                
+    <div class="buttonlist">
+    
+        
+        <a class="btn btn-primary btn-sm"
+          
+          target="_blank"
+          href="https://www.ietf.org/archive/id/draft-saihm-memory-protocol-03.txt">
+            
+                <i class="bi bi-file-text"></i> txt
+            
+        </a>
+        
+    
+        
+        <a class="btn btn-primary btn-sm"
+          
+          target="_blank"
+          href="https://www.ietf.org/archive/id/draft-saihm-memory-protocol-03.html">
+            
+                <i class="bi bi-file-code"></i> html
+            
+        </a>
+        
+    
+        
+        <a class="btn btn-primary btn-sm"
+          
+          target="_blank"
+          href="https://www.ietf.org/archive/id/draft-saihm-memory-protocol-03.xml">
+            
+                <i class="bi bi-file-code"></i> xml
+            
+        </a>
+        
+    
+        
+        <a class="btn btn-primary btn-sm"
+          
+          
+          href="/doc/html/draft-saihm-memory-protocol-03">
+            
+                <i class="bi bi-file-code"></i> htmlized
+            
+        </a>
+        
+    
+        
+        <a class="btn btn-primary btn-sm"
+          
+          target="_blank"
+          href="/doc/draft-saihm-memory-protocol/03/bibtex/">
+            
+                <i class="bi bi-file-ruled"></i> bibtex
+            
+        </a>
+        
+    
+        
+        <a class="btn btn-primary btn-sm"
+          
+          target="_blank"
+          href="/doc/bibxml3/draft-saihm-memory-protocol-03.xml">
+            
+                <i class="bi bi-file-code"></i> bibxml
+            
+        </a>
+        
+    
+</div>
+
+            
+        </td>
+    </tr>
+    
+    
+        
+    
+        
+    
+        
+            
+            
+        
+    
+    
+        
+            <tr>
+                <td>
+                </td>
+                <th scope="row">
+                    Additional resources
+                </th>
+                <td class="edit">
+                    
+                </td>
+                <td>
+                    
+                        
+                            
+                                <a href="https://github.com/SAIHM-Admin/saihm-mcp" title="GitHub Repository">
+                                    SAIHM MCP server reference implementation, Apache 2.0
+                                </a>
+                                <br>
+                                
+                            
+                        
+                            
+                                <a href="https://www.npmjs.com/package/@saihm/mcp-server" title="Other Repository">
+                                    npm @saihm/mcp-server
+                                </a>
+                                <br>
+                                
+                            
+                        
+                        
+                    
+                </td>
+            </tr>
+        
+    
+</tbody>
+        <tbody class="meta border-top">
+            <tr>
+                <th scope="row">
+                    Stream
+                </th>
+                
+                    <th scope="row">
+                        Stream state
+                    </th>
+                    <td class="edit">
+                    </td>
+                    <td>
+                        <span class="text-body-secondary">(No stream defined)</span>
+                    </td>
+                
+            </tr>
+            
+            
+                <tr>
+                    <td></td>
+                    <th scope="row">
+                        Consensus boilerplate
+                    </th>
+                    <td class="edit">
+                        
+                    </td>
+                    <td>
+                        <span class="text-danger"
+                              title="Whether the document is the result of a community consensus process as defined in RFC 5741">
+                            Unknown
+                        </span>
+                    </td>
+                </tr>
+            
+            
+            
+                <tr>
+                    <td></td>
+                    <th scope="row">
+                        RFC Editor Note
+                    </th>
+                    <td class="edit">
+                        
+                    </td>
+                    <td>
+                        
+                            <span class="text-body-secondary">
+                                (None)
+                            </span>
+                        
+                    </td>
+                </tr>
+            
+            
+        </tbody>
+        
+            <tbody class="meta border-top">
+                <tr>
+                    <th scope="row">
+                        IESG
+                    </th>
+                    <th scope="row">
+                        <a href="/doc/help/state/draft-iesg/">
+                            IESG state
+                        </a>
+                    </th>
+                    <td class="edit">
+                        
+                    </td>
+                    <td>
+                        <span class="">
+                            
+                                I-D Exists
+                            
+                        </span>
+                    </td>
+                </tr>
+                
+                    
+                    <tr>
+                        <td></td>
+                        <th scope="row">
+                            Telechat date
+                        </th>
+                        <td class="edit">
+                            
+                        </td>
+                        <td>
+                            
+                                <span class="text-body-secondary">
+                                    (None)
+                                </span>
+                            
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <th scope="row">
+                            Responsible AD
+                        </th>
+                        <td class="edit">
+                            
+                        </td>
+                        <td>
+                            
+                                <span class="text-body-secondary">
+                                    (None)
+                                </span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td></td>
+                        <th scope="row">
+                            Send notices to
+                        </th>
+                        <td class="edit">
+                            
+                        </td>
+                        <td>
+                            
+                                <span class="text-body-secondary">
+                                    (None)
+                                </span>
+                            
+                        </td>
+                    </tr>
+                </tbody>
+            
+            
+                
+            
+            
+        </table>
+        <div class="buttonlist">
+            <a class="btn btn-primary btn-sm"
+               href="mailto:draft-saihm-memory-protocol@ietf.org?subject=Mail%20regarding%20draft-saihm-memory-protocol">
+                <i class="bi bi-envelope">
+                </i>
+                Email authors
+            </a>
+            
+            <a class="btn btn-primary btn-sm"
+               href="/ipr/search/?submit=draft&amp;id=draft-saihm-memory-protocol"
+               rel="nofollow">
+                <i class="bi bi-lightning">
+                </i>
+                IPR
+                
+            </a>
+            <a class="btn btn-primary btn-sm"
+               href="/doc/draft-saihm-memory-protocol/references/"
+               rel="nofollow">
+                <i class="bi bi-arrow-left">
+                </i>
+                References
+            </a>
+            <a class="btn btn-primary btn-sm"
+               href="/doc/draft-saihm-memory-protocol/referencedby/"
+               rel="nofollow">
+                <i class="bi bi-arrow-right">
+                </i>
+                Referenced by
+            </a>
+            <a class="btn btn-primary btn-sm"
+               href="https://author-tools.ietf.org/api/idnits?url=https://www.ietf.org/archive/id/draft-saihm-memory-protocol-03.txt"
+               rel="nofollow"
+               target="_blank">
+                <i class="bi bi-exclamation">
+                </i>
+                Nits
+            </a>
+             <a class="btn btn-primary btn-sm"
+               href="https://author-tools.ietf.org/idnits3/results?url=https://www.ietf.org/archive/id/draft-saihm-memory-protocol-03.txt"
+               rel="nofollow"
+               target="_blank">
+                <i class="bi bi-exclamation-diamond">
+                </i>
+                Nits v3
+            </a>           
+            <a class="btn btn-primary btn-sm"
+               href="https://mailarchive.ietf.org/arch/search/?q=%22draft-saihm-memory-protocol%22"
+               rel="nofollow"
+               target="_blank">
+                <i class="bi bi-search">
+                </i>
+                Search email archive
+            </a>
+            
+            
+            
+            
+        </div>
+        
+            <div class="card mt-5">
+                <div class="card-header">
+                    
+                        draft-saihm-memory-protocol-03
+                    
+                </div>
+                <div class="card-body">
+                    <pre>Independent Submission                                        R. Jackson
+Internet-Draft                    SAIHM (Sovereign AI Horizontal Memory)
+Intended status: Informational                           11 October 2026
+Expires: 14 April 2027
+
+          The Sovereign AI Horizontal Memory (SAIHM) Protocol
+                     draft-saihm-memory-protocol-03
+
+<span>Abstract</span>
+
+   This document defines the Sovereign AI Horizontal Memory (SAIHM)
+   protocol, a memory layer for AI agents.  A SAIHM operator stores an
+   agent&#x27;s memory as encrypted cells bound to a post-quantum holder
+   identity, records each state change in a public audit log, and
+   supports revocable sharing contracts.  The protocol defines an
+   erasure operation with two stated erasure classes, intended to help
+   an operator meet its obligations under Article 17 of EU Regulation
+   2016/679 (GDPR).
+
+   This revision specifies the custodial profile.  The operator holds
+   the holder&#x27;s keys and performs all cryptography.  The agent-side
+   client holds no keys, runs no cryptography beyond TLS and keeps no
+   store; it reaches the operator over HTTPS and exposes the protocol to
+   the agent as eight Model Context Protocol (MCP) tools.  The document
+   defines the operator obligations, the HTTPS binding, the eight tools,
+   and the checks a conformant client applies to what the operator
+   returns.
+
+<span>Status of This Memo</span>
+
+   This Internet-Draft is submitted in full conformance with the
+   provisions of BCP 78 and BCP 79.
+
+   Internet-Drafts are working documents of the Internet Engineering
+   Task Force (IETF).  Note that other groups may also distribute
+   working documents as Internet-Drafts.  The list of current Internet-
+   Drafts is at https://datatracker.ietf.org/drafts/current/.
+
+   Internet-Drafts are draft documents valid for a maximum of six months
+   and may be updated, replaced, or obsoleted by other documents at any
+   time.  It is inappropriate to use Internet-Drafts as reference
+   material or to cite them other than as &quot;work in progress.&quot;
+
+   This Internet-Draft will expire on 14 April 2027.
+
+<span>Jackson                   Expires 14 April 2027                 [Page 1]</span>
+<span>Internet-Draft               SAIHM Protocol                 October 2026</span>
+
+<span>Copyright Notice</span>
+
+   Copyright (c) 2026 IETF Trust and the persons identified as the
+   document authors.  All rights reserved.
+
+   This document is subject to BCP 78 and the IETF Trust&#x27;s Legal
+   Provisions Relating to IETF Documents (https://trustee.ietf.org/
+   license-info) in effect on the date of publication of this document.
+   Please review these documents carefully, as they describe your rights
+   and restrictions with respect to this document.
+
+<span>Table of Contents</span>
+
+   1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   3
+     1.1.  Motivation  . . . . . . . . . . . . . . . . . . . . . . .   3
+     1.2.  The custodial profile . . . . . . . . . . . . . . . . . .   4
+     1.3.  Scope . . . . . . . . . . . . . . . . . . . . . . . . . .   4
+     1.4.  Conventions and Terminology . . . . . . . . . . . . . . .   5
+     1.5.  Substrate prerequisites . . . . . . . . . . . . . . . . .   6
+   2.  Architecture  . . . . . . . . . . . . . . . . . . . . . . . .   7
+     2.1.  Cell shape  . . . . . . . . . . . . . . . . . . . . . . .   7
+     2.2.  Identity binding (ML-DSA-65)  . . . . . . . . . . . . . .   8
+     2.3.  Signed messages . . . . . . . . . . . . . . . . . . . . .   9
+     2.4.  Encryption envelope . . . . . . . . . . . . . . . . . . .   9
+     2.5.  Audit log . . . . . . . . . . . . . . . . . . . . . . . .  10
+     2.6.  Sharing contracts . . . . . . . . . . . . . . . . . . . .  11
+     2.7.  Erasure . . . . . . . . . . . . . . . . . . . . . . . . .  12
+     2.8.  Order of effect and receipt . . . . . . . . . . . . . . .  13
+   3.  HTTPS binding . . . . . . . . . . . . . . . . . . . . . . . .  13
+     3.1.  Request and response  . . . . . . . . . . . . . . . . . .  13
+     3.2.  Authentication  . . . . . . . . . . . . . . . . . . . . .  14
+     3.3.  Transport requirements  . . . . . . . . . . . . . . . . .  14
+   4.  Tool surface (MCP binding)  . . . . . . . . . . . . . . . . .  15
+     4.1.  Result identifiers  . . . . . . . . . . . . . . . . . . .  16
+     4.2.  saihm_remember  . . . . . . . . . . . . . . . . . . . . .  16
+     4.3.  saihm_recall  . . . . . . . . . . . . . . . . . . . . . .  17
+     4.4.  saihm_forget  . . . . . . . . . . . . . . . . . . . . . .  18
+     4.5.  saihm_status  . . . . . . . . . . . . . . . . . . . . . .  18
+     4.6.  saihm_share . . . . . . . . . . . . . . . . . . . . . . .  20
+     4.7.  saihm_revoke_share  . . . . . . . . . . . . . . . . . . .  20
+     4.8.  saihm_governance_propose  . . . . . . . . . . . . . . . .  21
+     4.9.  saihm_governance_vote . . . . . . . . . . . . . . . . . .  22
+     4.10. Governance form . . . . . . . . . . . . . . . . . . . . .  23
+     4.11. Session prompt  . . . . . . . . . . . . . . . . . . . . .  23
+   5.  Wire formats  . . . . . . . . . . . . . . . . . . . . . . . .  23
+   6.  Receipt semantics . . . . . . . . . . . . . . . . . . . . . .  25
+   7.  Client conformance  . . . . . . . . . . . . . . . . . . . . .  25
+   8.  Security considerations . . . . . . . . . . . . . . . . . . .  26
+
+<span>Jackson                   Expires 14 April 2027                 [Page 2]</span>
+<span>Internet-Draft               SAIHM Protocol                 October 2026</span>
+
+     8.1.  Trust in a custodial operator . . . . . . . . . . . . . .  26
+     8.2.  Post-quantum signatures . . . . . . . . . . . . . . . . .  27
+     8.3.  Credential handling . . . . . . . . . . . . . . . . . . .  27
+     8.4.  Hostile or faulty responses . . . . . . . . . . . . . . .  27
+     8.5.  Unsolicited shares  . . . . . . . . . . . . . . . . . . .  28
+     8.6.  Erasure properties  . . . . . . . . . . . . . . . . . . .  28
+   9.  Privacy considerations  . . . . . . . . . . . . . . . . . . .  28
+     9.1.  GDPR Article 17 . . . . . . . . . . . . . . . . . . . . .  28
+     9.2.  Recall queries  . . . . . . . . . . . . . . . . . . . . .  29
+     9.3.  Audit log content . . . . . . . . . . . . . . . . . . . .  29
+   10. IANA Considerations . . . . . . . . . . . . . . . . . . . . .  29
+   11. References  . . . . . . . . . . . . . . . . . . . . . . . . .  29
+     11.1.  Normative References . . . . . . . . . . . . . . . . . .  29
+     11.2.  Informative References . . . . . . . . . . . . . . . . .  30
+   Appendix A.  Implementation status  . . . . . . . . . . . . . . .  31
+   Appendix B.  Worked example . . . . . . . . . . . . . . . . . . .  32
+     B.1.  Lifecycle . . . . . . . . . . . . . . . . . . . . . . . .  32
+     B.2.  Example values  . . . . . . . . . . . . . . . . . . . . .  33
+     B.3.  CBOR encoding . . . . . . . . . . . . . . . . . . . . . .  35
+   Appendix C.  Changes from draft-saihm-memory-protocol-01  . . . .  35
+   Author&#x27;s Address  . . . . . . . . . . . . . . . . . . . . . . . .  36
+
+1.  Introduction
+
+   This document is published through the Independent Submission Stream
+   of the RFC Series, as defined in [RFC4846] and described in
+   [RFC8730].  It is not an Internet Standard, and it has not been
+   reviewed for, nor does it necessarily reflect, the rough consensus of
+   the IETF community.
+
+1.1.  Motivation
+
+   The Model Context Protocol [MCP], donated to the Agentic AI
+   Foundation [AAIF] under the Linux Foundation on 9 December 2025,
+   defines how an AI agent reaches external tools and contextual data
+   sources.  It does not standardize how an agent persists memory across
+   sessions, models, or vendors.  Here, &quot;memory&quot; means the holder&#x27;s
+   content-addressed cells (Section 2.1; Section 1.4).
+
+   Production agents today keep memory in a local file system, a vendor-
+   specific session log, or a vector database.  None of these gives a
+   signed record of each memory and of each change to it, a public log
+   of those changes, or an erasure operation with stated properties
+   ([GDPR], Article 17).
+
+   SAIHM is a memory-layer protocol that an MCP-capable agent attaches
+   to obtain durable, shareable and erasable memory.  Nothing in it
+   depends on a particular operator or vendor.
+
+<span>Jackson                   Expires 14 April 2027                 [Page 3]</span>
+<span>Internet-Draft               SAIHM Protocol                 October 2026</span>
+
+1.2.  The custodial profile
+
+   This document specifies the custodial profile, in which the operator
+   generates and holds the holder&#x27;s identity key and every data-
+   encryption key, encrypts on write, decrypts on read, signs cells and
+   receipts on the holder&#x27;s behalf, and returns plaintext to the
+   authenticated holder.
+
+   The client in this profile forwards each tool call to the operator
+   over HTTPS, holds no key material, and validates the shape of each
+   response before reporting it to the agent (Section 7).  Its security
+   rests on the transport and on the operator, and Section 8 states what
+   that does and does not protect.
+
+   A profile in which the holder keeps the keys and the operator sees
+   only ciphertext is possible under the same cell shape.  It is outside
+   the scope of this revision.
+
+1.3.  Scope
+
+   This document defines:
+
+   *  The cell shape: an encrypted memory unit with canonical metadata.
+
+   *  Holder identity bound to an ML-DSA-65 key pair ([FIPS204]) derived
+      through HKDF ([RFC5869]).
+
+   *  The encryption envelope, with a random per-cell data-encryption
+      key wrapped under a versioned key-encryption key.
+
+   *  Receipts recorded in a public audit log.
+
+   *  Sharing contracts in three modes: temporary, permanent and
+      syndicate.
+
+   *  Two erasure classes, cryptographic and access-control, and the
+      obligation on an operator to state which it provides.
+
+   *  An HTTPS binding between the client and the operator.
+
+   *  An MCP binding of eight tools, and the checks a client applies to
+      each tool&#x27;s result.
+
+   This document does NOT define:
+
+   *  How the operator stores ciphertext, or which audit log it uses.
+
+<span>Jackson                   Expires 14 April 2027                 [Page 4]</span>
+<span>Internet-Draft               SAIHM Protocol                 October 2026</span>
+
+   *  How the operator authenticates the holder.  The client carries an
+      operator-defined credential and treats it as opaque.
+
+   *  Vector-database or retrieval-ranking semantics.
+
+   *  Agent runtime semantics, which MCP and its host runtimes cover.
+
+1.4.  Conventions and Terminology
+
+   The key words &quot;MUST&quot;, &quot;MUST NOT&quot;, &quot;REQUIRED&quot;, &quot;SHALL&quot;, &quot;SHALL NOT&quot;,
+   &quot;SHOULD&quot;, &quot;SHOULD NOT&quot;, &quot;RECOMMENDED&quot;, &quot;NOT RECOMMENDED&quot;, &quot;MAY&quot;, and
+   &quot;OPTIONAL&quot; in this document are to be interpreted as described in BCP
+   14 [RFC2119] [RFC8174] when, and only when, they appear in all
+   capitals, as shown here.
+
+   AEAD:  Authenticated Encryption with Associated Data ([RFC5116]).
+      AES-256-GCM ([NIST-SP-800-38D]) is RECOMMENDED.
+
+   Cell:  an encrypted memory unit (Section 2.1).
+
+   Client:  the software on the agent&#x27;s side that exposes the eight
+      SAIHM tools to an MCP host and forwards each call to the operator
+      endpoint.  In the custodial profile the client holds no key
+      material.
+
+   Custodial operator:  an operator that holds the holder&#x27;s identity key
+      and the data-encryption keys and performs all cryptographic
+      operations on the holder&#x27;s behalf.
+
+   DEK:  Data Encryption Key. A 32-byte symmetric key, unique to one
+      cell, used with the AEAD cipher.
+
+   Endpoint:  the HTTPS URL at which an operator accepts tool calls
+      (Section 3).
+
+   HKDF:  HMAC-based Extract-and-Expand Key Derivation Function
+      ([RFC5869]), instantiated with SHA-256.
+
+   holder seed:  a secret of at least 256 bits from which a holder&#x27;s
+      identity key is derived (Section 2.2).  In the custodial profile
+      the operator generates and holds it.
+
+   Holder:  the natural person, organization, or autonomous agent on
+      whose behalf cells are written.  Each holder has one holderId.
+
+   KEK:  Key Encryption Key. An operator-held key that wraps DEKs.  Each
+      KEK generation has a 32-bit version number, kekVersion.
+
+<span>Jackson                   Expires 14 April 2027                 [Page 5]</span>
+<span>Internet-Draft               SAIHM Protocol                 October 2026</span>
+
+   MCP:  the Model Context Protocol [MCP].  In MCP, a &quot;tool&quot; is a named
+      operation with typed inputs and typed outputs that an MCP server
+      exposes to a model.
+
+   memory:  the set of SAIHM cells bound to one holderId, less those
+      that have been erased.  This is distinct from memory in the
+      computer-architecture sense.
+
+   ML-DSA:  Module-Lattice-Based Digital Signature Algorithm
+      ([FIPS204]).  SAIHM uses the ML-DSA-65 parameter set.
+
+   Operator:  the party that runs an endpoint and provides storage,
+      cryptography, audit logging and access control to holders.
+
+   Receipt:  a signed record of one operation, written to the public
+      audit log (Section 2.5).
+
+   Result identifier:  the identifier an operator returns to name the
+      object a write produced or acted on: a cellId, contractId or
+      proposalId (Section 4.1).  It is distinct from receiptId, which
+      names an audit-log entry.
+
+   sentinel value:  an in-band value that signals the absence of an
+      ordinary value of the same type.  In Section 2.6, an expiry of 0
+      means &quot;no time bound&quot;.
+
+   Shard:  a cell as stored under a storage tier.  A shard is named by
+      its cellId, and sharing contracts list the cellIds they cover.
+
+   storage tier:  a named, operator-chosen persistence class with stated
+      durability and retention properties.  Tier names carry no protocol
+      semantics.
+
+   UNIX epoch:  the time reference defined in [IEEE-1003.1-2024] under
+      &quot;Seconds Since the Epoch&quot;.  SAIHM timestamps are unsigned integer
+      seconds since the UNIX epoch.
+
+1.5.  Substrate prerequisites
+
+   A conformant operator depends on the following.  Where a substrate is
+   selected per deployment, the operator states its selection in its
+   published documentation.
+
+   (a)  A source of random bits suitable for key generation ([RFC4086]).
+
+   (b)  HKDF with SHA-256 ([RFC5869], [FIPS180-4]).
+
+   (c)  ML-DSA-65 conformant with [FIPS204].
+
+<span>Jackson                   Expires 14 April 2027                 [Page 6]</span>
+<span>Internet-Draft               SAIHM Protocol                 October 2026</span>
+
+   (d)  An AEAD cipher conformant with [RFC5116]; AES-256-GCM is
+        RECOMMENDED.
+
+   (e)  SHA-256 ([FIPS180-4]) for cellId derivation.
+
+   (f)  A CBOR codec ([RFC8949]) for cells and receipts at rest.
+
+   (g)  An HTTPS server ([RFC9110] over [RFC9846]) for the endpoint.
+
+   (h)  A public, append-only audit log in which any party can fetch an
+        entry by its identifier and list entries by subjectId, by
+        holderId and by operation (Section 2.5).  Selected per
+        deployment.
+
+   (i)  A storage tier offering put, get and delete over opaque
+        ciphertext.  Selected per deployment.
+
+   A conformant client depends on an MCP server runtime, an HTTPS
+   client, and a JSON parser ([RFC8259]).  It needs no cryptographic
+   library beyond the one its TLS stack uses.
+
+2.  Architecture
+
+2.1.  Cell shape
+
+   A SAIHM cell is the tuple:
+
+   &lt;cellId, holderId, kekVersion, tier, cellNonce, ciphertext,
+    signature, timestamp&gt;
+
+   cellId:  32-byte content-derived identifier, computed as
+
+      cellId = SHA-256( kekVersion_be32 ||
+                        cellNonce       ||
+                        ciphertext )
+
+      where kekVersion_be32 is kekVersion as a 4-byte big-endian
+      unsigned integer, ciphertext is the full AEAD output including the
+      authentication tag, and || is octet concatenation.  On the wire
+      cellId is a lowercase hexadecimal string of 64 characters.
+
+      Because kekVersion and cellNonce are inputs, the same plaintext
+      written twice yields two distinct cellIds.
+
+      When the operator reads a cell it MUST recompute cellId from the
+      stored kekVersion, cellNonce and ciphertext, and MUST refuse to
+      serve a cell whose stored cellId does not match.
+
+<span>Jackson                   Expires 14 April 2027                 [Page 7]</span>
+<span>Internet-Draft               SAIHM Protocol                 October 2026</span>
+
+   holderId:  32-byte holder identifier: the SHA-256 digest of the
+      holder&#x27;s ML-DSA-65 public key (Section 2.2).  On the wire it is a
+      64-character lowercase hexadecimal string.
+
+   kekVersion:  32-bit unsigned integer naming the KEK generation in
+      force when the cell was written.  It is fixed for the life of the
+      cell; later re-wrapping of the DEK does not change it
+      (Section 2.4).
+
+   tier:  short ASCII string naming the storage tier.
+
+   cellNonce:  16 random bytes, unique per cell. cellNonce is public and
+      travels with the cell.
+
+   ciphertext:  the cell payload encrypted under the cell&#x27;s DEK.
+
+   signature:  ML-DSA-65 signature made with the holder&#x27;s identity key
+      (Section 2.3).
+
+   timestamp:  64-bit unsigned integer, UTC seconds since the UNIX
+      epoch.  Implementations MUST NOT use a 32-bit signed
+      representation, which overflows at 03:14:07Z on 19 January 2038.
+
+2.2.  Identity binding (ML-DSA-65)
+
+   A holder&#x27;s identity key is derived from the holder seed:
+
+   identityKey = HKDF-SHA-256(salt = &quot;MPS-PQC-KEY-GEN-v1&quot;,
+                              IKM  = holderSeed,
+                              info = &quot;MPS-AGENT-IDENTITY-v1&quot;,
+                              L    = 64 bytes)
+
+   The first 32 bytes of identityKey are the seed (xi) for ML-DSA-65 key
+   generation ([FIPS204], ML-DSA.KeyGen_internal).  The remaining 32
+   bytes are reserved.  holderId is SHA-256 of the resulting public key.
+
+   In the custodial profile the operator generates the holder seed,
+   derives the key pair, and holds the private key.  The private key and
+   the holder seed MUST NOT be sent to the client, written to a receipt,
+   or returned by any tool.  The operator signs each cell and each
+   receipt with the holder&#x27;s private key after it has authenticated the
+   caller as that holder (Section 3.2).
+
+<span>Jackson                   Expires 14 April 2027                 [Page 8]</span>
+<span>Internet-Draft               SAIHM Protocol                 October 2026</span>
+
+   When it creates a holder, the operator MUST write the holder&#x27;s public
+   key to the audit log in a KEY receipt (Section 2.5), which anyone can
+   find by holderId.  The holder cannot be used until that receipt is
+   written.  With that entry, anyone can check every receipt signature
+   for the holder without the operator&#x27;s help, and anyone given a cell
+   can check the cell signature.
+
+2.3.  Signed messages
+
+   Every signature in this protocol is ML-DSA-65 in its pure form (ML-
+   DSA.Sign, [FIPS204]) with a context string that names what is signed,
+   so that a signature over one kind of message cannot be presented as
+   another:
+
+   Cell, context &quot;SAIHM-CELL-v1&quot;:  cellId || holderId ||
+      kekVersion_be32 || timestamp_be64, where timestamp_be64 is
+      timestamp as 8 bytes, big-endian.
+
+   Receipt, context &quot;SAIHM-RECEIPT-v1&quot;:  the deterministic CBOR encoding
+      ([RFC8949], Section 4.2.1) of the receipt map (Section 5) without
+      keys 1 (receiptId) and 5 (signature). receiptId is SHA-256 of the
+      same bytes.
+
+   Contract, context &quot;SAIHM-CONTRACT-v1&quot;:  the deterministic CBOR
+      encoding of the contract map (Section 5) without keys 1
+      (contractId) and 9 (signature), and including key 10
+      (contractNonce). contractId is SHA-256 of the same bytes.
+
+   An operator MAY use the hedged (randomized) or the deterministic
+   signing variant.
+
+2.4.  Encryption envelope
+
+   For each new cell the operator:
+
+   1.  draws a fresh 32-byte DEK and a fresh 16-byte cellNonce from its
+       random source;
+
+   2.  encrypts the payload under the DEK with the AEAD cipher;
+
+   3.  wraps the DEK under the current KEK generation and stores only
+       the wrapped form, keyed by cellId;
+
+   4.  discards the unwrapped DEK once the write completes.
+
+<span>Jackson                   Expires 14 April 2027                 [Page 9]</span>
+<span>Internet-Draft               SAIHM Protocol                 October 2026</span>
+
+   The DEK MUST be independent of every other key the operator holds.
+   In particular it MUST NOT be derivable from identityKey, from the
+   holder seed, or from any other long-lived secret.  Cryptographic
+   erasure (Section 2.7) depends on this (Section 8.6).
+
+   The AEAD nonce (for AES-256-GCM, the 96-bit IV) is chosen by the
+   operator and MUST NOT repeat under one DEK.  Because each DEK
+   encrypts one payload, using the first 12 bytes of cellNonce is
+   sufficient, and the example in Appendix B.2 does so.  The cell does
+   not name its AEAD algorithm or the key-wrap algorithm; both are
+   operator-internal and stated in the operator&#x27;s documentation.
+
+   No associated data is used.  The ciphertext is bound to the cell by
+   cellId and by the cell signature, and the operator MUST check both
+   before it decrypts (Section 4.3).
+
+   KEK rotation is versioned.  An operator MAY rotate the KEK under its
+   own policy and MAY re-wrap existing DEKs under the new generation.
+   The wrapped DEK is stored with the version of the KEK that wrapped
+   it, apart from the cell, so re-wrapping changes neither cellId nor
+   the cell signature.  An operator MUST re-wrap every DEK held under a
+   KEK generation before it retires that generation.
+
+2.5.  Audit log
+
+   For each operation that needs one (Section 6, and the KEY receipt of
+   Section 2.2) the operator writes a receipt:
+
+   &lt;receiptId, subjectId, operation, holderId, signature, timestamp,
+    receiptNonce [, detail]&gt;
+
+   subjectId is the cellId, contractId or proposalId the operation acted
+   on, or the holderId for KEY, RECALL and STATUS receipts.  operation
+   is one of &quot;KEY&quot;, &quot;REMEMBER&quot;, &quot;RECALL&quot;, &quot;STATUS&quot;, &quot;FORGET&quot;, &quot;SHARE&quot;,
+   &quot;REVOKE&quot;, &quot;PROPOSE&quot; or &quot;VOTE&quot;.  A KEY receipt also carries the
+   holder&#x27;s ML-DSA-65 public key, a PROPOSE receipt carries the
+   proposal, and a VOTE receipt carries the vote&#x27;s direction and weight.
+   Every receipt carries 16 random bytes, receiptNonce, so that two
+   otherwise identical receipts have different receiptIds.
+
+<span>Jackson                   Expires 14 April 2027                [Page 10]</span>
+<span>Internet-Draft               SAIHM Protocol                 October 2026</span>
+
+   The receipt is written to a public, append-only audit log.  The log
+   MUST let any party fetch an entry by its receiptId and list entries
+   by subjectId, by holderId and by operation (for example all VOTE
+   receipts for a proposalId, a holder&#x27;s KEY receipt, or every FORGET
+   receipt), so that a third party holding a receiptId can check the
+   receipt&#x27;s signature against the holder&#x27;s public key.  An operator
+   SHOULD return the receiptId in the result of every state-changing
+   tool, as the member &quot;receiptId&quot;; saihm_forget returns it as
+   destructionAnchor.  The choice of log is a deployment decision.
+
+2.6.  Sharing contracts
+
+   A holder MAY grant other agents access to some of its shards through
+   a sharing contract:
+
+   &lt;contractId, holderId, granteeIds, shardIds, mode, scope,
+    expiresAt, timestamp, signature, contractNonce&gt;
+
+   granteeIds is a non-empty list of 32-byte holderIds with no
+   duplicates; the operator MUST reject any entry of another length.
+   shardIds is a non-empty list of the holder&#x27;s cellIds that the
+   contract covers; nothing outside it is exposed, and the contract does
+   not copy the cells.
+
+   scope is &quot;read&quot;, &quot;write&quot; or &quot;readwrite&quot;.  This revision defines only
+   &quot;read&quot;, which lets a grantee receive the covered cells from
+   saihm_recall.  None of the eight tools lets a grantee write into
+   another holder&#x27;s memory, so an operator MUST reject &quot;write&quot; and
+   &quot;readwrite&quot; with the error &quot;invalid_scope&quot;.  They are reserved for a
+   later revision.
+
+   mode is one of:
+
+   TEMPORARY:  revocable; expiresAt MUST be later than the contract
+      timestamp and no later than the contract timestamp plus 86400
+      seconds.  The sentinel 0 is not permitted.
+
+   PERMANENT:  revocable; expiresAt MUST be the sentinel 0 (no time
+      bound).
+
+   SYNDICATE:  revocable; intended for a fixed group of grantees that
+      share one grant and lose access together, such as an incident-
+      response team. expiresAt MAY be 0 or a future timestamp.
+      SYNDICATE differs from the other modes only in this intent and in
+      its expiry rule.
+
+   contractNonce is 16 random bytes.
+
+<span>Jackson                   Expires 14 April 2027                [Page 11]</span>
+<span>Internet-Draft               SAIHM Protocol                 October 2026</span>
+
+   Any holder can name any holderId as a grantee, since holderIds are
+   public.  A contract therefore takes effect for a grantee only after
+   that grantee has accepted it, by a means the operator provides
+   outside this binding.  An operator MAY treat contracts between
+   holders it has linked in advance, such as holders of one
+   organization, as accepted.  A grantee MUST be able to decline or
+   later withdraw its acceptance (Section 8.5).
+
+   A contract is active for a grantee while it is accepted by that
+   grantee, not revoked, and its expiresAt is 0 or later than the
+   current time.
+
+   On saihm_recall by a grantee, the operator MUST include the covered
+   cells of every active contract that names the grantee, and MUST NOT
+   include a cell whose only grant to that grantee is a contract that is
+   not active for that grantee.
+
+   Revocation takes effect for every grantee of the contract as soon as
+   the operator applies it (Section 2.8).  It governs future reads only.
+   Content a grantee has already received is outside its reach.
+
+2.7.  Erasure
+
+   saihm_forget erases one cell.  Every conformant operator MUST, on a
+   successful erasure:
+
+   1.  stop serving the cell to the holder and to every grantee, under
+       every contract;
+
+   2.  write a FORGET receipt for the cellId to the audit log;
+
+   3.  add the cellId to its erasure list, a public, append-only set of
+       erased cellIds that matches the FORGET receipts in the audit log
+       once any pending receipt is written (Section 2.8), so that any
+       observer can rebuild it.
+
+   An operator MUST consult the erasure list on every saihm_recall and
+   MUST NOT return an erased cell to anyone.
+
+   Beyond those steps an operator provides one of two erasure classes:
+
+   Cryptographic erasure:  the operator also destroys every copy of the
+      cell&#x27;s wrapped DEK, including copies in backups and replicas.
+      Because the DEK is random and wrapped only for this cell
+      (Section 2.4), the ciphertext then cannot be decrypted by anyone,
+      the operator included, wherever copies of it remain.
+
+   Access-control erasure:  the cell is withdrawn from service as above,
+
+<span>Jackson                   Expires 14 April 2027                [Page 12]</span>
+<span>Internet-Draft               SAIHM Protocol                 October 2026</span>
+
+      but the key material that could decrypt it is retained.  The
+      operator can still decrypt retained ciphertext.
+
+   Each operator MUST state in its published documentation which class
+   it provides, and MUST NOT describe access-control erasure as
+   cryptographic.  Clients MUST NOT assert either class on the
+   operator&#x27;s behalf (Section 4.4).
+
+   Erasure does not remove the cell&#x27;s receipts or its entry in the
+   erasure list (Section 9.1).
+
+2.8.  Order of effect and receipt
+
+   For saihm_forget and saihm_revoke_share the operator MUST withdraw
+   access before it writes the receipt, and MUST NOT restore access if
+   the receipt write fails.  If it cannot withdraw access it answers
+   &quot;operator_storage_unavailable&quot; and nothing has changed.  It retries
+   the receipt until it is written.  Until then it answers with the
+   error &quot;operator_log_unavailable&quot;, which here means that access has
+   been withdrawn and the receipt is pending.  A repeated
+   saihm_revoke_share then returns revoked = true, and a repeated
+   saihm_forget returns success = false (already erased).  A client that
+   receives this error SHOULD tell the agent that access may already be
+   withdrawn and that repeating the call shows the outcome.
+
+   For the other state-changing tools the operator first stores the
+   effect durably but invisibly, then writes the receipt, then makes the
+   effect visible.  If the effect cannot be stored or the receipt cannot
+   be written, the operator discards the effect (no cell is stored, no
+   contract or proposal takes effect, no vote is counted) and answers
+   &quot;operator_storage_unavailable&quot; or &quot;operator_log_unavailable&quot;; for
+   these tools both errors mean that no receipt was written and nothing
+   took effect.  If the operator cannot tell whether a receipt write
+   succeeded, it MUST look the receipt up by its receiptId before
+   answering, and treats a receipt it finds as written.  Once the
+   receipt is written the operator MUST complete the effect, including
+   after a restart, and answers only with the success result carrying
+   the result identifier.
+
+3.  HTTPS binding
+
+3.1.  Request and response
+
+   The client sends each tool call to the endpoint as one HTTP POST
+   ([RFC9110]) with these headers:
+
+   *  Content-Type: application/json
+
+<span>Jackson                   Expires 14 April 2027                [Page 13]</span>
+<span>Internet-Draft               SAIHM Protocol                 October 2026</span>
+
+   *  Authorization: the operator-issued credential, sent verbatim.
+
+   The request body is a JSON object with two members:
+
+   {&quot;method&quot;: &quot;&lt;tool name&gt;&quot;, &quot;params&quot;: { ... }}
+
+   method is one of the eight tool names in Section 4. params carries
+   the operator parameters listed for that tool.
+
+   On success the operator answers with a 2xx status and a JSON body
+   that is the tool&#x27;s result object (or, for saihm_recall, an array).
+   There is no outer envelope.  On failure it answers with a 4xx or 5xx
+   status; it SHOULD include a JSON body {&quot;error&quot;: &quot;&lt;code&gt;&quot;} using the
+   codes listed per tool.  An operator that does not enable a tool (for
+   example, governance) MUST answer that tool with a failure status.
+
+   A JSON integer that can exceed 2^53 - 1 (epochs, weights, counts)
+   SHOULD be sent as a decimal string.  A client MUST accept either a
+   JSON number or a decimal string for every numeric field, and MUST
+   accept true, false, &quot;true&quot;, &quot;false&quot;, 1, 0, &quot;1&quot; and &quot;0&quot; for every
+   boolean field.
+
+   Fields not defined here are operator extensions.  A client MUST
+   ignore an extension it does not recognize, and an operator MUST NOT
+   rely on a client displaying one.
+
+   Hexadecimal values are base16 ([RFC4648], Section 8) in lowercase.  A
+   cellId, holderId, contractId, proposalId or receiptId (including
+   destructionAnchor) is 64 hexadecimal characters.
+
+   A client MAY report only the status code of a failure and not its
+   body; the error codes below are for operators, logs and clients that
+   read them.
+
+3.2.  Authentication
+
+   The operator authenticates the caller from the Authorization header
+   under a scheme it defines, for example a bearer token issued to one
+   holder.  The client treats the value as opaque and MUST NOT place
+   private key material in it.  The client does not sign requests; in
+   the custodial profile the holder&#x27;s signature on cells and receipts is
+   made by the operator, after authentication, with the holder&#x27;s
+   custodied key.
+
+3.3.  Transport requirements
+
+   A client:
+
+<span>Jackson                   Expires 14 April 2027                [Page 14]</span>
+<span>Internet-Draft               SAIHM Protocol                 October 2026</span>
+
+   *  MUST refuse an endpoint whose scheme is not https, except http to
+      the host names 127.0.0.1 or localhost for local development.
+
+   *  MUST validate the server certificate as described in [RFC9525].
+
+   *  MUST NOT follow HTTP redirects.  A redirect is a failure.  A
+      followed 307 or 308 would resend the request body, which for
+      saihm_remember is the memory plaintext, to a host the client never
+      checked.
+
+   *  MUST bound each call with a timeout.  The implementation in
+      Appendix A uses 30 seconds.  On timeout the client MUST report
+      that the operator may or may not have acted.
+
+   *  MUST bound the size of a response while reading it, not only by
+      its Content-Length header, which a chunked response omits.  The
+      implementation uses 16 MiB.
+
+   *  MUST NOT include the userinfo, query or fragment of the endpoint
+      URL in any error text, including errors raised by its HTTP
+      library, and MUST NOT quote an endpoint value that fails to parse
+      as a URL.  Error text reaches the model and its transcript, and
+      any of these parts may hold a credential.
+
+   *  SHOULD report a 2xx response whose body is not JSON as a probable
+      intermediary (a proxy or captive portal) and not as an operator
+      result.
+
+4.  Tool surface (MCP binding)
+
+   The client exposes the protocol to the agent as eight MCP tools and
+   no others:
+
+   *  Core: saihm_remember, saihm_recall, saihm_forget, saihm_status.
+
+   *  Sharing: saihm_share, saihm_revoke_share.
+
+   *  Governance: saihm_governance_propose, saihm_governance_vote.
+
+   The surface is fixed at eight within this revision.  New contract
+   modes, scopes or result fields are added by extending an existing
+   tool&#x27;s parameters or result.  A future major revision MAY add or
+   remove tools.
+
+<span>Jackson                   Expires 14 April 2027                [Page 15]</span>
+<span>Internet-Draft               SAIHM Protocol                 October 2026</span>
+
+   Each tool below gives its MCP input, the operator parameters the
+   client sends, the operator result, the checks the client applies
+   before reporting success, and the MCP tool annotations [MCP] the
+   client declares.  The result of every state-changing tool can also
+   carry receiptId (Section 2.5); a client that prints it applies
+   Section 4.1 to it.
+
+4.1.  Result identifiers
+
+   cellId, contractId and proposalId are result identifiers.  An
+   operator returns them in the form given in Section 3.1.  Whatever an
+   operator sends, a client MUST reject any value that is not a JSON
+   string of 1 to 256 characters in the range U+0021 to U+007E
+   (printable ASCII, no space), wherever it would print the value, and
+   MUST NOT truncate it.
+
+   The client prints these values as structure in its report to the
+   agent, for example &quot;FORGOTTEN [id] erased&quot;.  An identifier that
+   contains a line break could add a second, forged line to the report.
+   A truncated identifier cannot be passed back to saihm_forget or
+   saihm_revoke_share.
+
+4.2.  saihm_remember
+
+   MCP input:  content: string (required).
+
+   Operator parameters:  {&quot;content&quot;: string}
+
+   Operator behavior:  Authenticate the caller as a holder.  Seal
+      content into a new cell (Section 2.4), sign it (Section 2.3),
+      store it, and write a REMEMBER receipt.  The operator SHOULD
+      reject content that is empty or only white space.
+
+   Result:  cellId (required); cellNonce; tier; kekVersion; epoch (the
+      operator&#x27;s time reference for the write); signaturePrefix (leading
+      hex of the cell signature).  An operator MAY add extension fields,
+      such as accounting data.
+
+   Client checks:  The client MUST refuse, before sending, content that
+      is empty or only white space.  It MUST report the write as
+      unconfirmed when the result is not an object or carries no valid
+      cellId, since without one the memory cannot be erased later.  It
+      reports only the optional fields that are present.
+
+   Annotations:  readOnlyHint false, destructiveHint false,
+      idempotentHint false, openWorldHint true.
+
+   Errors:  &quot;empty_content&quot;, &quot;unauthenticated&quot;,
+
+<span>Jackson                   Expires 14 April 2027                [Page 16]</span>
+<span>Internet-Draft               SAIHM Protocol                 October 2026</span>
+
+      &quot;operator_storage_unavailable&quot;, &quot;operator_log_unavailable&quot;,
+      &quot;rate_limited&quot;.
+
+4.3.  saihm_recall
+
+   MCP input:  query: string (optional).  Absent or empty means all
+      cells.
+
+   Operator parameters:  {&quot;query&quot;: string}. The member is omitted when
+      the query is absent and is &quot;&quot; when the agent passed an empty
+      string; the operator treats both as &quot;all cells&quot;.
+
+   Operator behavior:  Select the caller&#x27;s own cells and the covered
+      cells of every active contract that names the caller with read
+      access.  Omit erased cells.  Verify each cell&#x27;s cellId and
+      signature, and omit and log any cell that fails either check.
+      Decrypt each remaining cell and apply the query as a filter on the
+      plaintext.  Matching is operator-defined; keyword containment is
+      the baseline.  Because the operator decrypts in this profile, the
+      query is sent to it (Section 9.2).
+
+   Result:  a JSON array.  Each element is an object with cellId
+      (required), plaintext (string, required), holderIdHex (required:
+      the holderId of the cell&#x27;s owner, which differs from the caller&#x27;s
+      for a shared cell), and optionally cellNonce, kekVersion,
+      holderSignaturePrefix, timestamp and tier.
+
+   Client checks:  The client MUST reject the recall as malformed if the
+      result is not an array, or if any element is not a JSON object
+      (null, a primitive and an array all fail).
+
+      If the array is non-empty and no element carries a string
+      plaintext, the endpoint returned sealed cells; the client MUST
+      report that the operator is not custodial and that this client
+      cannot read its memory.  If some but not all lack plaintext, the
+      client MUST report an incomplete recall, and MUST NOT attribute it
+      to the custody model.
+
+      The client marks cells owned by another holder as described in
+      Section 7.
+
+      If any element lacks a valid cellId the client MUST reject the
+      recall, since those cells could not be erased.
+
+      An empty array after a non-empty query MUST NOT be reported as an
+      empty store; the client says that nothing matched.
+
+   Annotations:  readOnlyHint true, destructiveHint false,
+
+<span>Jackson                   Expires 14 April 2027                [Page 17]</span>
+<span>Internet-Draft               SAIHM Protocol                 October 2026</span>
+
+      idempotentHint true, openWorldHint true.
+
+   Errors:  &quot;unauthenticated&quot;, &quot;operator_storage_unavailable&quot;.
+
+4.4.  saihm_forget
+
+   MCP input:  id: string, the cellId to erase (required).
+
+   Operator parameters:  {&quot;id&quot;: string}
+
+   Operator behavior:  Confirm the caller holds the cell, then erase it
+      (Section 2.7).  The cellId in the result is the one requested.
+
+   Result:  success (boolean, required).  When true: cellId (required),
+      and optionally destructionAnchor (the audit-log identifier of the
+      FORGET receipt) and epoch. success false means the cell was not
+      found or was already erased.
+
+   Client checks:  An agent cannot confirm an erasure by later
+      inspection, so the client reports it only on a complete result.
+      The client MUST:
+
+      *  report that the cell was not found or already erased only when
+         success is false;
+
+      *  report the erasure as unconfirmed, and say the cell may still
+         be stored, when success is absent or not a recognizable
+         boolean;
+
+      *  refuse to report an erasure when success is true but cellId is
+         missing or invalid;
+
+      *  describe the effect without naming an erasure class, which only
+         the operator can state (Section 2.7).
+
+   Annotations:  readOnlyHint false, destructiveHint true,
+      idempotentHint true, openWorldHint true.
+
+   Errors:  &quot;unauthenticated&quot;, &quot;not_holder&quot;,
+      &quot;operator_storage_unavailable&quot;, &quot;operator_log_unavailable&quot;.
+
+4.5.  saihm_status
+
+   MCP input:  none.
+
+   Operator parameters:  {}
+
+   Result:  an object. agentIdHashHex (the caller&#x27;s holderId) is
+
+<span>Jackson                   Expires 14 April 2027                [Page 18]</span>
+<span>Internet-Draft               SAIHM Protocol                 October 2026</span>
+
+      REQUIRED; a client that does not receive it reports the identity
+      as not reported.  A custodial operator SHOULD return custody =
+      &quot;custodial&quot;.  The following fields are RECOMMENDED:
+
+      prs:  number in [0.0, 1.0].  Process Reliability Score: the
+         fraction of tool calls answered within the operator&#x27;s published
+         service window over a rolling 30-day window.
+
+      bfsi_window_start_ts, bfsi_R:  the start of the same window (UNIX
+         epoch seconds) and R, the number of receipts in the audit log
+         attributed to the holder in the window, which the holder can
+         check by listing its receipts in the log.  From these a holder
+         that keeps its own log of tool calls computes the receipt-match
+         index:
+
+         bfsi = 1 - (M / R)
+
+         where M is the number of those receipts with no matching call
+         in the holder&#x27;s log.  When R = 0, bfsi is 1.0 by convention,
+         which signals no evidence of unmatched receipts.  The operator
+         cannot see the holder&#x27;s log, so it MUST NOT return bfsi or
+         bfsi_M unless the holder has given it M by means outside this
+         binding.  The client in Appendix A keeps no such log.
+
+      shards:  an object keyed by tier name; each value is the number of
+         the holder&#x27;s cells under that tier.
+
+      contracts:  an array of objects with contractId, mode
+         (&quot;TEMPORARY&quot;, &quot;PERMANENT&quot; or &quot;SYNDICATE&quot;), granteeIds (array of
+         hex holderIds) and expiresAt (UNIX epoch seconds; 0 for no
+         bound).  Expired entries MAY be included; revoked contracts
+         MUST NOT be.
+
+      governance:  an array of objects with propId (the proposalId),
+         scope, opens_ts, closes_ts, tally_for, tally_against and
+         tally_abstain.
+
+   Client checks:  The client reports a field only when it is present
+      and of usable type, and MAY summarize a list by its length.  It
+      MUST NOT substitute a default (a zero count, an empty epoch) for
+      an absent field, and MUST NOT report an array that is absent as
+      having length zero.
+
+   Annotations:  readOnlyHint true, destructiveHint false,
+      idempotentHint true, openWorldHint true.
+
+   Errors:  &quot;unauthenticated&quot;.
+
+<span>Jackson                   Expires 14 April 2027                [Page 19]</span>
+<span>Internet-Draft               SAIHM Protocol                 October 2026</span>
+
+4.6.  saihm_share
+
+   MCP input:  granteeIdHashesHex: string[]; shardIds: string[]; type:
+      &quot;temporary&quot; | &quot;permanent&quot; | &quot;syndicate&quot;; scope: &quot;read&quot; | &quot;write&quot; |
+      &quot;readwrite&quot;; expiryEpoch: string (optional, decimal UNIX epoch
+      seconds).  All but expiryEpoch are required.
+
+   Operator parameters:  {&quot;granteeIdHashesHex&quot;: string[], &quot;shardIds&quot;:
+      string[], &quot;type&quot;: string, &quot;scope&quot;: string, &quot;expiryEpoch&quot;: string |
+      null}. The client sends each grantee as lowercase hex without a
+      &quot;0x&quot; prefix. type is the lowercase form of mode (Section 2.6).
+
+   Operator behavior:  Confirm the caller holds every listed cell and
+      that each grantee is a 32-byte holderId, apply the mode&#x27;s expiry
+      rule (a null expiryEpoch means 0 for PERMANENT and SYNDICATE; for
+      TEMPORARY the operator applies its default within the 24-hour
+      bound), sign and store the contract, and write a SHARE receipt.
+
+   Result:  contractId (required); type (the lowercase mode);
+      granteeCount; epoch; operator extensions.
+
+   Client checks:  Before sending, the client MUST refuse an empty
+      grantee list and an empty shard list; refuse any grantee that is
+      not even-length hexadecimal (an optional &quot;0x&quot; prefix is allowed;
+      length is checked by the operator), rather than decode it to a
+      different identity; refuse a grantee listed twice, compared as
+      bytes; and refuse an expiryEpoch that is not a string of decimal
+      digits (an empty string means absent).  After the call it MUST
+      refuse to report a share without a valid contractId, and MUST flag
+      a granteeCount that differs from the number requested.
+
+   Annotations:  readOnlyHint false, destructiveHint false,
+      idempotentHint false, openWorldHint true.
+
+   Errors:  &quot;not_holder&quot;, &quot;shard_not_found&quot;, &quot;invalid_grantee&quot;,
+      &quot;operator_storage_unavailable&quot;, &quot;invalid_mode&quot;, &quot;invalid_scope&quot;,
+      &quot;invalid_expiry&quot;, &quot;operator_log_unavailable&quot;.
+
+4.7.  saihm_revoke_share
+
+   MCP input:  contractId: string (required).
+
+   Operator parameters:  {&quot;contractId&quot;: string}
+
+   Operator behavior:  Confirm the caller is the contract&#x27;s holder, end
+
+<span>Jackson                   Expires 14 April 2027                [Page 20]</span>
+<span>Internet-Draft               SAIHM Protocol                 October 2026</span>
+
+      access for every grantee, and write a REVOKE receipt
+      (Section 2.8).  Revoking a contract the caller has already revoked
+      returns revoked = true, so a retry after a timeout reports the
+      true state.
+
+   Result:  revoked (boolean, required); epoch.
+
+   Client checks:  Only revoked = true is a revocation.  For any other
+      value the client MUST lead its report with the fact that
+      revocation was not confirmed and that access should be treated as
+      still in force.  The revocation applies to future reads only, and
+      the cells themselves remain until erased.
+
+   Annotations:  readOnlyHint false, destructiveHint false,
+      idempotentHint true, openWorldHint true.
+
+   Errors:  &quot;not_holder&quot;, &quot;contract_not_found&quot;,
+      &quot;operator_storage_unavailable&quot;, &quot;operator_log_unavailable&quot;.
+
+4.8.  saihm_governance_propose
+
+   MCP input:  scope: &quot;emission_param&quot; | &quot;protocol_upgrade&quot; (required);
+      paramKey: string (optional); proposedValue: string (optional).
+      &quot;emission_param&quot; proposes a new value for one parameter the
+      operator publishes as governable; the name is kept for
+      compatibility with deployed clients.  &quot;protocol_upgrade&quot; proposes
+      adopting a revision of the operator&#x27;s implementation; it needs
+      neither field, and the operator ignores both.
+
+   Operator parameters:  {&quot;scope&quot;: string, &quot;paramKey&quot;: string | null,
+      &quot;proposedValue&quot;: string | null}
+
+   Operator behavior:  Governance is OPTIONAL for operators, and an
+      operator that has not enabled it answers with a failure status.
+      Where enabled, the operator checks the caller against its
+      eligibility rule (Section 4.10), records the proposal with a
+      snapshot epoch, writes a PROPOSE receipt and opens the voting
+      window.
+
+   Result:  proposalId (required); scope; paramKey; proposedValue;
+      snapshotEpoch; proposerHash (the proposer&#x27;s holderId).
+
+   Client checks:  Before sending, the client MUST refuse an
+      emission_param proposal that lacks paramKey or proposedValue,
+      since it would open a vote on no change.  After the call it MUST
+      refuse to report a proposal without a valid proposalId.
+
+   Annotations:  readOnlyHint false, destructiveHint false,
+
+<span>Jackson                   Expires 14 April 2027                [Page 21]</span>
+<span>Internet-Draft               SAIHM Protocol                 October 2026</span>
+
+      idempotentHint false, openWorldHint true.
+
+   Errors:  &quot;governance_disabled&quot;, &quot;ineligible_proposer&quot;,
+      &quot;unknown_scope&quot;, &quot;operator_storage_unavailable&quot;,
+      &quot;operator_log_unavailable&quot;.
+
+4.9.  saihm_governance_vote
+
+   MCP input:  proposalId: string (required); approve: boolean
+      (required).
+
+   Operator parameters:  {&quot;proposalId&quot;: string, &quot;approve&quot;: boolean}
+
+   Operator behavior:  Where governance is enabled, check eligibility,
+      compute the voter&#x27;s weight at the proposal&#x27;s snapshot epoch,
+      record the vote, write a VOTE receipt and update the tally.  A
+      holder votes once per proposal.  A repeated vote by the same
+      holder, including one sent after the voting window has closed,
+      changes nothing, writes no receipt, and returns the success result
+      of the vote already recorded, with its own direction and weight.
+      This binding records approve or reject; an operator with no other
+      way to abstain reports tally_abstain as 0.
+
+   Result:  proposalId; voterHash (the voter&#x27;s holderId); approve;
+      weight; castAtEpoch.
+
+   Client checks:  A failure status from the operator means the vote was
+      not counted (Section 2.8).  When there is no response or the body
+      is malformed, the client reports that it is unknown whether the
+      vote was counted.  Sending the vote again does not count it twice,
+      because the operator returns the vote already recorded, and the
+      mismatch check below reports a direction that differs from the
+      request.  For a well-formed response the client reports, in order
+      of precedence:
+
+      1.  unconfirmed, if neither weight nor castAtEpoch is present (the
+          other fields only echo the request);
+
+      2.  a mismatch, if the returned proposalId or approve differs from
+          the request;
+
+      3.  a zero-weight warning, if weight is 0;
+
+      4.  otherwise, the recorded vote.
+
+   Annotations:  readOnlyHint false, destructiveHint false,
+      idempotentHint false, openWorldHint true.
+
+<span>Jackson                   Expires 14 April 2027                [Page 22]</span>
+<span>Internet-Draft               SAIHM Protocol                 October 2026</span>
+
+   Errors:  &quot;governance_disabled&quot;, &quot;ineligible_voter&quot;,
+      &quot;proposal_not_found&quot;, &quot;proposal_closed&quot;,
+      &quot;operator_storage_unavailable&quot;, &quot;operator_log_unavailable&quot;.
+
+4.10.  Governance form
+
+   This protocol defines the two governance tools but not a single
+   governance form.  An operator that enables governance MUST publish,
+   at a stable URL, at least:
+
+   (a)  eligibility to propose;
+
+   (b)  eligibility to vote;
+
+   (c)  the vote-weight function, evaluated at the proposal&#x27;s snapshot
+        epoch, so that weight acquired after the snapshot does not
+        count;
+
+   (d)  the threshold for a proposal to pass;
+
+   (e)  the voting window, in seconds;
+
+   (f)  the permitted proposal scopes and, for each, the parameters it
+        may change.
+
+   Tallies MUST be reproducible from the VOTE receipts in the audit log,
+   counting, for each holder and proposal, only the first VOTE receipt
+   in log order.  Where two PROPOSE receipts carry the same proposalId,
+   the first in log order governs.
+
+4.11.  Session prompt
+
+   A client MAY also expose an MCP prompt, which is not a tool and does
+   not change the eight-tool surface, that tells the agent to call
+   saihm_recall at the start of a session and states when to store,
+   recall, share and erase.  The implementation in Appendix A names it
+   saihm_session_bootstrap.
+
+5.  Wire formats
+
+   Tool calls and results travel as JSON (Section 3).  Cells and
+   receipts at rest are CBOR ([RFC8949]).  Timestamps in CBOR MUST be
+   unsigned integers (major type 0).
+
+   A cell at rest (CBOR diagnostic notation):
+
+<span>Jackson                   Expires 14 April 2027                [Page 23]</span>
+<span>Internet-Draft               SAIHM Protocol                 October 2026</span>
+
+   {1: h&#x27;...cellId...&#x27;,
+    2: h&#x27;...holderId...&#x27;,
+    3: 1,
+    4: &quot;STANDARD&quot;,
+    5: h&#x27;...cellNonce-16-bytes...&#x27;,
+    6: h&#x27;...ciphertext...&#x27;,
+    7: h&#x27;...signature...&#x27;,
+    8: 1747526400}
+
+   Keys: 1=cellId, 2=holderId, 3=kekVersion, 4=tier, 5=cellNonce,
+   6=ciphertext, 7=signature, 8=timestamp.  The wrapped DEK is not part
+   of the cell; the operator stores it separately, keyed by cellId, so
+   that it can be destroyed without rewriting the cell.
+
+   A receipt (CBOR diagnostic notation):
+
+   {1: h&#x27;...receiptId...&#x27;,
+    2: h&#x27;...subjectId...&#x27;,
+    3: &quot;REMEMBER&quot;,
+    4: h&#x27;...holderId...&#x27;,
+    5: h&#x27;...signature...&#x27;,
+    6: 1747526400,
+    8: h&#x27;...receiptNonce-16-bytes...&#x27;}
+
+   Key 7, detail, is present only in KEY receipts (the holder&#x27;s public
+   key, as a byte string), PROPOSE receipts (a map {&quot;scope&quot;: text,
+   &quot;paramKey&quot;: text / null, &quot;proposedValue&quot;: text / null,
+   &quot;snapshotEpoch&quot;: uint}) and VOTE receipts (a map {&quot;approve&quot;: bool,
+   &quot;weight&quot;: uint}).
+
+   A sharing contract (CBOR diagnostic notation):
+
+   {1: h&#x27;...contractId...&#x27;,
+    2: h&#x27;...holderId...&#x27;,
+    3: [h&#x27;...granteeId...&#x27;],
+    4: [h&#x27;...cellId...&#x27;],
+    5: &quot;TEMPORARY&quot;,
+    6: &quot;read&quot;,
+    7: 1747612800,
+    8: 1747526400,
+    9: h&#x27;...signature...&#x27;,
+    10: h&#x27;...contractNonce-16-bytes...&#x27;}
+
+   Keys: 1=contractId, 2=holderId, 3=granteeIds, 4=shardIds, 5=mode,
+   6=scope, 7=expiresAt, 8=timestamp, 9=signature, 10=contractNonce.
+
+   A saihm_status result (JSON):
+
+<span>Jackson                   Expires 14 April 2027                [Page 24]</span>
+<span>Internet-Draft               SAIHM Protocol                 October 2026</span>
+
+   {&quot;agentIdHashHex&quot;:       &quot;ab4f746f...b1f588&quot;,
+    &quot;custody&quot;:              &quot;custodial&quot;,
+    &quot;prs&quot;:                  0.997,
+    &quot;bfsi_window_start_ts&quot;: &quot;1745020800&quot;,
+    &quot;bfsi_R&quot;:               &quot;0&quot;,
+    &quot;shards&quot;:               {&quot;STANDARD&quot;: 42},
+    &quot;contracts&quot;:            [
+      {&quot;contractId&quot;: &quot;9c1e...&quot;,
+       &quot;mode&quot;:       &quot;TEMPORARY&quot;,
+       &quot;granteeIds&quot;: [&quot;5d02...&quot;],
+       &quot;expiresAt&quot;:  &quot;1747612800&quot;}],
+    &quot;governance&quot;:           []}
+
+6.  Receipt semantics
+
+   For each call that changes state (saihm_remember, saihm_forget,
+   saihm_share, saihm_revoke_share, saihm_governance_propose,
+   saihm_governance_vote) the operator MUST write a receipt to the audit
+   log carrying the operation, the subjectId, the holderId and the
+   timestamp, signed with the holder&#x27;s key (Section 2.3).  A call that
+   changes nothing, such as a repeated vote (Section 4.9) or a repeated
+   saihm_forget or saihm_revoke_share, writes no receipt.
+
+   A receipt MUST NOT contain plaintext, a DEK, a wrapped DEK, a KEK,
+   the holder seed or a private key.  A FORGET receipt carries the
+   erased cellId as its subjectId.
+
+   Read-only calls (saihm_recall, saihm_status) MAY produce receipts
+   under operator policy, under the same content restrictions.
+
+7.  Client conformance
+
+   A conformant custodial client:
+
+   1.   exposes exactly the eight tools of Section 4, with the inputs
+        and annotations given there;
+
+   2.   holds no key material and performs no cryptography beyond TLS;
+
+   3.   meets the transport requirements of Section 3.3;
+
+   4.   treats every operator response as untrusted input: it checks the
+        container type and each field&#x27;s type before use, and reports a
+        malformed response as malformed;
+
+   5.   reports saihm_remember, saihm_forget, saihm_share and
+        saihm_governance_propose as complete only when the result
+        carries the result identifier that names the object
+
+<span>Jackson                   Expires 14 April 2027                [Page 25]</span>
+<span>Internet-Draft               SAIHM Protocol                 October 2026</span>
+
+        (Section 4.1), and reports saihm_revoke_share and
+        saihm_governance_vote as described in Section 4.7 and
+        Section 4.9;
+
+   6.   reports an optional result field only when it is present and
+        usable, and never prints in its place a placeholder that reads
+        as a value, such as &quot;undefined&quot;;
+
+   7.   never prints an operator-supplied string other than recall
+        plaintext that contains a control character (U+0000 to U+001F,
+        U+007F to U+009F), a line or paragraph separator (U+2028,
+        U+2029) or a bidirectional control (U+202A to U+202E, U+2066 to
+        U+2069) in its report, and either omits or rejects it; this
+        includes any excerpt of a non-JSON response;
+
+   8.   presents recall plaintext so that a line break in it (CR, LF,
+        VT, FF, U+0085, U+2028 or U+2029) cannot start a new report
+        entry, for example by indenting every continuation line, and
+        keeps the unaltered plaintext in its structured result;
+
+   9.   marks as shared by another holder, in its report and in its
+        structured result, every recalled cell whose holderIdHex differs
+        from the caller&#x27;s holderId (compared without regard to letter
+        case) or that lacks holderIdHex.  The client learns the caller&#x27;s
+        holderId from agentIdHashHex in saihm_status; while it does not
+        know it, it marks every cell.  It SHOULD therefore call
+        saihm_status before it reports a recall;
+
+   10.  applies the per-tool checks in Section 4.
+
+   The agent reads the client&#x27;s report and acts on it, and a report of
+   an erasure, a revocation or a vote that did not happen as reported is
+   hard to discover afterwards.
+
+8.  Security considerations
+
+8.1.  Trust in a custodial operator
+
+   In the custodial profile the operator holds every key and sees every
+   plaintext.  Encryption at rest protects against theft of stored
+   ciphertext and of backups, and against a storage provider separate
+   from the operator.  It does not protect a holder&#x27;s content from the
+   operator itself.  That protection requires a profile in which the
+   holder keeps the keys.
+
+<span>Jackson                   Expires 14 April 2027                [Page 26]</span>
+<span>Internet-Draft               SAIHM Protocol                 October 2026</span>
+
+   The holder&#x27;s signatures are made by the operator.  They establish
+   that the operator, having authenticated the caller as that holder,
+   wrote the cell or receipt.  They do not prove that the holder&#x27;s own
+   machine produced it.
+
+   The operator MUST protect the holder seeds, identity keys and KEKs it
+   holds at least as strongly as the plaintext they protect, and SHOULD
+   keep KEKs in hardware or a separate key service.
+
+8.2.  Post-quantum signatures
+
+   Cells and receipts are signed with ML-DSA-65 ([FIPS204]), a NIST-
+   standardized post-quantum signature algorithm, chosen so that
+   receipts resist forgery by an adversary with a cryptographically
+   relevant quantum computer.  This does not extend to the operator&#x27;s
+   custody of the keys, or to the audit log&#x27;s own integrity mechanism,
+   whose algorithms are chosen by the deployment.  TLS key exchange
+   SHOULD include a post-quantum or hybrid group where both ends support
+   one.
+
+8.3.  Credential handling
+
+   The Authorization value is a bearer credential for the holder&#x27;s
+   memory.  A client MUST NOT echo it, or an endpoint value that may
+   contain it, into tool output, including in errors raised by its HTTP
+   library when the value is malformed (Section 3.3).  Operators SHOULD
+   issue credentials scoped to one holder, with an expiry, and
+   revocable.
+
+8.4.  Hostile or faulty responses
+
+   A client cannot assume the endpoint is the operator.  A misconfigured
+   URL, a proxy or an attacker on a weakened transport can answer
+   instead.  The checks in Section 7 limit what such a responder can
+   make the agent believe.  In particular, the result-identifier rule
+   (Section 4.1), the control-character rule (Section 7) and the framing
+   rule for recall plaintext (Section 7) together keep a single response
+   from adding a forged report entry, the erasure rule prevents an
+   acknowledgement without an identifier from being reported as an
+   erasure, and the redirect rule keeps plaintext from leaving for an
+   unchecked host.
+
+<span>Jackson                   Expires 14 April 2027                [Page 27]</span>
+<span>Internet-Draft               SAIHM Protocol                 October 2026</span>
+
+8.5.  Unsolicited shares
+
+   A sharing contract places another holder&#x27;s text in the grantee&#x27;s
+   recall, which an agent loads at the start of a session.  Under
+   Section 2.6 a holder can do this only after the grantee has accepted
+   the contract, or where the operator has linked the two holders in
+   advance.  Accepted shared text is still written by another holder.
+   The client marks it (Section 7), and an agent should not follow
+   instructions found in it.
+
+8.6.  Erasure properties
+
+   Cryptographic erasure holds only if no copy of the DEK, and nothing
+   it can be derived from, survives.  This is why the DEK is random and
+   independent of identityKey (Section 2.4).  An operator that derived
+   DEKs from a long-lived secret could re-derive a deleted DEK and
+   decrypt, so it would provide access-control erasure at most.
+
+   Plaintext the operator returned to the holder before erasure, and
+   plaintext a grantee received, are outside the operator&#x27;s control, and
+   erasure does not affect them.
+
+9.  Privacy considerations
+
+9.1.  GDPR Article 17
+
+   saihm_forget gives a holder an erasure operation with a receipt in a
+   public log and an entry in a public erasure list.  Whether it also
+   makes retained ciphertext unreadable depends on the erasure class the
+   operator states (Section 2.7).  The protocol does not by itself make
+   an operator compliant.  Operators acting as controllers or processors
+   under [GDPR] remain responsible for erasure without undue delay,
+   including any plaintext in logs, caches and backups, and handle a
+   request from a data subject who is not the holder outside this
+   protocol.
+
+   Erasure leaves the cell&#x27;s receipts and its erasure-list entry in
+   place.  The receipts carry the holderId and the erasure-list entry
+   carries the cellId.  Before choosing a public log, an operator
+   assesses whether holderIds are personal data in its deployment and,
+   if so, uses separate holderIds per context or a log whose entries it
+   can restrict.
+
+<span>Jackson                   Expires 14 April 2027                [Page 28]</span>
+<span>Internet-Draft               SAIHM Protocol                 October 2026</span>
+
+9.2.  Recall queries
+
+   Because the operator decrypts, it also receives each recall query;
+   draft-saihm-memory-protocol-01 kept the query on the holder&#x27;s side.
+   A query can reveal what the agent is working on even when it matches
+   nothing.  Operators SHOULD NOT log query text, and MUST NOT write it
+   to a receipt.
+
+9.3.  Audit log content
+
+   Receipts are public.  They show that a holderId performed an
+   operation on a subject at a time, but not memory content.  The
+   existence and timing of a holder&#x27;s cells are therefore observable.
+   PROPOSE receipts disclose the proposal, VOTE receipts disclose each
+   vote&#x27;s direction and weight, and an operator that writes RECALL or
+   STATUS receipts discloses when the holder reads.  Where that is
+   sensitive, further measures outside this protocol apply, such as
+   separate holder identities per context.
+
+10.  IANA Considerations
+
+   This document has no IANA actions.
+
+11.  References
+
+11.1.  Normative References
+
+   [FIPS180-4]
+              National Institute of Standards and Technology, &quot;Secure
+              Hash Standard (SHS)&quot;, FIPS PUB 180-4, August 2015,
+              &lt;https://csrc.nist.gov/pubs/fips/180-4/upd1/final&gt;.
+
+   [FIPS204]  National Institute of Standards and Technology, &quot;Module-
+              Lattice-Based Digital Signature Standard&quot;, FIPS PUB 204,
+              August 2024, &lt;https://csrc.nist.gov/pubs/fips/204/final&gt;.
+
+   [IEEE-1003.1-2024]
+              IEEE, &quot;IEEE Standard for Information Technology--Portable
+              Operating System Interface (POSIX(TM)) Base
+              Specifications, Issue 8&quot;, IEEE Std 1003.1-2024, June 2024,
+              &lt;https://standards.ieee.org/ieee/1003.1/7700/&gt;.
+
+   [MCP]      Anthropic, &quot;Model Context Protocol Specification&quot;, 25
+              November 2025, &lt;https://modelcontextprotocol.io/&gt;.
+              Donated to the Agentic AI Foundation under the Linux
+              Foundation on 9 December 2025.
+
+<span>Jackson                   Expires 14 April 2027                [Page 29]</span>
+<span>Internet-Draft               SAIHM Protocol                 October 2026</span>
+
+   [RFC2119]  Bradner, S., &quot;Key words for use in RFCs to Indicate
+              Requirement Levels&quot;, BCP 14, RFC 2119,
+              DOI 10.17487/RFC2119, March 1997,
+              &lt;https://www.rfc-editor.org/info/rfc2119&gt;.
+
+   [RFC4648]  Josefsson, S., &quot;The Base16, Base32, and Base64 Data
+              Encodings&quot;, RFC 4648, DOI 10.17487/RFC4648, October 2006,
+              &lt;https://www.rfc-editor.org/info/rfc4648&gt;.
+
+   [RFC5116]  McGrew, D., &quot;An Interface and Algorithms for Authenticated
+              Encryption&quot;, RFC 5116, DOI 10.17487/RFC5116, January 2008,
+              &lt;https://www.rfc-editor.org/info/rfc5116&gt;.
+
+   [RFC5869]  Krawczyk, H. and P. Eronen, &quot;HMAC-based Extract-and-Expand
+              Key Derivation Function (HKDF)&quot;, RFC 5869,
+              DOI 10.17487/RFC5869, May 2010,
+              &lt;https://www.rfc-editor.org/info/rfc5869&gt;.
+
+   [RFC8174]  Leiba, B., &quot;Ambiguity of Uppercase vs Lowercase in RFC
+              2119 Key Words&quot;, BCP 14, RFC 8174, DOI 10.17487/RFC8174,
+              May 2017, &lt;https://www.rfc-editor.org/info/rfc8174&gt;.
+
+   [RFC8259]  Bray, T., &quot;The JavaScript Object Notation (JSON) Data
+              Interchange Format&quot;, STD 90, RFC 8259,
+              DOI 10.17487/RFC8259, December 2017,
+              &lt;https://www.rfc-editor.org/info/rfc8259&gt;.
+
+   [RFC8949]  Bormann, C. and P. Hoffman, &quot;Concise Binary Object
+              Representation (CBOR)&quot;, STD 94, RFC 8949,
+              DOI 10.17487/RFC8949, December 2020,
+              &lt;https://www.rfc-editor.org/info/rfc8949&gt;.
+
+   [RFC9110]  Fielding, R., Nottingham, M., and J. Reschke, &quot;HTTP
+              Semantics&quot;, STD 97, RFC 9110, DOI 10.17487/RFC9110, June
+              2022, &lt;https://www.rfc-editor.org/info/rfc9110&gt;.
+
+   [RFC9525]  Saint-Andre, P. and R. Salz, &quot;Service Identity in TLS&quot;,
+              RFC 9525, DOI 10.17487/RFC9525, November 2023,
+              &lt;https://www.rfc-editor.org/info/rfc9525&gt;.
+
+   [RFC9846]  Rescorla, E., &quot;The Transport Layer Security (TLS) Protocol
+              Version 1.3&quot;, RFC 9846, DOI 10.17487/RFC9846, July 2026,
+              &lt;https://www.rfc-editor.org/info/rfc9846&gt;.
+
+11.2.  Informative References
+
+   [AAIF]     Linux Foundation, &quot;Agentic AI Foundation&quot;, 9 December
+              2025, &lt;https://aaif.io/&gt;.
+
+<span>Jackson                   Expires 14 April 2027                [Page 30]</span>
+<span>Internet-Draft               SAIHM Protocol                 October 2026</span>
+
+   [GDPR]     European Parliament and Council, &quot;Regulation (EU) 2016/679
+              of the European Parliament and of the Council of 27 April
+              2016 (General Data Protection Regulation)&quot;, April 2016,
+              &lt;https://eur-lex.europa.eu/eli/reg/2016/679/oj&gt;.
+
+   [NIST-SP-800-38D]
+              Dworkin, M., &quot;Recommendation for Block Cipher Modes of
+              Operation: Galois/Counter Mode (GCM) and GMAC&quot;, NIST SP
+              800-38D, November 2007,
+              &lt;https://csrc.nist.gov/pubs/sp/800/38/d/final&gt;.
+
+   [RFC4086]  Eastlake 3rd, D., Schiller, J., and S. Crocker,
+              &quot;Randomness Requirements for Security&quot;, BCP 106, RFC 4086,
+              DOI 10.17487/RFC4086, June 2005,
+              &lt;https://www.rfc-editor.org/info/rfc4086&gt;.
+
+   [RFC4846]  Klensin, J. and D. Thaler, &quot;Independent Submissions to the
+              RFC Editor&quot;, RFC 4846, DOI 10.17487/RFC4846, July 2007,
+              &lt;https://www.rfc-editor.org/info/rfc4846&gt;.
+
+   [RFC7942]  Sheffer, Y. and A. Farrel, &quot;Improving Awareness of Running
+              Code: The Implementation Status Section&quot;, BCP 205,
+              RFC 7942, DOI 10.17487/RFC7942, July 2016,
+              &lt;https://www.rfc-editor.org/info/rfc7942&gt;.
+
+   [RFC8730]  Brownlee, N. and R. Hinden, &quot;Independent Submission Editor
+              Model&quot;, RFC 8730, DOI 10.17487/RFC8730, February 2020,
+              &lt;https://www.rfc-editor.org/info/rfc8730&gt;.
+
+<span>Appendix A.  Implementation status</span>
+
+   This appendix follows the practice of [RFC7942].  It records an
+   implementation at the time of writing and is to be removed before
+   publication as an RFC.
+
+   Name:  @saihm/mcp-server, version 0.3.17, published on the npm
+      registry.
+
+   License:  Apache 2.0.
+
+   Role:  custodial client.  It implements the eight tools of Section 4,
+      the HTTPS binding of Section 3, the client checks of Section 7,
+      and the session prompt of Section 4.11.  It is configured with two
+      environment variables, SAIHM_ENDPOINT_URL and SAIHM_AUTH_HEADER.
+      It holds no key material, and its eight tools perform no
+      cryptography beyond TLS.
+
+   Coverage:  all eight tools.  The client&#x27;s status report also shows
+
+<span>Jackson                   Expires 14 April 2027                [Page 31]</span>
+<span>Internet-Draft               SAIHM Protocol                 October 2026</span>
+
+      operator extension fields when an operator returns them.
+
+   Known deviations:  In version 0.3.17:
+
+      *  an endpoint URL that carries userinfo, and an Authorization
+         value that contains a line break or NUL, are quoted in full in
+         errors raised by the HTTP library (Section 8.3);
+
+      *  two places print an operator-supplied identifier, and
+         saihm_forget prints destructionAnchor shortened to 32
+         characters, without the check of Section 4.1;
+
+      *  other printed fields, the HTTP reason phrase, recall plaintext
+         and the excerpt of a non-JSON response are printed without the
+         control-character and framing rules, and cells shared by
+         another holder are not marked (Section 7);
+
+      *  after &quot;operator_log_unavailable&quot; from saihm_forget or
+         saihm_revoke_share it reports only the failure status, without
+         the advice of Section 2.8;
+
+      *  its message for an unconfirmed vote advises against sending the
+         vote again, and a vote answered with a 2xx body that is not
+         JSON is not reported as of unknown outcome (Section 4.9);
+
+      *  an absent agentIdHashHex appears as an empty string in the
+         structured result (Section 4.5).
+
+      The first three are to be corrected in the next release.
+
+   Contact:  architect@saihm.net
+
+<span>Appendix B.  Worked example</span>
+
+B.1.  Lifecycle
+
+<span>Jackson                   Expires 14 April 2027                [Page 32]</span>
+<span>Internet-Draft               SAIHM Protocol                 October 2026</span>
+
+    Agent + client             Operator                  Audit log
+    ==============             ========                  =========
+         |                         |                          |
+         | POST saihm_remember     |                          |
+         | {content}, Authz        |                          |
+         |------------------------&gt;| new DEK, nonce; seal;    |
+         |                         | sign as holder; store    |
+         |                         |------ REMEMBER ---------&gt;|
+         |  {cellId, ...}          |                          |
+         |&lt;------------------------|                          |
+         |                         |                          |
+         | POST saihm_recall       |                          |
+         |------------------------&gt;| verify, decrypt, filter  |
+         |  [{cellId, plaintext}]  |                          |
+         |&lt;------------------------|                          |
+         |                         |                          |
+         | POST saihm_share        |                          |
+         |------------------------&gt;| sign contract            |
+         |                         |------ SHARE ------------&gt;|
+         |  {contractId, ...}      |                          |
+         |&lt;------------------------|                          |
+         |                         |                          |
+         | POST saihm_revoke_share |                          |
+         |------------------------&gt;|------ REVOKE -----------&gt;|
+         |  {revoked: true}        |                          |
+         |&lt;------------------------|                          |
+         |                         |                          |
+         | POST saihm_forget {id}  |                          |
+         |------------------------&gt;| withdraw; list cellId;   |
+         |                         | destroy wrapped DEK *    |
+         |                         |------ FORGET -----------&gt;|
+         |  {success, cellId,      |                          |
+         |   destructionAnchor}    |                          |
+         |&lt;------------------------|                          |
+
+    * cryptographic erasure class only (Section 2.7)
+
+B.2.  Example values
+
+   These values come from a labeled test seed and MUST NOT be used for
+   real cells.  They can be reproduced with any FIPS 204 ML-DSA-65, RFC
+   5869 HKDF and AES-256-GCM implementation.
+
+   Test holder seed, SHA-256 of the 46-byte ASCII string given here on
+   one line:
+
+   SAIHM-TEST-VECTOR-001-DO-NOT-USE-IN-PRODUCTION
+
+<span>Jackson                   Expires 14 April 2027                [Page 33]</span>
+<span>Internet-Draft               SAIHM Protocol                 October 2026</span>
+
+   holderSeed =
+     f068b8db8484d33bdbedd154bf5bf28e11fba330b79469e23595d6f738d7f5c6
+
+   Identity key (Section 2.2):
+
+   identityKey =
+     fdf786da8cb1f074393f9ad6dec1671e08085540e95c8463c9f2e15f437bbc5a
+     2c267aeaf355e79d8968cc21846cdff7e16f498437de3d6b1fd290703eeed9c2
+
+   holderId, SHA-256 of the ML-DSA-65 public key generated from the
+   first 32 bytes of identityKey:
+
+   holderId =
+     ab4f746fd1520d2736854559d6751969ae9127f5dbc607d7298acbf1afb1f588
+
+   kekVersion = 1. cellNonce and DEK, which in operation come from the
+   random source, are fixed here so the example can be reproduced:
+
+   cellNonce = 25bd74b827789faacad8ffb7593c2359
+   DEK       =
+     a1e54f730c6c7a1048ae436c9d2b179821c6eddd7841f41e36215285f3ffd07a
+
+   The 41-byte plaintext, in hexadecimal (ASCII &quot;Hello, SAIHM.&quot;, one
+   space, &quot;This is a test memory cell.&quot;), is encrypted with AES-256-GCM,
+   IV = first 12 bytes of cellNonce, no associated data:
+
+   plaintext =
+     48656c6c6f2c20534149484d2e205468697320697320612074657374206d656d
+     6f72792063656c6c2e
+
+   ciphertext (57 bytes, including 16-byte tag) =
+     595b0b9f77a8d95f29c5affa151bbcc18fdc3f7e5223792627919ee2d52f2bf2
+     4933c35de4c1755559bee818ef54b48a388bcdd2e4a30fbde8
+
+   cellId (Section 2.1):
+
+   cellId =
+     d851960a5b7754c5884c96bef5d615e666c8ad006e4ceebe028cd85aae8e7c2f
+
+   timestamp = 1747526400 (2025-05-18T00:00:00Z).  Cell signature
+   (Section 2.3): deterministic ML-DSA-65 with context &quot;SAIHM-CELL-v1&quot;.
+   It is 3309 bytes; the first 32 are:
+
+   signature[0..32) =
+     8b7466cd59b30c38cdacdf2a55fff14ba39dff905ad20a3fdffe9018f5bacf38
+
+   A hedged signature verifies the same way but is not reproducible.
+
+<span>Jackson                   Expires 14 April 2027                [Page 34]</span>
+<span>Internet-Draft               SAIHM Protocol                 October 2026</span>
+
+B.3.  CBOR encoding
+
+   A8                # map(8)
+      01             #   key 1 (cellId)
+      58 20          #   bytes(32)
+       d851960a5b7754c5884c96bef5d615e666c8ad006e4ceebe028cd85aae8e7c2f
+      02             #   key 2 (holderId)
+      58 20          #   bytes(32)
+       ab4f746fd1520d2736854559d6751969ae9127f5dbc607d7298acbf1afb1f588
+      03             #   key 3 (kekVersion)
+      01             #   unsigned(1)
+      04             #   key 4 (tier)
+      68             #   text(8)
+       5354414e44415244            # &quot;STANDARD&quot;
+      05             #   key 5 (cellNonce)
+      50             #   bytes(16)
+       25bd74b827789faacad8ffb7593c2359
+      06             #   key 6 (ciphertext)
+      58 39          #   bytes(57)
+       595b0b9f77a8d95f29c5affa151bbcc18fdc3f7e5223792627919ee2d52f2bf2
+       4933c35de4c1755559bee818ef54b48a388bcdd2e4a30fbde8
+      07             #   key 7 (signature)
+      59 0CED        #   bytes(3309)
+       8b7466cd59b30c38cdacdf2a55fff14ba39dff905ad20a3fdffe9018f5bacf38
+       ... (3277 further bytes)
+      08             #   key 8 (timestamp)
+      1A 68292300    #   unsigned(1747526400)
+
+<span>Appendix C.  Changes from draft-saihm-memory-protocol-01</span>
+
+   *  Specifies the custodial profile: the operator holds the keys and
+      performs all cryptography; the client holds none.
+
+   *  Adds the HTTPS binding between client and operator, and removes
+      per-call request signing by the client.
+
+   *  Replaces the HKDF-derived DEK with a random per-cell DEK wrapped
+      under the KEK, so that an operator holding the identity key can
+      offer cryptographic erasure.
+
+   *  Sends the recall query to the operator, which decrypts and
+      filters.
+
+   *  Reports a missing or erased cell in saihm_forget as success =
+      false, makes revocation idempotent, and revises the error codes.
+
+<span>Jackson                   Expires 14 April 2027                [Page 35]</span>
+<span>Internet-Draft               SAIHM Protocol                 October 2026</span>
+
+   *  Defines the signed messages with ML-DSA context strings, adds KEY
+      receipts carrying the holder&#x27;s public key, and defines the
+      contract encoding.
+
+   *  Restricts TEMPORARY expiry, defines shardIds as cellIds, reserves
+      the write scopes, and states the order of effect and receipt for
+      every state-changing tool.
+
+   *  Moves the bfsi computation to the holder.
+
+   *  Requires grantee acceptance before a contract takes effect, the
+      owner&#x27;s holderId on every recalled cell, and the marking of cells
+      shared by another holder.
+
+   *  Defines two erasure classes and requires the operator to state
+      which it provides.
+
+   *  Brings each tool&#x27;s inputs and results into line with the
+      implementation in Appendix A: share takes grantee and shard lists,
+      a lowercase type and an access scope; vote takes a boolean;
+      governance is optional for operators.
+
+   *  Adds result identifiers, client conformance checks, and MCP tool
+      annotations.
+
+   *  Defines holderId as SHA-256 of the ML-DSA-65 public key, and the
+      key-generation seed as the first 32 bytes of identityKey.
+
+   *  Generalizes the audit anchor to a public append-only audit log,
+      and leaves the storage tier and log to the deployment.
+
+   *  Replaces the example signature prefix with a deterministic,
+      reproducible value, and gives the example inputs in hexadecimal.
+
+<span>Author&#x27;s Address</span>
+
+   Russell Jackson
+   SAIHM (Sovereign AI Horizontal Memory)
+   Email: architect@saihm.net
+   URI:   https://saihm.net/
+
+<span>Jackson                   Expires 14 April 2027                [Page 36]</span>
+</pre>
+                </div>
+            </div>
+            
+        
+    
+                    
+                </div>
+            </div>
+        </main>
+        
+            <footer class="col-md-12 col-sm-12 border-top mt-5 py-5 bg-light-subtle text-center position-sticky">
+                <a href="https://www.ietf.org/" class="p-3">IETF</a>
+                <a href="https://www.ietf.org/iesg/" class="p-3">IESG</a>
+                <a href="https://www.iab.org/" class="p-3">IAB</a>
+                <a href="https://www.irtf.org/" class="p-3">IRTF</a>
+                <a href="https://www.ietf.org/llc/" class="p-3 text-nowrap">IETF LLC</a>
+                <a href="https://trustee.ietf.org/" class="p-3 text-nowrap">IETF Trust</a>
+                <a href="https://www.rfc-editor.org/" class="p-3 text-nowrap">RFC Editor</a>
+                <a href="https://www.iana.org/" class="p-3">IANA</a>
+                <a href="https://www.ietf.org/privacy-statement/" class="p-3 text-nowrap">Privacy Statement</a>
+                <div class="small text-body-secondary py-3">
+                    
+                        <a class="mx-2" href="/release/about">About IETF Datatracker</a>
+                        <span class="mx-2">
+                            
+                                <a href="https://github.com/ietf-tools/datatracker/releases/tag/12.83.2">
+                            
+                            Version 12.83.2
+                            (release - 47fc2a1)
+                            
+                                </a>
+                            
+                        </span>
+                    
+                    <a class="mx-2" href="https://status.ietf.org" target="_blank">System Status</a>
+                    <span class="mx-2 text-danger">
+                        <i class="bi bi-bug"></i>
+                        Report a bug:
+                        <a class="text-reset" target="_blank" href="https://github.com/ietf-tools/datatracker/issues/new/choose">GitHub</a>
+                        
+                            <a class="text-reset" href="mailto:tools-help@ietf.org">Email</a>
+                        
+                    </span>
+                    
+                </div>
+            </footer>
+        
+        
+        <script src="https://static.ietf.org/dt/12.83.2/ietf/js/d3.js">
+        </script>
+        <script src="https://static.ietf.org/dt/12.83.2/ietf/js/document_timeline.js">
+        </script>
+    
+        <script src="https://static.ietf.org/dt/12.83.2/ietf/js/select2.js"></script>
+        <script src="https://static.ietf.org/dt/12.83.2/ietf/js/navbar-doc-search.js"></script>
+      
+<script>
+  var _paq = window._paq || [];
+  
+  _paq.push(['disableCookies']);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//analytics.ietf.org/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', 7]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.ietf.org/matomo.php?idsite=7" style="border:0;" alt="" /></p></noscript>
+
+    <script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a5eeb3134953885c',t:'MTc5NTQyMTQ0OA=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a5eeb3134953885c',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

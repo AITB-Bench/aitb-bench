@@ -1,0 +1,19 @@
+{
+  "runner": {"name": "参考判定（本组自留）", "date": "2026-11-23", "mode": "reproduce", "read_order": "no"},
+  "sources": {"protocol_version": "draft-saihm-memory-protocol-03", "protocol_read_on": "2026-11-23"},
+  "rows": [
+    {"row": "O1", "obligation_short": "保留期限与起算点", "determination": "NA", "read_point": "无", "reason": "§1.4 tier 的保留属性是运营方散文，格式无字段、无版本化声明对象", "confidence": "high"},
+    {"row": "O2", "obligation_short": "更正前原值可取得", "determination": "S", "read_point": "§2.1 重算 cellId；按旧 cellId 取回；§2.2 KEY 收据公钥验签", "reason": "cellId 覆盖密文，改内容必换 id，旧单元可按旧 id 取回", "confidence": "medium"},
+    {"row": "O3", "obligation_short": "更正注明理由/人员/日期", "determination": "NS", "read_point": "§2.1 单元元组（无 reason/actor/supersession）；§4 八个工具（无 update）", "reason": "字段与操作都不存在，属设计性缺失", "confidence": "high"},
+    {"row": "O4", "obligation_short": "授权归属", "determination": "NA", "read_point": "§1.2 托管 profile；§2.2 代签", "reason": "签名法要求向外引用，本表未解；托管 profile 下签名非本人行为", "confidence": "low"},
+    {"row": "O5", "obligation_short": "删除执行到声明类别", "determination": "S", "read_point": "§2.5 FORGET 收据；§2.7 destructionAnchor", "reason": "两类删除均须声明，且删除返回锚点", "confidence": "high"},
+    {"row": "O6", "obligation_short": "删除记录被保留", "determination": "S", "read_point": "§2.5 公开日志按 subjectId/holderId/operation 检索", "reason": "FORGET 收据写入公开只追加日志", "confidence": "high"},
+    {"row": "O7", "obligation_short": "删除与保留义务的边界", "determination": "NS", "read_point": "§2.5 收据集合（无边界字段）", "reason": "无法区分已删与因义务保留，也无法记载义务出处与期限", "confidence": "high"}
+  ],
+  "overall": {
+    "q1_which_row_would_you_keep": "R1",
+    "q2_row_impossible_for_any_format": "",
+    "q3_three_value_consistency": "R4 的 NA/NS 界线待外部裁定",
+    "q4_internal_count_discrepancy": "已统一为逐行计数：S 3、NS 3、NA 1"
+  }
+}

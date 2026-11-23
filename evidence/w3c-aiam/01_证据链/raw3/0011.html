@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="generator" content="hypermail 3.0.0, see https://github.com/hypermail-project/hypermail/" />
+<title>Proposal - a retention-and-erasure crosswalk, fifteen worked rows  (informative) from zhaoxinghua07&#64;126.com on 2026-11-23 (public-ai-agent-memory-interop@w3.org from November 2026)</title>
+<meta name="Author" content="zhaoxinghua07&#64;126.com (zhaoxinghua07&#x40;&#0049;&#0050;&#0054;&#0046;&#0099;&#0111;&#0109;)" />
+<meta name="Subject" content="Proposal - a retention-and-erasure crosswalk, fifteen worked rows  (informative)" />
+<meta name="Date" content="2026-11-23" />
+<link rel="stylesheet" title="Normal view" href="/assets/styles/public.css" />
+<link rel="help" href="/Help/" />
+<link rel="start" href="../" title="public-ai-agent-memory-interop@w3.org archives" />
+<script defer="defer" src="/assets/js/archives.js"></script>
+</head>
+<body class="message">
+<header class="head">
+<nav class="breadcrumb" id="upper">
+<ul>
+   <li><a href="https://www.w3.org/">W3C home</a></li>
+   <li><a href="/">Mailing lists</a></li>
+   <li><a href="../../">Public</a></li>
+   <li><a href="../">public-ai-agent-memory-interop@w3.org</a></li>
+   <li><a href="./">November 2026</a></li>
+</ul>
+</nav>
+<h1>Proposal - a retention-and-erasure crosswalk, fifteen worked rows  (informative)</h1>
+<!-- received="Mon Nov 23 11:10:19 2026" -->
+<!-- isoreceived="20261123111019" -->
+<!-- sent="Mon, 23 Nov 2026 19:10:05 +0800" -->
+<!-- isosent="20261123111005" -->
+<!-- name="zhaoxinghua07@126.com" -->
+<!-- email="zhaoxinghua07&#x40;&#0049;&#0050;&#0054;&#0046;&#0099;&#0111;&#0109;" -->
+<!-- subject="Proposal - a retention-and-erasure crosswalk, fifteen worked rows  (informative)" -->
+<!-- id="179543220541.8160.10801290061490041560@126.com" -->
+<!-- charset="utf-8" -->
+<!-- expires="-1" -->
+<nav id="navbar">
+<ul class="links hmenu_container">
+<li>
+<span class="heading">This message</span>: <ul class="hmenu"><li><a href="#start" id="options1">Message body</a></li>
+<li><a href="mailto:public-ai-agent-memory-interop&#x40;&#0119;&#0051;&#0046;&#0111;&#0114;&#0103;?Subject=Re%3A%20Proposal%20-%20a%20retention-and-erasure%20crosswalk%2C%20fifteen%20worked%20rows%20%20(informative)&amp;In-Reply-To=%3C179543220541.8160.10801290061490041560%40126.com%3E&amp;References=%3C179543220541.8160.10801290061490041560%40126.com%3E">Respond</a></li>
+<li><a href="#options3">More options</a></li>
+</ul></li>
+<li>
+<span class="heading">Related messages</span>: <ul class="hmenu">
+<!-- unext="start" -->
+<li><a href="0010.html">Previous message</a></li>
+<!-- unextthread="start" -->
+<!-- ureply="end" -->
+</ul></li>
+</ul>
+</nav>
+</header>
+<!-- body="start" -->
+<main class="mail">
+<ul class="headers" aria-label="message headers">
+<li><span class="from">
+<span class="heading">From</span>: &lt;<a href="mailto:zhaoxinghua07&#x40;&#0049;&#0050;&#0054;&#0046;&#0099;&#0111;&#0109;?Subject=Re%3A%20Proposal%20-%20a%20retention-and-erasure%20crosswalk%2C%20fifteen%20worked%20rows%20%20(informative)&amp;In-Reply-To=%3C179543220541.8160.10801290061490041560%40126.com%3E&amp;References=%3C179543220541.8160.10801290061490041560%40126.com%3E">zhaoxinghua07&#x40;&#0049;&#0050;&#0054;&#0046;&#0099;&#0111;&#0109;</a>&gt;
+</span></li>
+<li><span class="date"><span class="heading">Date</span>: Mon, 23 Nov 2026 19:10:05 +0800</span></li>
+<li><span class="to"><span class="heading">To</span>: <a href="mailto:public-ai-agent-memory-interop&#x40;&#0119;&#0051;&#0046;&#0111;&#0114;&#0103;?Subject=Re%3A%20Proposal%20-%20a%20retention-and-erasure%20crosswalk%2C%20fifteen%20worked%20rows%20%20(informative)&amp;In-Reply-To=%3C179543220541.8160.10801290061490041560%40126.com%3E&amp;References=%3C179543220541.8160.10801290061490041560%40126.com%3E">public-ai-agent-memory-interop&#x40;&#0119;&#0051;&#0046;&#0111;&#0114;&#0103;</a>
+</span></li>
+<li><span class="message-id"><span class="heading">Message-ID</span>: &lt;179543220541.8160.10801290061490041560&#x40;&#0049;&#0050;&#0054;&#0046;&#0099;&#0111;&#0109;&gt;
+</span></li>
+</ul>
+<section id="start" class="message-body-part">
+<pre class="body">
+Hello all,
+
+Following the ratification of charter v1.1, section 3 lists a regulatory crosswalk pack as the fourth deliverable, and it names the regimes but not the unit of a mapping. I would like to propose the unit, and to show it working on fifteen rows. This is a proposal for discussion, not a submission of a finished document; if the shape is acceptable I will bring the pack section by section under the CLA.
+
+Terms, since this list has many readers. &quot;-03&quot; is draft-saihm-memory-protocol-03, posted 2026-10-11. Section 3 and section 4 are sections of charter v1.1 (<a href="https://www.w3.org/community/ai-agent-memory-interop/2026/11/23/charter-ai-agent-memory-interoperability-community-group-v1-1/">https://www.w3.org/community/ai-agent-memory-interop/2026/11/23/charter-ai-agent-memory-interoperability-community-group-v1-1/</a>). &quot;The Chair&quot; is the Group's chair. CLA is the W3C Contributor License Agreement. &quot;Holder&quot; is the party a memory cell belongs to, and &quot;operator&quot; the party that stores and serves it. A cell is the stored unit; a receipt is the signed record of one operation; a read-point is the field or endpoint where a third party reads a fact; &quot;protocol surface&quot; is what -03 itself defines, as against what an operator documents on its own. Where I say &quot;the format&quot;, I mean -03 and not any deployment of it.
+
+What it does not do. It does not restate the use-case catalogue, and it does not measure any store. The benchmarking work others have raised in this thread measures what a store does when memory is edited beneath it. This asks a different question: what the format says a store must be able to show, and whether a third party can read that fact from the protocol surface rather than from the operator's assurance. The two meet only in vocabulary - I would like &quot;not assessable&quot; and &quot;not exercised&quot; - the latter being the word in the report format under discussion - to keep their distance rather than drift into one another.
+
+Scope, stated plainly. As of 2026-11-23, section 3 names nine instruments - GDPR, the EU AI Act, NIST AI RMF 1.0, ISO/IEC 27001:2022, ISO/IEC 42001:2023, HIPAA, PIPEDA, PIPL and LGPD - and this note scores fifteen rows. Those rows cover nine instruments in all: the six legal instruments among the nine section 3 names, and three device instruments - EU MDR, 21 CFR Part 820, China's GMP - that the Chair's recorded reading of &quot;comparable regimes&quot; brings in (the reading is in the 2026-11-03 reply, <a href="https://lists.w3.org/Archives/Public/public-ai-agent-memory-interop/2026Nov/0003.html">https://lists.w3.org/Archives/Public/public-ai-agent-memory-interop/2026Nov/0003.html</a>). In its own words: &quot;I read 'comparable regimes' in section 3 as any law, regulation or standard that sets requirements for how records are kept, protected, retained, corrected or erased. On that reading, the medical-device rules EU MDR, 21 CFR Part 820, ISO 13485 and the rules for NMPA registration review are comparable regimes.&quot;
+
+The three section 3 items that are not scored are named here rather than left for a reader to discover, each with the reason: of the nine, ISO/IEC 27001:2022, ISO/IEC 42001:2023 and NIST AI RMF 1.0 carry no row, and the other six do. Two are management-system standards - ISO/IEC 27001:2022 and ISO/IEC 42001:2023 - whose obligation is that an organisation establishes, evidences and improves its own system; they tell an organisation to set, protect and retain its own records, but they do not themselves state the span for a record in the text I could read, and my unit - one record, one paragraph, one determination - cannot score them, so a satisfied / not-satisfied column would be measuring my rubric rather than the standard. I did not obtain the ISO/IEC 42001:2023 text, which is why no clause number appears for it here; the annex says the same. One is voluntary on its own terms: NIST states that the AI RMF is &quot;intended for voluntary use&quot;. Treating that as a reason not to score it is an interpretive choice, and I record it as one rather than as a fact that settles the question; the reason differs from the two standards above - they cannot be scored by my unit, while NIST does not claim to bind - and I state both reasons rather than collapse them into one. The remaining four are data-protection statutes with erasure and retention rules - HIPAA, PIPEDA, PIPL, LGPD - and all four carry rows here (R9-R12). They are scored rather than deferred because HIPAA's six years and PIPEDA's requirement that retention guidelines state both a minimum and a maximum are the only two of the four that carry an explicit figure or an explicit two-sided bound - the sharpest test of the horizon point below.
+
+What these fifteen rows add is scored rows on the device side: ten years under MDR, device lifetime under 820.35, and China's GMP Article 46, which is the only instrument in the set whose requirements attach to the record's own change and deletion events rather than to the security of the system or to documentation about it. Two further rows come from instruments already in the set rather than from new ones, because the instrument set makes them unavoidable: R13 scores the timing of erasure - whether the format sets or records any deadline between a request and the act - against GDPR Article 17(1)'s &quot;without undue delay&quot;, and R14 scores portability against GDPR Article 20(1), PIPL Article 45 and LGPD Article 18(V). Both come out not satisfied, and R14 is stated narrowly - the record can be read out, not that it can be exported in a defined machine-readable form. These device instruments are not an aside: the Chair's recorded reading of section 3 names EU MDR, 21 CFR Part 820, ISO 13485 and the NMPA registration-review rules as comparable regimes, and that reading is why they carry rows here.
+
+The unit I propose. An obligation is cited to an instrument and a paragraph, decomposed into the axes the Chair's sentence names - kept (the record exists and can be read), protected (access and integrity), retained (held for a stated period), corrected (changed, with the prior value and the change visible), erased (removed, and shown to be removed) - anchored to a specific element of -03, and given one of three determinations: satisfied, not satisfied, not assessable, together with the evidence read-point where a third party reads the fact. Not assessable is never a pass; it is recorded as a gap against the pinned revision. One row adds a sixth axis - attribution of the act to an authorised person - because Article 46(2) of China's GMP attaches the requirement to a person and not to a record; I flag it as an addition rather than pass it off as part of the Chair's reading.
+
+Three things the fifteen rows show.
+
+First, the retention horizon has no carrier in the format. -03 delegates it to a storage tier whose &quot;stated durability and retention properties&quot; are prose, and the charter says tier names carry no protocol semantics. That would be a mild gap if the horizons were similar. They are not: within one instrument set, the AI Act requires logs for at least six months (Articles 19(1) and 26(6)), EU MDR requires technical documentation available for at least ten years, fifteen for implantables (Article 10(8)), and 21 CFR 820.35 read with the incorporated ISO 13485 clause 4.2.5 requires at least the lifetime of the device, but not less than two years from the date of product release. A single memory record can sit under all three. A horizon that is a property of the storage tier cannot express that; a horizon that is a property of the record, or a declared external policy with a defined minimum reading surface, can.
+
+Second, China's device GMP - in force since 2026-11-01 - is the only instrument in the set whose requirements attach to the electronic record itself rather than to documentation about it: Article 46(2) requires that changes and deletions be performed by authorised personnel and that records of the change and the deletion be retained. HIPAA's six-year rule (45 CFR 164.316(b)(2)(i)), by contrast, attaches, as I read it, to the documentation a covered entity must maintain - its policies and procedures, and its records of actions, activities and assessments - which is why R9 is recorded as not assessable rather than satisfied. That is, in substance, a change ledger and a deletion receipt. It is the closest thing to a legal requirement on the receipt surface -03 already defines, and in the archive record of this thread up to 2026-11-23 no one has mapped it.
+
+Third, the custodial profile puts two different attestations into one signature. The operator signs cells and receipts on the holder's behalf, so &quot;this store vouches for this record&quot; and &quot;this person caused this record&quot; are the same ML-DSA-65 signature. I raised the field-level precedent for separating them on 2026-10-22 (<a href="https://lists.w3.org/Archives/Public/public-ai-agent-memory-interop/2026Oct/0027.html">https://lists.w3.org/Archives/Public/public-ai-agent-memory-interop/2026Oct/0027.html</a>): FHIR is the HL7 standard for exchanging health data and R5 its current release, where Trial Use means published but not yet normative; Provenance.agent.onBehalfOf exists precisely to record &quot;the agent that delegated authority to perform the activity&quot;, and Provenance.entity.role records a removal as a role rather than as an absence. Those are Trial Use, so a precedent and not an authority - but they show the distinction is a field choice someone already made, not a new requirement invented here.
+
+Three questions for the Group.
+
+1. Should the pack's rows carry determinations at all, or should it stay a narrative mapping and leave determination to the conformance pack? My preference, stated as a preference: a determined pack can be checked, a narrative one tends to be cited loosely.
+
+2. If the horizon is to stay outside the format, what is the minimum a cell or a tier declaration must expose so that an external policy can be enforced without the store's cooperation?
+
+3. Does the Group want the crosswalk restricted to what -03 covers, with gaps recorded, or may it state what a profile would have to add? I have assumed the former, per section 3.
+
+The annex, attached, carries the method, the instrument set with paragraph-level citations, and the fifteen rows: fifteen rows from fourteen obligations, because R5 is split into R5 and R5b - the erasure step and the declaration of its class take different determinations. Four are satisfied, seven not satisfied, four not assessable. If any reading is wrong, a citation to the paragraph that says otherwise is all the correction I need.
+
+Regards,
+
+Xinghua Zhao
+individual participant
+<a href="mailto:zhaoxinghua07&#x40;&#0049;&#0050;&#0054;&#0046;&#0099;&#0111;&#0109;?Subject=Re%3A%20Proposal%20-%20a%20retention-and-erasure%20crosswalk%2C%20fifteen%20worked%20rows%20%20(informative)&amp;In-Reply-To=%3C179543220541.8160.10801290061490041560%40126.com%3E&amp;References=%3C179543220541.8160.10801290061490041560%40126.com%3E">zhaoxinghua07&#x40;&#0049;&#0050;&#0054;&#0046;&#0099;&#0111;&#0109;</a>
+
+--- disclosure, which I would rather state than have discovered ---
+
+Drafted with AI assistance from sources I read myself. Every provision cited in the annex I read in the instrument; every protocol reference is to draft-saihm-memory-protocol-03 as posted 2026-10-11. The reading and the positions are mine. This is not legal or regulatory advice, and I name no implementation. The anchor check that supports the rows, and its first-run failures, are available on request. Current as of 2026-11-23.
+</pre>
+</section>
+<section class="message-body-part attachment-links" aria-labelledby="lsa-0">
+<h2 id="lsa-0">Attachments</h2>
+<ul>
+<li>text/plain attachment: <a href="att-0011/crosswalk-method-and-fifteen-rows.txt">crosswalk-method-and-fifteen-rows.txt</a></li>
+<!-- attachment="crosswalk-method-and-fifteen-rows.txt" -->
+</ul>
+</section>
+<p class="received"><span class="heading">Received on</span> Monday, 23 November 2026 11:10:19 UTC</p>
+</main>
+<!-- body="end" -->
+<footer class="foot">
+<nav id="navbarfoot">
+<ul class="links hmenu_container">
+<li><span class="heading">This message</span>: <span class="message_body"><a href="#start">Message body</a></span></li>
+<!-- lnext="start" -->
+<li><span class="heading">Previous message</span>: <a href="0010.html">Russell Jackson: "Re: Call for consensus: charter v1.1 (status of the normative reference), closes 2 November 2026"</a></li>
+<!-- lnextthread="start" -->
+<!-- lreply="end" -->
+</ul>
+<ul class="links hmenu_container">
+<li id="options3"><span class="heading">Mail actions</span>: <ul class="hmenu"><li><a href="mailto:public-ai-agent-memory-interop&#x40;&#0119;&#0051;&#0046;&#0111;&#0114;&#0103;?Subject=Re%3A%20Proposal%20-%20a%20retention-and-erasure%20crosswalk%2C%20fifteen%20worked%20rows%20%20(informative)&amp;In-Reply-To=%3C179543220541.8160.10801290061490041560%40126.com%3E&amp;References=%3C179543220541.8160.10801290061490041560%40126.com%3E">respond to this message</a></li>
+<li><a href="mailto:public-ai-agent-memory-interop&#x40;&#0119;&#0051;&#0046;&#0111;&#0114;&#0103;">mail a new topic</a></li></ul></li>
+<li><span class="heading">Contemporary messages sorted</span>: <ul class="hmenu"><li><a href="index.html#msg11">by date</a></li>
+<li><a href="thread.html#msg11">by thread</a></li>
+<li><a href="subject.html#msg11">by subject</a></li>
+<li><a href="author.html#msg11">by author</a></li>
+</ul></li>
+<li><span class="heading">Help</span>: <ul class="hmenu">
+    <li><a href="/Help/" rel="help">how to use the archives</a></li>
+    <li><a href="https://www.w3.org/Search/Mail/Public/search?lists=public-ai-agent-memory-interop">search the archives</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+<!-- trailer="footer" -->
+<p class="colophon">
+This archive was generated by <a href="https://github.com/hypermail-project/hypermail/">hypermail 3.0.0</a>: Monday, 23 November 2026 11:10:20 UTC
+</p>
+</footer>
+</body>
+</html>
