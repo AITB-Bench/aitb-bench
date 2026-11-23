@@ -18,6 +18,8 @@ def _presets_dirs():
     env = os.environ.get("AITB_PRESETS")
     if env and Path(env).is_dir():
         dirs.append(Path(env))
+    elif env:
+        print(f"[warn] AITB_PRESETS={env} 不是目录，已忽略（内置预设仍在）")
     here = BENCH / "presets"
     if here.is_dir():
         dirs.append(here)
