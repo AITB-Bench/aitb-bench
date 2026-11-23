@@ -236,9 +236,29 @@ def execute(preset, offline=False, strict=False):
     run_id = time.strftime("%Y%m%dT%H%M%S")
     rdir = RUNS / f"{run_id}_{preset['name']}"
     rdir.mkdir(parents=True, exist_ok=True)
+    prog = rdir / "progress.log"
+
+    def _p(line):
+        """每行同时进 progress.log 和 stdout，且立刻 flush。
+
+        Why: 调用方常把 stdout 接管道（tail/grep），管道会缓冲到进程结束，
+        于是一次 90 秒的网检看起来像"假死"。progress.log 让任何旁观者都能 tail。
+        """
+        with open(prog, "a", encoding="utf-8") as fh:
+            fh.write(line + "\n")
+        print(line, flush=True)
+
+    _p(f"[START  ] {preset['name']} {run_id} checks={len(preset['checks'])} "
+       f"max_s={preset.get('max_seconds', 900)}")
     ctx = {"offline": offline}
     verdicts = []
+    deadline = time.time() + float(preset.get("max_seconds", 900))
     for spec in preset["checks"]:
+        if time.time() > deadline:
+            verdicts.append({"id": spec["id"], "type": spec["type"], "status": "BLOCKED",
+                             "why": "全局超时，本项未执行", "evidence": "", "ms": 0})
+            _p(f"[BLOCKED]            {spec['id']:<38} 全局超时，本项未执行（不是通过）")
+            continue
         if offline and spec.get("needs_network"):
             verdicts.append({"id": spec["id"], "type": spec["type"], "status": "SKIP",
                              "why": "offline 模式跳过联网检查", "evidence": "", "ms": 0})
@@ -258,9 +278,10 @@ def execute(preset, offline=False, strict=False):
         verdicts.append({"id": spec["id"], "type": spec["type"], "status": status,
                          "why": why, "evidence": evidence, "ms": ms or int((time.time() - t0) * 1000),
                          "negative_control": neg})
-        print(f"[{status:<7}]{'[NEG-CTRL]' if neg else '          '} {spec['id']:<38} {why}")
+        _p(f"[{status:<7}]{'[NEG-CTRL]' if neg else '          '} {spec['id']:<38} {why}")
 
     counts = {k: sum(1 for v in verdicts if v["status"] == k) for k in VERDICTS}
+    _p(f"[DONE   ] {json.dumps(counts, ensure_ascii=False)}")
     run_meta = {
         "run_id": run_id, "preset": preset["name"], "title": preset.get("title", preset["name"]),
         "started_at": run_id, "host": platform.node(), "os": platform.platform(),

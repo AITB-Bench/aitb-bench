@@ -39,6 +39,7 @@ Every run lands in `runs/<timestamp>_<preset>/` containing:
 | `report.md` | human-readable table |
 | `snapshot.html` | single-page view |
 | `manifest.json` | sha256 of the four above — so a run can be re-checked, not just believed |
+| `progress.log` | every console line, flushed to disk as it happens — `tail -f` a long run instead of guessing whether it hung. Hashed into the manifest like the rest. |
 
 ## Install
 
@@ -97,7 +98,10 @@ A preset is JSON; checks live in data, not code:
   when an empty file is the point (`.gitkeep`), and a larger number when the file must carry content.
 - `needs_network: true` marks online checks; `--offline` turns them into SKIP.
 - Values may use `${VAR}` from the environment (`${AITB_RUNS}` etc.); expansion happens at preset
-  load, and a failed expansion warns instead of silently blanking the string.
+  load. Variables resolve from `config.local.json` first, then the environment; a name that resolves
+  nowhere keeps its `${NAME}` placeholder and prints a warning once — it is never silently blanked.
+- A preset may set `"max_seconds"` (default 900). Past that wall clock, the remaining checks are
+  recorded `BLOCKED` ("not executed"), never `PASS` — a bench that hangs must not look green.
 - `demo` and `selftest` are two presets running through the same code path — `selftest` is not a
   privileged self-test hook. That is deliberate: the negative controls have to survive the same
   runner that a stranger's preset goes through.
