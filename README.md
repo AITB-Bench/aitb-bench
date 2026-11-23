@@ -1,5 +1,7 @@
 # AITB · Assurance Instrument Test Bench
 
+[![ci](https://github.com/AITB-Bench/aitb-bench/actions/workflows/ci.yml/badge.svg)](https://github.com/AITB-Bench/aitb-bench/actions/workflows/ci.yml)
+
 **Make it fail first.**
 
 AITB tests the instrument you use to judge — not the thing being judged.
