@@ -9,6 +9,14 @@
 import argparse, hashlib, html, json, os, platform, shutil, subprocess, sys, time
 from pathlib import Path
 
+# Windows 控制台默认 cp936/cp1252，打印中文会 UnicodeEncodeError（GitHub Actions windows runner 实测触发）。
+# 统一按 utf-8 输出，编不出来的字符降级为占位，不让编码问题冒充"检查失败"。
+for _s in (sys.stdout, sys.stderr):
+    try:
+        _s.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:
+        pass
+
 BENCH = Path(__file__).resolve().parent
 
 
