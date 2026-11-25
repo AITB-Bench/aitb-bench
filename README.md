@@ -62,6 +62,16 @@ pip install "git+https://github.com/AITB-Bench/aitb-bench.git"
 
 Python 3.9+. No dependencies. `aitb demo` needs no network and no local paths.
 
+---
+## Citation and feedback
+
+**You do not need to ask us to cite, quote, or reuse this work.** Cite it, quote it, run it, build on it — no permission request is needed. Attribution in the usual form is appreciated: author, title, DOI or repository commit, and date. This repository is Apache-2.0; keep the licence notice. No other condition.
+
+**引用、转载、复用，不必事先征得我们同意。** 直接引用、直接复用、直接跑、直接接着做，不用再来问。按通常格式署名即可。本仓为 Apache-2.0，保留许可证声明即可。除此之外没有任何条件。
+
+Feedback: file an issue — bugs, questions, opinions, rerun receipts. Include runner, platform, commit, numbers, and a public address for the run. 有意见请开 issue，请附上运行环境、提交号和数字，并给出公开可查的地址。
+---
+
 ## Four states, no fifth bucket
 
 `PASS` / `FAIL` / `SKIP` / `BLOCKED`. A timeout is BLOCKED; a missing interpreter is SKIP; an
