@@ -1,0 +1,30 @@
+{
+ "name": "pccp-bench",
+ "title": "PCCP-Bench 冻结、可发布性（AITB · 试真台）",
+ "profile": "gate",
+ "notes": "判的是 PCCP-Bench 这套字节还是不是 2d305387… 那一批，以及它够不够格对外发。检查器 tools/pccp_verify.py 自带反照（--break）：改一字节根必须变，根不变就算这道检查是装饰。本 preset 现况是**故意红两条**：许可未定（pccp.license-set）、文本若出现 DOI 而记录无 DOI（pccp.claims）—— 红了才是事实，不许为了好看把这两条放宽。路径变量在 config.local.json 的 vars 里，缺变量时相应检查记 BLOCKED，不折算 PASS。",
+ "checks": [
+  {"id": "pccp.stage-root", "type": "cmd",
+   "cmd": "python tools/pccp_verify.py dir --dir ${PCCP_DIR} --expect ${PCCP_ROOT}",
+   "expect": "ROOT: OK"},
+  {"id": "pccp.negative-control", "type": "cmd",
+   "cmd": "python tools/pccp_verify.py dir --dir ${PCCP_DIR} --expect ${PCCP_ROOT} --break",
+   "expect": "NEGATIVE-CONTROL: OK"},
+  {"id": "pccp.archive", "type": "cmd",
+   "cmd": "python tools/pccp_verify.py zip --zip ${PCCP_ZIP} --expect ${PCCP_ROOT}",
+   "expect": "ARCHIVE: OK"},
+  {"id": "pccp.versions", "type": "cmd",
+   "cmd": "python tools/pccp_verify.py versions --dir ${PCCP_DIR} --expect ${PCCP_VERSION}",
+   "expect": "VERSIONS: OK"},
+  {"id": "pccp.license-set", "type": "cmd",
+   "cmd": "python tools/pccp_verify.py license --dir ${PCCP_DIR}",
+   "expect": "LICENSE: SET"},
+  {"id": "pccp.claims", "type": "cmd",
+   "cmd": "python tools/pccp_verify.py claims --dir ${PCCP_DIR}",
+   "expect": "CLAIMS: CLEAN"},
+  {"id": "pccp.bench-commit-check", "type": "cmd", "cwd": "${PCCP_DATASET}",
+   "cmd": "python bench.py --commit-check", "expect": "PASS"},
+  {"id": "pccp.bench-reference-run", "type": "cmd", "cwd": "${PCCP_DATASET}",
+   "cmd": "python bench.py --submit adapter_reference.py", "expect": "0.9688"}
+ ]
+}
