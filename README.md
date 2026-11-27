@@ -130,3 +130,14 @@ Theory: Assayance, T1–T5 — negative control · absence must reach the exit c
 itself under test · a description is a claim · a proxy is not an identity judgment.
 
 License: Apache-2.0. The name AITB is not registered as a trademark; it is used as a source marker only.
+
+## Two implementations, one division of labour (deliberately not merged)
+
+AITB keeps two independent implementations of the reference verifier. They are not merged, and merging them would destroy the only property that makes them worth keeping:
+
+- the **reference** implementation owns the verdict vocabulary (PASS / FAIL / INCONCLUSIVE) and every rule that decides which one applies;
+- the **second** implementation owns nothing but recomputation: it re-derives bytes, hashes and paths with its own code, and is expected to disagree.
+
+That disagreement is the instrument. A second implementation that shares code with the reference measures nothing; one that is asked to agree has been turned into a test of its author. So the two move separately, and `tools/oracle_check.py` records where they reach different checks by rule instead of forcing them to match.
+
+Measured 2026-11-27: of 17 checks the hostile corpus exercises, the second implementation reaches 9 by rule (S1,S2,S3,S4,S5,S6,S7,S8,S12) and cannot reach 8 (S10,S11,S13,S14,S15,S16,S17,S18). The list is published, not tolerated.
